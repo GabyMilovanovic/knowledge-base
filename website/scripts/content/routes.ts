@@ -1,4 +1,15 @@
 export const consolidatedArticles: Record<string, string> = {
+  "10087890": "6683438", // UAE requirements → UAE SMS guidelines (approved replacement)
+  "5467053": "5469551", // South Korea DID requirements → international required documents
+  "1189026": "8683996", // Retired 3CX v14–v16 guides → current v20 guide
+  "1189027": "8683996",
+  "1272690": "8683996",
+  "1272784": "8683996",
+  "3264020": "8683996",
+  "3264037": "8683996",
+  "5510874": "6161111", // Retired v18 credentials guide → published v18 guide
+  "6589599": "3679260", // A2P FAQ → current 10DLC FAQ
+  "4230755": "96934", // Retired rate limits guide → Rate Limits for Messaging
   "10646301": "6339152", // PR #51: Telnyx 10DLC Process → Create a 10DLC Campaign
   "5617538": "6339158", // PR #51: Shared Campaigns → Bring Campaigns to Telnyx
 };
@@ -22,6 +33,8 @@ export function routeRegistry(articles: readonly { slug: string }[], collections
     if (registry[`article:${oldId}`]) throw new Error(`Consolidated article ${oldId} was reintroduced`);
     registry[`article:${oldId}`] = target;
   }
+  if (registry["article:11409065"]) throw new Error("Redirected Private Gateway article was reintroduced");
+  registry["article:11409065"] = "https://developers.telnyx.com/docs/iot-sim/private-wireless-gateway-how-to";
   for (const [slug, id] of Object.entries(oldCollections)) {
     const target = registry[`collection:${id}`];
     if (!target) throw new Error(`Missing legacy collection target ${id}`);

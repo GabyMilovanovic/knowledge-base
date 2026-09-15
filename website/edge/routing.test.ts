@@ -10,7 +10,7 @@ const request = (uri: string, extra = {}) => ({uri, method: "GET", querystring: 
 const route = (uri: string, extra = {}) => context.routeRequest(request(uri,extra), async (key: string) => registry[key]);
 test("every known ID serves its canonical path and redirects bare, old-title and trailing slash variants", async () => {
   for (const [key, target] of Object.entries(registry)) {
-    if (key.startsWith("path:")) continue;
+    if (key.startsWith("path:") || target.startsWith("https://")) continue;
     const [kind,id] = key.split(":");
     expect((await route(target)).uri).toBe(target);
     for (const alias of [`/en/${kind}s/${id}`,`/en/${kind}s/${id}-old-title`,target+"/"]) {
@@ -38,4 +38,31 @@ test("body links use canonical targets while retaining suffixes and third-party 
   expect(canonicalizeSupportLinks("[x](https://support.telnyx.com/en/articles/10646301-old?q=1#h_test)",registry)).toBe(`[x](${registry['article:6339152']}?q=1#h_test)`);
   const external="https://example.com/en/articles/6339152-other";
   expect(canonicalizeSupportLinks(external,registry)).toBe(external);
+});
+
+test("retired backlink IDs redirect directly to built replacements", async () => {
+  const replacements: Record<string,string> = {10087890:"6683438",5467053:"5469551",1189026:"8683996",1189027:"8683996",1272690:"8683996",1272784:"8683996",3264020:"8683996",3264037:"8683996",5510874:"6161111",6589599:"3679260",4230755:"96934"};
+  for (const [oldId,newId] of Object.entries(replacements)) {
+    const target = registry[`article:${newId}`];
+    expect(articles.some(a => `/en/articles/${a.slug}` === target)).toBe(true);
+    const result = await route(`/en/articles/${oldId}-historic-title`);
+    expect(result.statusCode).toBe(301);
+    expect(result.headers.location.value).toBe(target);
+    expect((await route(target)).uri).toBe(target);
+  }
+});
+
+
+test("Private Gateway redirects only to its approved wireless documentation", async () => {
+  const target = "https://developers.telnyx.com/docs/iot-sim/private-wireless-gateway-how-to";
+  for (const uri of ["/en/articles/11409065", "/en/articles/11409065-mission-control-portal-private-gateway", "/en/articles/11409065-old-title/", "/article/11409065"]) {
+    const result = await route(uri, {querystring: {q: {value:"a%2Fb",multiValue:[{value:"a%2Fb"},{value:"c%26d"}]}}});
+    expect(result.statusCode).toBe(301);
+    expect(result.headers.location.value).toBe(target + "?q=a%2Fb&q=c%26d");
+  }
+  for (const badTarget of ["https://example.com/",target+"/unexpected", "//developers.telnyx.com/docs/iot-sim/private-wireless-gateway-how-to"]) {
+    expect((await context.routeRequest(request("/en/articles/11409065"), async () => badTarget)).statusCode).toBe(503);
+  }
+  expect((await context.routeRequest(request("/en/articles/123"), async () => target)).statusCode).toBe(503);
+  expect(canonicalizeSupportLinks("[Gateway](https://support.telnyx.com/en/articles/11409065-old)",registry)).toBe(`[Gateway](${target})`);
 });

@@ -36,6 +36,8 @@ async function routeRequest(request, lookup) {
   try { target = await lookup(key); }
   catch (_) { return response(503, 'Temporarily unavailable', 'Please try again shortly.'); }
   if (!target) return response(404, 'Page not found', 'This page does not exist or has moved.');
+  // Permit only the explicitly approved external article destination.
+  if (key === "article:11409065" && target === "https://developers.telnyx.com/docs/iot-sim/private-wireless-gateway-how-to") return redirect(target);
   if (!/^\/en\/(articles|collections)\/\d+-[A-Za-z0-9-]+$/.test(target)) return response(503, 'Temporarily unavailable', 'Please try again shortly.');
   return target === uri ? request : redirect(target);
 }

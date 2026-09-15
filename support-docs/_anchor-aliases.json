@@ -453,6 +453,13 @@
         "text": "2. (OPTIONAL) Encrypt traffic by enabling TLS",
         "reason": "Reviewed linked context and equivalent existing section"
       }
+    ],
+    "4404575": [
+      {
+        "id": "h_f545f23a76",
+        "text": "Example SDP of the media audio parameters in the SIP INVITE from the client",
+        "reason": "Preserve existing SIP response troubleshooting link to the SRTP configuration example"
+      }
     ]
   }
 }
