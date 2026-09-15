@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - main
-      - fix/post-57-migration-readiness
     paths:
       - "website/**"
       - "support-docs/**"
@@ -57,6 +56,8 @@ jobs:
         working-directory: website
         env:
           BASE_PATH: "/"
+          SITE_ORIGIN: "https://d27az1l5lty0u1.cloudfront.net"
+          SITE_INDEXABLE: "false"
         run: bun run build
 
       - name: Verify rendered pages and links
@@ -69,13 +70,6 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ASSUME_ROLE }}
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ${{ env.AWS_REGION }}
-
-      - name: Inspect temporary CloudFront distribution
-        continue-on-error: true
-        run: |
-          aws cloudfront list-distributions \
-            --query "DistributionList.Items[?DomainName=='d27az1l5lty0u1.cloudfront.net'].{Id:Id,DomainName:DomainName,OriginDomains:Origins.Items[*].DomainName,DefaultFunctionAssociations:DefaultCacheBehavior.FunctionAssociations,DefaultLambdaAssociations:DefaultCacheBehavior.LambdaFunctionAssociations}" \
-            --output json
 
       - name: Deploy files to bucket
         run: |
