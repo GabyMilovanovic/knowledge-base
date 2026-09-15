@@ -8,6 +8,7 @@ import {
 } from "../src/utils/clean-article";
 import { parseSourcePages } from "./content/source-pages";
 import { recoverCollections } from "./content/collections";
+import { applyCollectionMemberships, type MembershipSnapshot } from "./content/collection-memberships";
 import { fallbackRootFor } from "./content/fallback";
 import { copyArticleImages, copyThemeFonts, writeArticleBodies } from "./content/assets";
 import { firstH1, parseFrontmatter } from "./content/markdown";
@@ -85,6 +86,11 @@ function main() {
         };
       }),
     localArticleSlugs,
+  );
+  applyCollectionMemberships(
+    collections,
+    localArticleSlugs,
+    readJson<MembershipSnapshot>(path.join(supportDocsDir, "_collection-memberships.json")),
   );
 
   const articles: Article[] = [];

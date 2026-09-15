@@ -11,6 +11,7 @@
     "gen-content": "bun run scripts/build-content.ts",
     "test": "bun test",
     "preview": "vite preview",
+    "preview:edge": "bun run scripts/preview-edge.ts",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {

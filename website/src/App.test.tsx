@@ -54,6 +54,16 @@ describe("AppRoutes", () => {
     expect(html).not.toContain("Page not found");
   });
 
+  test("shows descendant counts on collection pages and homepage cards", () => {
+    const voice = renderPath(collectionPath("133140-voice-api-essentials"));
+    const iot = renderPath(collectionPath("1895859-telnyx-global-iot-sims"));
+    expect(voice).toMatch(/15(?:<!-- -->)? (?:<!-- -->)?articles(?:<!-- -->)? including subcollections/);
+    expect(iot).toMatch(/21(?:<!-- -->)? (?:<!-- -->)?articles(?:<!-- -->)? including subcollections/);
+    const homepage = renderPath("/");
+    expect(homepage).toMatch(/topic-card-count">15(?:<!-- -->)? (?:<!-- -->)?articles/);
+    expect(homepage).toMatch(/topic-card-count">21(?:<!-- -->)? (?:<!-- -->)?articles/);
+  });
+
   test("renders article and collection not-found states for unknown canonical paths", () => {
     expect(renderPath(articlePath("99999999-missing-article"))).toContain(
       "Article not found",

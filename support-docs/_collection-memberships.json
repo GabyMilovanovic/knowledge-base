@@ -1,0 +1,1021 @@
+{
+  "version": 1,
+  "verifiedAt": "2026-09-15",
+  "collections": [
+    {
+      "path": "2484711-reporting-articles-and-guides",
+      "sourceUrl": "https://support.telnyx.com/en/collections/2484711-reporting-articles-and-guides",
+      "sourceHtmlSha256": "9eebf24737dc839bdbe0c66f7647bfbc43f933b0ffe7e25b5f3f579e36ad3c2a",
+      "parentSnapshotFiles": [
+        "en--collections--133094-general-telnyx-portal-account.md"
+      ],
+      "articleSlugs": [
+        "6969802-message-deliverability-dashboard",
+        "1130611-understand-telnyx-sms-mdr-report-log",
+        "1130708-how-to-download-reports-at-telnyx",
+        "4307059-telnyx-dashboards"
+      ]
+    },
+    {
+      "path": "1513032-telnyx-pricing-rate-insights",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1513032-telnyx-pricing-rate-insights",
+      "sourceHtmlSha256": "23ece64759d53c15e529c247840087c3ba7a7466e11524c2360edae0f02c6104",
+      "parentSnapshotFiles": [
+        "en--collections--133094-general-telnyx-portal-account.md"
+      ],
+      "articleSlugs": [
+        "5073043-the-rate-sheet-and-lrn-explained",
+        "2185372-where-can-i-see-pricing-options",
+        "1130659-billing-increments",
+        "1130678-channel-billing-and-how-to-use-it",
+        "3317613-billing-decimal-values-considered",
+        "1130658-how-do-i-know-if-a-rate-has-changed",
+        "6974437-updates-to-global-conversational-rate-deck",
+        "8428806-channel-billing"
+      ]
+    },
+    {
+      "path": "1513029-fees-and-agreements",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1513029-fees-and-agreements",
+      "sourceHtmlSha256": "67998ac50b9ee8e8ab8302eb48e9931a0f12a8bf469f8caa6967f8ec82a8d311",
+      "parentSnapshotFiles": [
+        "en--collections--133094-general-telnyx-portal-account.md"
+      ],
+      "articleSlugs": [
+        "6420959-sales-gst-telecommunication-taxes-usf-fees-trf",
+        "1130644-do-i-have-to-sign-a-contract",
+        "1130643-is-there-a-cancellation-fee",
+        "1130639-what-is-your-refund-policy"
+      ]
+    },
+    {
+      "path": "1513295-telnyx-billing-payment-guide",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1513295-telnyx-billing-payment-guide",
+      "sourceHtmlSha256": "5ef53a48ccd07a28dc21e38d5291809bcf97faacdd828cd2bd5697fba3bdfab0",
+      "parentSnapshotFiles": [
+        "en--collections--133094-general-telnyx-portal-account.md"
+      ],
+      "articleSlugs": [
+        "7045419-ach-direct-debit-payment-method",
+        "1130689-how-do-i-cancel-my-account",
+        "1130661-does-telnyx-offer-post-paid-service"
+      ]
+    },
+    {
+      "path": "2184183-important-to-note",
+      "sourceUrl": "https://support.telnyx.com/en/collections/2184183-important-to-note",
+      "sourceHtmlSha256": "2d0c48ab5bca4ed29e2c574f70d441f95d503fa5d90f248d11ba3621040f5907",
+      "parentSnapshotFiles": [
+        "en--collections--3968222-telnyx-number-management-guide.md"
+      ],
+      "articleSlugs": [
+        "6622229-pstn-replacement-local-calling-with-telnyx",
+        "7003167-international-number-requirements-tool",
+        "5469551-international-numbers-required-documents",
+        "1424680-international-coverage"
+      ]
+    },
+    {
+      "path": "3662308-did-requirements",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3662308-did-requirements",
+      "sourceHtmlSha256": "67f675d0d18d44f5195b767790c87f96ae205ab742811ad96b0037d967fb1384",
+      "parentSnapshotFiles": [
+        "en--collections--3968222-telnyx-number-management-guide.md"
+      ],
+      "articleSlugs": [
+        "9961409-rwanda-did-requirements",
+        "1311445-france-did-requirements",
+        "10058901-zambia-did-requirements",
+        "5463863-albania-did-requirements",
+        "5467173-algeria-did-requirements",
+        "6129696-angola-did-requirements",
+        "5856747-anguilla-did-requirements",
+        "6129704-antigua-and-barbuda-did-requirements",
+        "3760805-argentina-did-requirements",
+        "3505912-australia-did-requirements",
+        "5463877-austria-did-requirements",
+        "1311433-belgium-did-requirements",
+        "9959295-benin-did-requirements",
+        "3506001-bolivia-did-requirements",
+        "5464041-brazil-did-requirements",
+        "3506097-bulgaria-did-requirements",
+        "9959347-cameroon-did-requirements",
+        "5464057-chile-did-requirements",
+        "3506111-china-did-requirements",
+        "5464069-colombia-did-requirements",
+        "9959375-congo-did-requirements",
+        "3506141-croatia-did-requirements",
+        "3506145-cyprus-did-requirements",
+        "5464141-czech-republic-did-requirements",
+        "5948771-nigeria-did-requirements",
+        "5467084-uganda-did-requirements",
+        "5467037-slovenia-did-requirements",
+        "5467032-slovakia-did-requirements",
+        "5466980-portugal-did-requirements",
+        "5467021-serbia-did-requirements",
+        "5466967-poland-did-requirements",
+        "5466871-paraguay-did-requirements",
+        "5466958-philippines-did-requirements",
+        "5466855-norway-did-requirements",
+        "5466851-north-macedonia-did-requirements",
+        "5466823-new-zealand-did-requirements",
+        "5466838-nicaragua-did-requirements",
+        "5466798-monaco-did-requirements",
+        "5466793-mexico-did-requirements",
+        "5466736-kenya-did-requirements",
+        "5466755-lithuania-did-requirements",
+        "5466658-jamaica-did-requirements",
+        "5466651-israel-did-requirements",
+        "5466641-indonesia-did-requirements",
+        "5466525-ghana-did-requirements",
+        "5465874-finland-did-requirements",
+        "5464176-el-salvador-did-requirements",
+        "5464157-dominican-republic-did-requirements",
+        "5464149-denmark-did-requirements",
+        "3739745-ukraine-did-requirements",
+        "3739661-thailand-did-requirements",
+        "3739580-switzerland-did-requirements",
+        "3739573-singapore-did-requirements",
+        "3739576-south-africa-did-requirements",
+        "3739559-russia-did-requirements",
+        "3739552-romania-did-requirements",
+        "3739545-peru-did-requirements",
+        "3739529-panama-did-requirements",
+        "3739526-montenegro-did-requirements",
+        "3739523-malta-did-requirements",
+        "3739509-malaysia-did-requirements",
+        "3739502-luxembourg-did-requirements",
+        "3739496-latvia-did-requirements",
+        "1311458-ireland-did-requirements",
+        "3739452-hungary-did-requirements",
+        "3739447-hong-kong-did-requirements",
+        "3739458-iceland-did-requirements",
+        "3739406-greece-did-requirements",
+        "3737163-vietnam-did-requirements",
+        "3362891-uruguay-did-requirements",
+        "3506159-estonia-number-requirements",
+        "3506173-georgia-did-requirements",
+        "3506153-ecuador-did-requirements",
+        "1311477-sweden-did-requirements",
+        "1311472-netherlands-did-requirements",
+        "1311462-italy-did-requirements",
+        "1311457-united-kingdom-uk-did-requirements",
+        "1311073-spain-did-requirements",
+        "1311450-germany-did-requirements",
+        "8487192-costa-rica-did-requirements",
+        "8520014-qatar-did-requirements",
+        "12748292-bangladesh-did-requirements",
+        "11128583-uzbekistan-did-requirements",
+        "11843417-mozambique-did-requirements",
+        "11843360-honduras-did-requirements",
+        "12640555-kuwait-did-requirements",
+        "11843465-pakistan-did-requirements"
+      ]
+    },
+    {
+      "path": "133180-porting-to-telnyx",
+      "sourceUrl": "https://support.telnyx.com/en/collections/133180-porting-to-telnyx",
+      "sourceHtmlSha256": "ec46be15fedc8209f3ccde63b9db1843c227536d52cfa2ab71ab6ccd6550d134",
+      "parentSnapshotFiles": [
+        "en--collections--3968222-telnyx-number-management-guide.md"
+      ],
+      "articleSlugs": [
+        "14708130-porting-numbers-away-from-resellers-aircall-intercom-ringcentral-vonage-etc",
+        "14708129-porting-numbers-away-from-intercom-to-telnyx",
+        "14708128-porting-numbers-away-from-aircall-to-telnyx",
+        "1130634-port-numbers-to-telnyx",
+        "6460777-porting-requirements",
+        "2034326-how-to-fill-out-an-loa",
+        "2030770-port-in-best-practices",
+        "2054704-fastport-faqs",
+        "2021334-your-guide-to-fastport",
+        "1130614-obtaining-a-csr-from-your-carrier",
+        "2047076-carrier-refusing-to-port-your-number",
+        "1782930-port-request-rejected",
+        "1618776-porting-error-messages",
+        "2042977-porting-in-day-of-port-foc",
+        "1130616-number-not-portable-tn-not-portable-error",
+        "1130610-btn-or-atn-mismatch-error",
+        "1130623-authorized-name-mismatch-error",
+        "1130619-invalid-reseller-error",
+        "5386351-automating-ports-with-programmatic-api",
+        "8268276-loa-template-download",
+        "8588086-auto-generated-letter-of-authorization-loa",
+        "8673249-us-ca-toll-free-number-porting",
+        "8709331-porting-bundles"
+      ]
+    },
+    {
+      "path": "133197-international-porting",
+      "sourceUrl": "https://support.telnyx.com/en/collections/133197-international-porting",
+      "sourceHtmlSha256": "f967543b66db475ddb1dc6810c176ae6cbbd23b862c3debbfb70ada175c93dfd",
+      "parentSnapshotFiles": [
+        "en--collections--3968222-telnyx-number-management-guide.md"
+      ],
+      "articleSlugs": [
+        "7235002-singapore-number-porting",
+        "5954733-martinique-number-porting",
+        "5954701-guadeloupe-number-porting",
+        "5720521-estonia-number-porting",
+        "5190478-malta-number-porting",
+        "5190470-lithuania-number-porting",
+        "5190458-the-dominican-republic-number-porting",
+        "5190455-czech-republic-number-porting",
+        "5190443-albania-number-porting",
+        "5188583-poland-number-porting",
+        "5188572-slovenia-number-porting",
+        "5188567-slovakia-number-porting",
+        "5188564-romania-number-porting",
+        "5188563-norway-number-porting",
+        "5188555-luxembourg-number-porting",
+        "5188540-latvia-number-porting",
+        "5188524-hungary-number-porting",
+        "5179083-el-salvador-number-porting",
+        "5120062-portugal-number-porting",
+        "3266212-australia-number-porting",
+        "3266409-austria-number-porting",
+        "3266421-belgium-number-porting",
+        "3266425-brazil-number-porting",
+        "4377462-norway-number-porting",
+        "3266430-canada-number-porting",
+        "3266652-chile-number-porting",
+        "3266656-croatia-number-porting",
+        "3266720-denmark-number-porting",
+        "3266934-finland-number-porting",
+        "3266956-france-number-porting",
+        "3266960-germany-number-porting",
+        "3266975-greece-number-porting",
+        "3266983-ireland-number-porting",
+        "3266993-israel-number-porting",
+        "3267012-italy-number-porting",
+        "3267101-mexico-number-porting",
+        "3267124-netherlands-number-porting",
+        "3267206-new-zealand-number-porting",
+        "3267250-panama-number-porting",
+        "3267436-peru-number-porting",
+        "3267535-puerto-rico-number-porting",
+        "3267566-cyprus-number-porting",
+        "4400326-south-africa-number-porting",
+        "3267595-spain-number-porting",
+        "3275772-sweden-number-porting",
+        "3267626-switzerland-number-porting",
+        "3267693-united-kingdom-number-porting",
+        "3267816-united-states-number-porting",
+        "1130626-international-number-porting-required-documents",
+        "9271183-argentina-number-portability",
+        "13194814-french-guiana-number-porting",
+        "13194884-mayotte-number-porting",
+        "13194922-reunion-number-porting",
+        "13194951-saint-barth-and-saint-martin-number-porting"
+      ]
+    },
+    {
+      "path": "133185-porting-from-telnyx",
+      "sourceUrl": "https://support.telnyx.com/en/collections/133185-porting-from-telnyx",
+      "sourceHtmlSha256": "04119d6516cb67d271d16c50b01c2d2d3a0211ca77d28987a1e73cfb277bc0ea",
+      "parentSnapshotFiles": [
+        "en--collections--3968222-telnyx-number-management-guide.md"
+      ],
+      "articleSlugs": [
+        "2906030-port-out-tracking",
+        "2033789-port-numbers-away-from-telnyx",
+        "2030667-i-received-a-port-out-notification",
+        "8006189-port-out-pin-protection"
+      ]
+    },
+    {
+      "path": "133190-porting-policy-procedures",
+      "sourceUrl": "https://support.telnyx.com/en/collections/133190-porting-policy-procedures",
+      "sourceHtmlSha256": "44f737c12afb3589a68e982bc71545d35a6e5c8dd00a20b662f278321e0c2c6e",
+      "parentSnapshotFiles": [
+        "en--collections--3968222-telnyx-number-management-guide.md"
+      ],
+      "articleSlugs": [
+        "5820338-best-practices-for-contacting-porting",
+        "1130630-porting-policy-procedure",
+        "1516776-automated-port-request-validation"
+      ]
+    },
+    {
+      "path": "133199-carrier-services-lnp",
+      "sourceUrl": "https://support.telnyx.com/en/collections/133199-carrier-services-lnp",
+      "sourceHtmlSha256": "fd892d227cfcd39b436e2f5f5b2ea8674b4f827f8fc944b4f1f65c4fbe3093c7",
+      "parentSnapshotFiles": [
+        "en--collections--3968222-telnyx-number-management-guide.md"
+      ],
+      "articleSlugs": [
+        "2086149-number-porting-rules-and-guidelines"
+      ]
+    },
+    {
+      "path": "2287218-porting-away-from-your-current-provider",
+      "sourceUrl": "https://support.telnyx.com/en/collections/2287218-porting-away-from-your-current-provider",
+      "sourceHtmlSha256": "364241f9556b22f274690ef62074eee9c49ef1ba0dad506955edddb105ef11e6",
+      "parentSnapshotFiles": [
+        "en--collections--3968222-telnyx-number-management-guide.md"
+      ],
+      "articleSlugs": [
+        "5104103-port-your-microsoft-ms-teams-numbers",
+        "5595770-port-away-from-voip-ms",
+        "3947850-porting-away-from-twilio",
+        "3947875-porting-away-from-bandwidth"
+      ]
+    },
+    {
+      "path": "1512990-3cx-configurations-with-telnyx",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1512990-3cx-configurations-with-telnyx",
+      "sourceHtmlSha256": "61261e6ffd7994ea943b31e824361b3bc1d9035cf8ea8129434348767b006749",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6161111-3cx-configuring-a-3cx-v18-pbx",
+        "7829412-3cx-and-telnyx-compatibility",
+        "8683996-3cx-configuring-a-3cx-v20-pbx-20-0-update-5-build-20-0-5-551-march-2025-update"
+      ]
+    },
+    {
+      "path": "3252772-acrobits-softphone-telnyx-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3252772-acrobits-softphone-telnyx-setup",
+      "sourceHtmlSha256": "4b51e52489637d511d6f00e74dab10444a4510bc1fe789a8e3e032ed687a812c",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5761112-acrobits-softphone"
+      ]
+    },
+    {
+      "path": "3499438-alcatel-sip-door-integration-guide",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3499438-alcatel-sip-door-integration-guide",
+      "sourceHtmlSha256": "d505c9a222f9dafe1227914c3bc2894efcdd552a077350ccf352724bffa2a9a2",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6281943-alcatel-sd601-sd602-sip-door"
+      ]
+    },
+    {
+      "path": "3249205-algo-technologies",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3249205-algo-technologies",
+      "sourceHtmlSha256": "1448a6997447498bebea1dd405ffa23e05831f904eff65be053a1d90377563e5",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5790092-algo-8xxx-telnyx-endpoints"
+      ]
+    },
+    {
+      "path": "1892172-asterisk-trunk-configuration-guides",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1892172-asterisk-trunk-configuration-guides",
+      "sourceHtmlSha256": "547d0a7166b687ce32ed7202749c1cc8b74c1c9ab60a5344cfbfdff211c76aff",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "1130676-configuring-an-asterisk-credentials-trunk",
+        "1130628-asterisk-configure-an-asterisk-ip-trunk"
+      ]
+    },
+    {
+      "path": "3262058-audiocodes-400hd-telnyx-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3262058-audiocodes-400hd-telnyx-setup",
+      "sourceHtmlSha256": "e51840cc64c5deebd784114e0ba6f7e1dcb26cb2ab82e93969110c3d91b95221",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5819923-audiocodes-400hd"
+      ]
+    },
+    {
+      "path": "1513009-avaya-sip-trunk-with-telnyx-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1513009-avaya-sip-trunk-with-telnyx-setup",
+      "sourceHtmlSha256": "6dd3fbb3bf96b651fac08ce9749c9003dba0bb92a92da65a28b02934ddca3318",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "1130627-configuring-an-avaya-ip-trunk-with-telnyx",
+        "1130695-configuring-telnyx-sip-trunking-with-avaya"
+      ]
+    },
+    {
+      "path": "3257454-buddytalk-bt-series-telnyx-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3257454-buddytalk-bt-series-telnyx-setup",
+      "sourceHtmlSha256": "d975dd3d374f19f0cf7f7c7c7a2be5c6caa315b5baf33aef4e0269b506014e06",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5808185-buddytalk-bt110-bt120"
+      ]
+    },
+    {
+      "path": "1513000-cisco-sip-trunk-setup-guide",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1513000-cisco-sip-trunk-setup-guide",
+      "sourceHtmlSha256": "cc45acce81b1fab2c600f75ee815b00eb9ddbee9e6e225744f3eac268471e7d4",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5820309-cisco-68xx-88xx-setup",
+        "1130612-cisco-configure-a-cisco-cme-ip-trunk",
+        "1130668-configuring-a-cisco-cme-credentials-trunk",
+        "1130673-configuring-a-cisco-cube-cucm-sip-trunk",
+        "1130606-configuring-a-cisco-cube-cucm-ip-trunk",
+        "1130665-configuring-your-cisco-spa112-122-ata"
+      ]
+    },
+    {
+      "path": "3249202-counterpath-bria",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3249202-counterpath-bria",
+      "sourceHtmlSha256": "ce0c5ede4914efd702f0f22249347cf717599738d4b53bc9ab8547cee5131d8e",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5772825-counterpath-bria-teams-setup",
+        "1130645-configuring-bria-solo-a-k-a-x-lite"
+      ]
+    },
+    {
+      "path": "3776847-demo-software-apps",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3776847-demo-software-apps",
+      "sourceHtmlSha256": "fdfbbe7facebe1170f65799b752c13e6da8536f98ab88a0af72744a267e2adbe",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6837118-elevateai-proof-of-concept-setup-guide"
+      ]
+    },
+    {
+      "path": "3417828-dinstar-c60-telnyx-configuration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3417828-dinstar-c60-telnyx-configuration",
+      "sourceHtmlSha256": "45e15b2ea394cb83ae8e2c1585190036bda4f35f49c94d64d213d535af777fba",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6128321-dinstar-c60-setup-config"
+      ]
+    },
+    {
+      "path": "1513018-elastix-pbx-trunk-setup-guides",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1513018-elastix-pbx-trunk-setup-guides",
+      "sourceHtmlSha256": "26790af0ac7a8824b59a4b10f8602c5f90765f8c8be7159cccfa5c04a1a1a530",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "3284164-elastix-5-credentials-trunk",
+        "3284033-elastix-5-fqdn-trunk-setup",
+        "1130622-configuring-an-elastix-4-pbx-ip-trunk",
+        "1130654-configuring-an-elastix-4-pbx-trunk"
+      ]
+    },
+    {
+      "path": "3249241-epygi-ip-pbx-telnyx-integration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3249241-epygi-ip-pbx-telnyx-integration",
+      "sourceHtmlSha256": "5fd9d77605f672deb9f43d940267a023a1c76f64c40c049876495168d8a6fe6a",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5728748-epygi-ip-pbx-telnyx-setup"
+      ]
+    },
+    {
+      "path": "2470353-e-sbc-integration-setup-guides",
+      "sourceUrl": "https://support.telnyx.com/en/collections/2470353-e-sbc-integration-setup-guides",
+      "sourceHtmlSha256": "a0c6f3f2632d57e3730bea7d7531be4cb02f77245c8602dd8ca3c70ddbd76f04",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "4301888-sansay-sbc-vsxi-setup",
+        "5253876-configuring-telnyx-with-microsoft-teams-direct-routing",
+        "4215031-ribbon-edgemarc-6000-setup",
+        "4194697-oracle-acme-packet-sbc-setup",
+        "1130698-skype-set-up-skype-for-biz-sip-trunk",
+        "4194841-audiocodes-sbc-setup"
+      ]
+    },
+    {
+      "path": "3258925-fanvil-ip-phones-telnyx-integration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3258925-fanvil-ip-phones-telnyx-integration",
+      "sourceHtmlSha256": "d65b9bada1b34535bc5d76d2717f44bf5ed2b5130e414736aa8fbfc59912ad9c",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5811487-fanvil-x4g-telnyx-setup",
+        "6202755-fanvil-h2u-compact-ip",
+        "6202965-fanvil-h3-hotel-ip",
+        "6203347-fanvil-h3w-h5w-wifi-ip",
+        "6203401-fanvil-h5-hotel-ip",
+        "6206533-fanvil-x1-x1p-ip-phone",
+        "6206756-fanvil-x2cp-x2c-x2p-call-center-ip",
+        "6209215-fanvil-x7-series-ip-phones",
+        "6209862-fanvil-v-series-ip-phones",
+        "6209971-fanvil-x-series-ip-phone",
+        "6210147-fanvil-xu-series-ip-phone",
+        "6056428-fanvil-a32i-telnyx-setup"
+      ]
+    },
+    {
+      "path": "3258915-flyingvoice-telnyx-configuration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3258915-flyingvoice-telnyx-configuration",
+      "sourceHtmlSha256": "05e2b4344256c850754ab7ac6a375f0005a9aa2532f6ce7e30cb06e69bef9989",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5810663-flyingvoice-telnyx-setup"
+      ]
+    },
+    {
+      "path": "1512996-freepbx-setup-configuration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1512996-freepbx-setup-configuration",
+      "sourceHtmlSha256": "bb5170b76fe55ef64ed246c181bd977acf29d154a31e2a6da3277a47e669c550",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5619597-freepbx-v15-credentials-pjsip",
+        "5619595-freepbx-v15-ip-trunk-pjsip",
+        "5467232-freepbx-v15-ip-trunk-chansip-tutorial",
+        "3284736-freepbx-v14-ip-trunk-chansip",
+        "5464056-setting-up-freepbx-v15-with-telnyx-api",
+        "3284752-freepbx-v14-credentials-chansip",
+        "1130620-freepbx-trunk-settings-with-telnyx",
+        "1130648-configuring-a-freepbx-v13-credentials-trunk",
+        "1277754-freepbx-v13-pjsip-credentials"
+      ]
+    },
+    {
+      "path": "3258539-fortifone-series-telnyx-integration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3258539-fortifone-series-telnyx-integration",
+      "sourceHtmlSha256": "dd498626f2a45b4683863459d2220b4dc04de07e6b1a56cdf11fca5d2af1f64f",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5811545-fortifone-setup-fon-375-175-h25",
+        "5810226-fortifone-fon-570"
+      ]
+    },
+    {
+      "path": "1513006-freeswitch-trunk-configurations",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1513006-freeswitch-trunk-configurations",
+      "sourceHtmlSha256": "755191f57c5bf8759f9c2982d635e0a67b4af00ddd907341b6bb0498a5ce79d0",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "1618801-freeswitch-credentials-trunk",
+        "1616935-freeswitch-ip-trunk-setup"
+      ]
+    },
+    {
+      "path": "1893265-fusionpbx-telnyx-integrations",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1893265-fusionpbx-telnyx-integrations",
+      "sourceHtmlSha256": "981742b09bfb5f90169ba65383062773336d872d225e7b079cf9924f238bcfad",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "3220393-fusionpbx-telnyx-credentials"
+      ]
+    },
+    {
+      "path": "3260451-gigaset-devices-telnyx-configuration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3260451-gigaset-devices-telnyx-configuration",
+      "sourceHtmlSha256": "5318c431f194cf615305321a73c487cf962c621b8a23b75496856e33a0714cfe",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5815209-gigaset-a510-telnyx-setup",
+        "6167480-gigaset-configuring-the-gigaset-dx800a",
+        "6060646-gigaset-a690-as690"
+      ]
+    },
+    {
+      "path": "1513008-grandstream-devices-telnyx-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1513008-grandstream-devices-telnyx-setup",
+      "sourceHtmlSha256": "a83cfc1321cfd09c14193fa7b29af15f3579a8d01c5225c8271ed635a24bf7f5",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5819218-grandstream-gxp21xx",
+        "6184147-grandstream-grp2612-sip-trunk",
+        "6184520-grandstream-gxp1700-sip-trunk",
+        "6184748-grandstream-wave-lite-iphone",
+        "6184897-grandstream-wave-lite-android",
+        "6187273-grandstream-gds3710-wave-lite-android",
+        "6187411-grandstream-gds3710-wave-lite-ios",
+        "6187576-grandstream-gxv3370",
+        "5815720-grandstream-gxp-telnyx-setup",
+        "5808368-grandstream-dp752",
+        "6169513-grandstream-grp260x-sip-trunk",
+        "2950523-grandstream-ip-auth-setup",
+        "1295514-grandstream-umc6202-auth-setup",
+        "1130660-configuring-grandstream-gxp16xx-with-telnyx",
+        "5748258-grandstream-ucm6xxx-sip-trunks",
+        "5725071-grandstream-ht802-telnyx-setup"
+      ]
+    },
+    {
+      "path": "1513012-goautodial-sip-trunk-configurations",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1513012-goautodial-sip-trunk-configurations",
+      "sourceHtmlSha256": "46c967e5f9b34511baa493930917d3b54bc173764f3392cffcb9e5423819595f",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "1130694-configuring-a-goautodial-pbx-sip-trunk",
+        "1130649-configuring-a-goautodial-pbx-ip-trunk"
+      ]
+    },
+    {
+      "path": "3257400-konftel-300-series-telnyx-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3257400-konftel-300-series-telnyx-setup",
+      "sourceHtmlSha256": "cfd42fdc0fba37c9dd87792e5b1371cf9fe4cc89513531f30a86ed03368bcb66",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5822579-konftel-300ipx-telnyx-setup",
+        "5807979-konftel-300wx-telnyx-setup"
+      ]
+    },
+    {
+      "path": "3249281-linphone-configuration-with-telnyx",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3249281-linphone-configuration-with-telnyx",
+      "sourceHtmlSha256": "5a28d815cc2f06ecd4455ebf44a0448ccf7241ad65d7fda09bd1c4a409d22c7f",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "1130674-configuring-linphone-with-telnyx"
+      ]
+    },
+    {
+      "path": "3249245-mediatrix-c7-4100-telnyx-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3249245-mediatrix-c7-4100-telnyx-setup",
+      "sourceHtmlSha256": "cba28e8114d14a7d3f09dca6d3103dccd5ee2a80018c90489c18373d216d5a0b",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5733572-mediatrix-c7-4100-telnyx-setup"
+      ]
+    },
+    {
+      "path": "3421144-microsip-telnyx-configuration-guide",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3421144-microsip-telnyx-configuration-guide",
+      "sourceHtmlSha256": "cf5a7987a598f77a9ff376a35b3caadbbc621f4244c9c611a9cb530949a66833",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6133145-microsip-setup-with-telnyx"
+      ]
+    },
+    {
+      "path": "3421382-microsoft-teams",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3421382-microsoft-teams",
+      "sourceHtmlSha256": "3fc2136cdcab27f7142d2ec993492061cadeb3407c08e98f6ea669e460eb1289",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6133589-ms-teams-call2teams-telnyx",
+        "7048813-tls-sip-warnings-for-teams",
+        "7260976-operator-connect-guide-microsoft-teams",
+        "9718403-microsoft-teams-emergency-call-routing"
+      ]
+    },
+    {
+      "path": "3480489-mitel-5300-6900-series-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3480489-mitel-5300-6900-series-setup",
+      "sourceHtmlSha256": "7e11b7c810e0a3590cfc29f7b8f43c5599466a0cf624977772e4c5f8b6a80396",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6244551-mitel-5320e-5330e-5340e-sip",
+        "6249691-mitel-6800-6900-sip"
+      ]
+    },
+    {
+      "path": "3257168-nch-express-talk-telnyx-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3257168-nch-express-talk-telnyx-setup",
+      "sourceHtmlSha256": "de321bf10d6702527840bc1676602342298c3dfd42515d49e542d4786145f6ef",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5807457-nch-express-talk"
+      ]
+    },
+    {
+      "path": "3257325-panasonic-kx-series-telnyx-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3257325-panasonic-kx-series-telnyx-setup",
+      "sourceHtmlSha256": "78a8f581b2aba6b474f706ade437929cd3e6bde19bd4a7b7134cbfa80a901b94",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5814406-panasonic-kx-hdv-telnyx-setup",
+        "5807663-panasonic-kx-tgp-550"
+      ]
+    },
+    {
+      "path": "3251399-pbxes-trunk-connection-to-telnyx",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3251399-pbxes-trunk-connection-to-telnyx",
+      "sourceHtmlSha256": "e2756a6012d74cafc1b631adb11d596846359fc04c731a6f2513073c0404229f",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5798240-pbxes-connecting-a-pbxes-trunk-to-telnyx"
+      ]
+    },
+    {
+      "path": "3252771-phonesuite-systems",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3252771-phonesuite-systems",
+      "sourceHtmlSha256": "c1979f2bddb997e5fe0631285dd0665bf8470ffa457af950dc6b3084760e2ac3",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5800936-phonesuite-voiceware"
+      ]
+    },
+    {
+      "path": "3249284-polycom-plantronics-telnyx-setups",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3249284-polycom-plantronics-telnyx-setups",
+      "sourceHtmlSha256": "e6960d3050f08d708fb2bbff870d9c261153f75f3e336a22d87e81b61940804b",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5820183-plantronics-polycom-obi300-setup",
+        "5619617-polycom-setup-with-telnyx"
+      ]
+    },
+    {
+      "path": "3021487-positron-ip-solutions-with-telnyx",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3021487-positron-ip-solutions-with-telnyx",
+      "sourceHtmlSha256": "523262c7743647965063a1887180d0f8e0b92404cd151124d7037531dc6f543e",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5811761-positron-ip-phone",
+        "5790910-positron-ip-pbx"
+      ]
+    },
+    {
+      "path": "3021488-saml-providers",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3021488-saml-providers",
+      "sourceHtmlSha256": "dec16f684a06d291d044175d74670934e4d5adedcc442bb1a21e5bcfc052b326",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5361846-gsuite-sso-integration-with-telnyx",
+        "5355953-auth0-sso-integration-with-telnyx",
+        "5355800-azure-ad-saml-identity-setup",
+        "5341506-lastpass-saml-identity-setup",
+        "5335562-okta-saml-identity-setup",
+        "5316578-onelogin-saml-identity-setup"
+      ]
+    },
+    {
+      "path": "3254096-scoptel-ip-pbx-telnyx-integration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3254096-scoptel-ip-pbx-telnyx-integration",
+      "sourceHtmlSha256": "909c8dfc2f3319f0cd447e7edd18c16c56a0703e7a53524d0c2f649f0722351c",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5803103-scoptel-ip-pbx"
+      ]
+    },
+    {
+      "path": "3417753-sipxecs-pbx-telnyx-configuration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3417753-sipxecs-pbx-telnyx-configuration",
+      "sourceHtmlSha256": "a1ea56739584a31e7e1d4936500ddcbb1f1c1ff4794196a102aac20c877b1746",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6128008-sipxecs-pbx-setup-config"
+      ]
+    },
+    {
+      "path": "3252490-synway-uc-200-telnyx-integration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3252490-synway-uc-200-telnyx-integration",
+      "sourceHtmlSha256": "c659abaccdcc82394b5ebb8beacf3d25f36dcfdc2c0278a8c2df3f39f4a0863f",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5800399-synway-uc-200-telnyx-setup"
+      ]
+    },
+    {
+      "path": "3262008-snom-devices-telnyx-configuration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3262008-snom-devices-telnyx-configuration",
+      "sourceHtmlSha256": "5a1a8da7bd8bfb2592cef09a3e491e8266ea1ae7de44d01b22a62efa3902e013",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5822823-snom-m100-kle-telnyx-setup",
+        "5822706-snom-d7xx-telnyx-setup",
+        "5815678-snom-c520-telnyx-setup"
+      ]
+    },
+    {
+      "path": "3417562-ubiquiti-unifi-talk-integration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3417562-ubiquiti-unifi-talk-integration",
+      "sourceHtmlSha256": "4b02d00828ef877e8213ed6606102ee9eb7c27c2e06e9d322038787ea6e53054",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6122586-ubiquiti-trunk-unifi-talk-auth",
+        "6303467-ubiquiti-trunk-unifi-talk-ip-auth"
+      ]
+    },
+    {
+      "path": "1513007-vicidial-trunk-setups-with-telnyx",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1513007-vicidial-trunk-setups-with-telnyx",
+      "sourceHtmlSha256": "9ad7227ac28bef1c81e23bbe69d87cab353a23d2b20e6f30828afdb4b2211855",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "1130632-configuring-a-vicidial-ip-trunk-with-telnyx",
+        "1176353-vicidial-configure-vicidial-credentials"
+      ]
+    },
+    {
+      "path": "3249200-vitalpbx-configuration-with-telnyx",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3249200-vitalpbx-configuration-with-telnyx",
+      "sourceHtmlSha256": "65e0424f1c0582d929677879ea66daf33b8b09c1beb99458dc4cc2ea7e56c526",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5754445-vitalpbx-configuring-your-vitalpbx"
+      ]
+    },
+    {
+      "path": "3249358-vodia-multi-tenant-pbx-integration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3249358-vodia-multi-tenant-pbx-integration",
+      "sourceHtmlSha256": "6431c7c9520a0cb69a820b6763e153a9742813ec166305cff9b743291a5ee4cc",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "3185933-vodia-multi-tenant-pbx-setup"
+      ]
+    },
+    {
+      "path": "3430505-voice-elements",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3430505-voice-elements",
+      "sourceHtmlSha256": "18a936d8c45c4bc280dd241a3f4f7c49c908ebb52f8e62ac6b2bc6ae795e6f39",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6145484-voice-elements-telnyx-sip"
+      ]
+    },
+    {
+      "path": "1512998-vxc-integration-setup-guide",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1512998-vxc-integration-setup-guide",
+      "sourceHtmlSha256": "023489e4759b172c36dfea9a3ad6edb0ad8f7a44a371658eb768589e21bdac5b",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "2239446-azure-virtual-cross-connect",
+        "2239449-google-vpc-telnyx-integration",
+        "1371411-aws-virtual-cross-connect-setup"
+      ]
+    },
+    {
+      "path": "3263617-vtech-vcs754-telnyx-integration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3263617-vtech-vcs754-telnyx-integration",
+      "sourceHtmlSha256": "44af02a1d5454f8404cf2c503b0dc8c59d70233cae9c32985bf43a0867c533e3",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5822901-vtech-vcs754-telnyx-setup"
+      ]
+    },
+    {
+      "path": "3252489-wildix-sip-trunk-setup-with-telnyx",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3252489-wildix-sip-trunk-setup-with-telnyx",
+      "sourceHtmlSha256": "1a76088e414e3f94301ed152c595809ceacf29fb319518ec376f7a3d4fe72864",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5799830-wildix-sip-trunk-setup"
+      ]
+    },
+    {
+      "path": "3249238-xorcom-pbx-sip-trunk-integration",
+      "sourceUrl": "https://support.telnyx.com/en/collections/3249238-xorcom-pbx-sip-trunk-integration",
+      "sourceHtmlSha256": "f6d992a2bc52a82e71afac0e43b22f341f8eed690b7d5418572cfb3c4315864c",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "5754127-xorcom-pbx-sip-trunk"
+      ]
+    },
+    {
+      "path": "1892168-yealink-yeastar-telnyx-setup",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1892168-yealink-yeastar-telnyx-setup",
+      "sourceHtmlSha256": "5e2d04b703525cccb07b99bb13c6c671261d9271ba2483a7b56b78f25571df1f",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "3074710-yealink-setup-with-telnyx",
+        "5748952-yeastar-s-series-telnyx-sip",
+        "13375115-how-to-configure-yeastar-p-series"
+      ]
+    },
+    {
+      "path": "1892167-zoiper-configurations-with-telnyx",
+      "sourceUrl": "https://support.telnyx.com/en/collections/1892167-zoiper-configurations-with-telnyx",
+      "sourceHtmlSha256": "812916b0c51861ce4b6252bd865e191ac07b726e591b4adaded03ca2b9049674",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "6133517-zoiper-communicator",
+        "5717957-zoiper-5-pro-telnyx-setup",
+        "5721766-zoiper-3-telnyx-setup-linux",
+        "5720999-zoiper-3-telnyx-setup-mac"
+      ]
+    },
+    {
+      "path": "2492902-general",
+      "sourceUrl": "https://support.telnyx.com/en/collections/2492902-general",
+      "sourceHtmlSha256": "e70b96e9d8651ad7edec47bb4e963b585cc5418187450f55ab20b9bc1b493d71",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "4409457-telnyx-sip-response-codes",
+        "6902981-understanding-sip-prack-protocol",
+        "6988813-verified-numbers",
+        "7029684-telephony-credentials-types",
+        "4363904-sip-registration",
+        "4304898-sip-trunking-methods-requests-responses",
+        "6790265-verified-numbers-faq",
+        "2602782-ip-authentication-with-tech-prefix",
+        "1176364-sip-connection-failover-guide-ip-fqdn-based",
+        "3192298-audio-and-codecs",
+        "3546251-caller-id-number-policy",
+        "8228452-email-notification-international-spend-limit",
+        "7834487-calls-per-second-cps-surcharge",
+        "7421223-shaken-stir-parameters",
+        "9133298-sip-record-route-headers"
+      ]
+    },
+    {
+      "path": "2505344-sip-connection",
+      "sourceUrl": "https://support.telnyx.com/en/collections/2505344-sip-connection",
+      "sourceHtmlSha256": "240947fd4a2527b9fedfb298f0ef4986f54b21ac4063d0d1a002519f95a1f020",
+      "parentSnapshotFiles": [
+        "en--collections--3968237-telnyx-sip-trunking-configurations.md"
+      ],
+      "articleSlugs": [
+        "1130713-what-is-my-sip-account-connection-password",
+        "5271423-guide-to-sip-anchorsite-settings",
+        "4860170-ip-authentication-with-x-telnyx-token",
+        "4404448-sip-connection-inbound-outbound-settings",
+        "4351104-sip-connection-settings",
+        "1130706-sip-connection-number-formats",
+        "4320364-sip-connection-fail-over-and-retries",
+        "2925713-sip-uri-calling"
+      ]
+    }
+  ]
+}

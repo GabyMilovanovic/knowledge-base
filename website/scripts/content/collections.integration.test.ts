@@ -5,6 +5,7 @@ import { collectionLinks, recoverCollections } from "./collections";
 import { fallbackRootFor } from "./fallback";
 import { firstH1, parseFrontmatter } from "./markdown";
 import { parseSourcePages } from "./source-pages";
+import { applyCollectionMemberships, type MembershipSnapshot } from "./collection-memberships";
 
 const supportDocsDir = path.resolve(import.meta.dir, "..", "..", "..", "support-docs");
 
@@ -25,6 +26,8 @@ test("recovers the checked-in collection hierarchy and assigns every local artic
     return { slug: page.slug, title: fm.title ?? firstH1(body) ?? page.slug, description: fm.description ?? null, sourceUrl: page.sourceUrl, body };
   });
   const collections = recoverCollections(roots, localArticleSlugs);
+  const membershipSnapshot = JSON.parse(fs.readFileSync(path.join(supportDocsDir, "_collection-memberships.json"), "utf8")) as MembershipSnapshot;
+  applyCollectionMemberships(collections, localArticleSlugs, membershipSnapshot);
   const links = roots.flatMap(({ body, slug }) => collectionLinks(body).filter((link) => link.kind === "collection" && link.slug !== slug));
   const recoveredArticleSlugs = collections.flatMap(({ articleSlugs }) => articleSlugs);
   const recovered = new Set(recoveredArticleSlugs);
