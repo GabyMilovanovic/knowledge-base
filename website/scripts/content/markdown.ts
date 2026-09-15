@@ -16,7 +16,9 @@ export function parseFrontmatter(content: string): {
     if (separator !== -1) {
       const key = lines[index].slice(0, separator).trim();
       if (key) {
-        fm[key] = lines[index].slice(separator + 1).trim().replace(/^"(.*)"$/, "$1");
+        const value = lines[index].slice(separator + 1).trim();
+        try { fm[key] = value.startsWith('"') ? JSON.parse(value) : value; }
+        catch { fm[key] = value.replace(/^"(.*)"$/, "$1"); }
       }
     }
     index++;

@@ -1,0 +1,458 @@
+{
+  "verifiedAt": "2026-09-15",
+  "articles": {
+    "1130673": [
+      {
+        "text": "1. Configure a Dial-Peer to Telnyx",
+        "id": "h_a276b2d188",
+        "reason": "reviewed equivalent section"
+      }
+    ],
+    "1130654": [
+      {
+        "text": "Video walkthrough",
+        "id": "h_9f0dbb7c3d",
+        "reason": "link label matches section"
+      }
+    ],
+    "1130627": [
+      {
+        "text": "1. Create your SIP line",
+        "id": "h_ef640d5b47",
+        "reason": "verified source heading"
+      }
+    ],
+    "1130628": [
+      {
+        "text": "1. Configuring the Telnyx Mission Control Panel",
+        "id": "step-by-step-guide",
+        "reason": "reviewed equivalent section"
+      },
+      {
+        "text": "3. Configure Asterisk to Make and Accept Calls",
+        "id": "2-please-note-that-for-this-configuration-to-work-the-module-respjsipconfigwizardso-must-be-installed-and-loaded-available-from-asterisk-1320",
+        "reason": "verified source heading"
+      }
+    ],
+    "1130631": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_898816635a",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "1130632": [
+      {
+        "text": "2. Configure Vicidial",
+        "id": "configuring-your-vicidial",
+        "reason": "verified source heading"
+      }
+    ],
+    "1130636": [
+      {
+        "text": "1. Create a SIP trunk",
+        "id": "h_70ce827498",
+        "reason": "link label matches section"
+      },
+      {
+        "text": "Instructions for configuring an IP trunk between OSDial and Telnyx",
+        "id": "h_977c764a75",
+        "reason": "reviewed equivalent section"
+      }
+    ],
+    "1130648": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_534d80f29a",
+        "reason": "existing prerequisite section"
+      },
+      {
+        "text": "Pre-requisites",
+        "id": "h_b67fe20e22",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "1130668": [
+      {
+        "text": "1. Configure a Dial-Peer to Telnyx",
+        "id": "h_807a945dc2",
+        "reason": "reviewed equivalent section"
+      }
+    ],
+    "1130676": [
+      {
+        "text": "1. Configuring the Telnyx Mission Control Portal",
+        "id": "step-by-step-guide-to-the-telnyx-mission-control-portal",
+        "reason": "reviewed equivalent section"
+      },
+      {
+        "text": "2. Configuring Asterisk SIP Trunk Setup",
+        "id": "configuring-your-asterisk",
+        "reason": "verified source heading"
+      }
+    ],
+    "1130698": [
+      {
+        "text": "Instructions for configuring a Skype for Business Server SIP Trunk with Telnyx",
+        "id": "configure-skype-for-business-server-sip-trunk-with-telnyx",
+        "reason": "verified source heading"
+      }
+    ],
+    "8344129": [
+      {
+        "text": "What is Telnyx Storage?",
+        "id": "h_3a1098a2f9",
+        "reason": "reviewed equivalent section"
+      }
+    ],
+    "1277754": [
+      {
+        "text": "2. Configure your SIP trunk",
+        "id": "chanpjsip-trunkconfiguration",
+        "reason": "verified source heading"
+      }
+    ],
+    "1616935": [
+      {
+        "text": "4. Create the SIP Trunk and build it to Telnyx",
+        "id": "h_b93eaf5074",
+        "reason": "reviewed equivalent section"
+      },
+      {
+        "text": "5. Create a Dialplan",
+        "id": "h_2fc6c12cb3",
+        "reason": "reviewed equivalent section"
+      },
+      {
+        "text": "6. Network configuration",
+        "id": "h_b3c7464524",
+        "reason": "reviewed equivalent section"
+      },
+      {
+        "text": "1. Configuring the Telnyx Mission Control Panel",
+        "id": "h_6b4b583ecb",
+        "reason": "reviewed equivalent section"
+      },
+      {
+        "id": "h_7714f1cd5d",
+        "text": "5. Create a Dialplan",
+        "reason": "Reviewed linked context and equivalent existing section"
+      }
+    ],
+    "3220393": [
+      {
+        "text": "2. Install FusionPBX",
+        "id": "install-fusionpbx",
+        "reason": "verified source heading"
+      }
+    ],
+    "3284033": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_c31bbc2660",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "3284164": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_566f57a59c",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "3562059": [
+      {
+        "text": "Alphanumeric Sender ID",
+        "id": "h_08c67c1b03",
+        "reason": "link label matches section"
+      }
+    ],
+    "4215031": [
+      {
+        "text": "1. Configure your SIP settings",
+        "id": "configuring-your-telnyx-mission-control-portal",
+        "reason": "verified source heading"
+      }
+    ],
+    "5253876": [
+      {
+        "text": "3. Assign a number to the Telnyx SBC Connection",
+        "id": "h_ddd7742f7e",
+        "reason": "link label matches section"
+      },
+      {
+        "text": "Pre-requisites",
+        "id": "h_bb9a5a60b7",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "5316578": [
+      {
+        "text": "Pre-requisites:",
+        "id": "h_3ec72f94d7",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "5335562": [
+      {
+        "text": "Pre-requisites:",
+        "id": "h_1c8c71363e",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "5341506": [
+      {
+        "text": "Pre-requisites:",
+        "id": "h_f5e38c1afb",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "5355800": [
+      {
+        "text": "Pre-requisites:",
+        "id": "h_7fefd7ee47",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "5619597": [
+      {
+        "text": "Instructions for Configuring a FreePBX V15 IP Trunk",
+        "id": "h_ee68fbb156",
+        "reason": "reviewed equivalent section"
+      }
+    ],
+    "5634625": [
+      {
+        "text": "10DLC Unregistered Traffic",
+        "id": "h_0d0b62ee06",
+        "reason": "reviewed equivalent section"
+      },
+      {
+        "id": "h_647771465f",
+        "text": "T-Mobile Special fees for High Volume",
+        "reason": "Reviewed linked context and equivalent existing section"
+      }
+    ],
+    "5748258": [
+      {
+        "text": "Instructions for creating a SIP trunk on your Grandstream UCM6xxx device",
+        "id": "h_c0cf38c0c4",
+        "reason": "reviewed equivalent section"
+      }
+    ],
+    "5790092": [
+      {
+        "text": "1. Associate the SIP credentials to your endpoint",
+        "id": "h_f5a05735de",
+        "reason": "link label matches section"
+      },
+      {
+        "text": "Troubleshooting",
+        "id": "h_bbb3c1d05d",
+        "reason": "link label matches section"
+      },
+      {
+        "text": "Pre-requisites",
+        "id": "h_1ff6c0a181",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "5790910": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_99673b75b0",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "5798240": [
+      {
+        "text": "1. Add a SIP trunk to PBXes and connect the trunk to Telnyx",
+        "id": "h_f2eb8d4bd3",
+        "reason": "link label matches section"
+      }
+    ],
+    "5803103": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_c6a1784efc",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "5808368": [
+      {
+        "text": "Pre-requisites:",
+        "id": "h_ee00c18dc4",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "5810226": [
+      {
+        "text": "Pre-requisites:",
+        "id": "h_6edc08d8c8",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6056428": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_463b8b7b31",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6122586": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_429a5653b5",
+        "reason": "existing prerequisite section"
+      },
+      {
+        "text": "3. Configure phone numbers",
+        "id": "h_fd88a3a609",
+        "reason": "reviewed equivalent section"
+      }
+    ],
+    "6145484": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_74840ee2df",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6202755": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_a99bb9c4ca",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6202965": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_7eef2993fe",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6203347": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_c110b0b80f",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6203401": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_2aeb783943",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6206533": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_a9d2a3cf6c",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6206756": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_60b100ea56",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6209215": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_bda0970c90",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6209862": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_00b63e9e92",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6209971": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_9af24f5345",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6210147": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_8051fb8ddf",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6281943": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_398c0cf58d",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "6303467": [
+      {
+        "text": "Pre-requisites",
+        "id": "h_b5c46d7544",
+        "reason": "existing prerequisite section"
+      }
+    ],
+    "1130595": [
+      {
+        "text": "Level 2 Capabilities",
+        "id": "level-2",
+        "reason": "reviewed equivalent section"
+      }
+    ],
+    "7260976": [
+      {
+        "text": "Step 1: Log in to Telnyx and the Microsoft Teams admin portals",
+        "id": "h_a8d36fde6d",
+        "reason": "reviewed equivalent section"
+      }
+    ],
+    "3679260": [
+      {
+        "id": "h_18938720b5",
+        "text": "Throughput - What it is and How Carriers Determine It",
+        "reason": "Reviewed linked context and equivalent existing section"
+      },
+      {
+        "id": "h_d7a8953798",
+        "text": "Fees, Charges and Other Questions",
+        "reason": "Reviewed linked context and equivalent existing section"
+      }
+    ],
+    "4409457": [
+      {
+        "id": "special-notes-on-sip-response-codes",
+        "text": "Special Notes on SIP Response Code 488",
+        "reason": "Reviewed linked context and equivalent existing section"
+      }
+    ],
+    "1130687": [
+      {
+        "id": "h_5a35a3a298",
+        "text": "Webhooks",
+        "reason": "Reviewed linked context and equivalent existing section"
+      }
+    ],
+    "5808185": [
+      {
+        "id": "h_38d4406f4f",
+        "text": "Video Walkthrough",
+        "reason": "Reviewed linked context and equivalent existing section"
+      },
+      {
+        "id": "h_e14c90ac20",
+        "text": "2. (OPTIONAL) Encrypt traffic by enabling TLS",
+        "reason": "Reviewed linked context and equivalent existing section"
+      }
+    ]
+  }
+}

@@ -99,6 +99,7 @@ export function validateCollections(collections: Collection[]): void {
 }
 
 export function recoverCollections(sources: CollectionSource[], localArticleSlugs: Set<string>): Collection[] {
+  const articlesById = new Map([...localArticleSlugs].map((slug) => [slug.split("-")[0], slug]));
   const result = sources.map((source) =>
     collection(source.slug, source.title, null, source.sourceUrl, source.description),
   );
@@ -126,14 +127,15 @@ export function recoverCollections(sources: CollectionSource[], localArticleSlug
         }
         continue;
       }
-      if (!localArticleSlugs.has(link.slug)) {
+      const articleSlug = articlesById.get(link.slug.split("-")[0]);
+      if (!articleSlug) {
         continue;
       }
-      if (assigned.has(link.slug)) {
+      if (assigned.has(articleSlug)) {
         throw new Error(`duplicate article membership ${link.slug}.`);
       }
-      assigned.add(link.slug);
-      active.articleSlugs.push(link.slug);
+      assigned.add(articleSlug);
+      active.articleSlugs.push(articleSlug);
     }
   }
 

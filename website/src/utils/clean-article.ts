@@ -53,26 +53,22 @@ const TITLE_BAR_SUFFIX = "| Telnyx Help Center";
 const BYLINE_PREFIX = "Written by ";
 const NAV_ICON_IMAGE =
   /^!\[[^\]]*\]\([^)]*intercom\.help[^)]*\/assets\/svg\/icon:[^)]*\)$/;
-// The scrape dropped Intercom's heading ids, so links to #h_… fragments
-// ("Jump to…", "Back to Top", inline tables of contents) have no target.
-const DEAD_ANCHOR_LINK = /\[([^\]]*)\]\(#h_[^)]*\)/g;
-
-// True for lines that are nothing but dead anchor links (optionally as a
-// list item) — navigation scaffolding worth dropping wholesale.
-function isDeadAnchorNavLine(trimmed: string): boolean {
-  if (!trimmed.includes("](#h_")) return false;
-  const remainder = trimmed
-    .replace(DEAD_ANCHOR_LINK, "")
-    .replace(/^([-*+]|\d+[.)])\s*/, "")
-    .trim();
-  return remainder === "";
-}
-
 export function cleanArticle(raw: string): string {
   const kept: string[] = [];
   let strippedH1 = false;
+  let fence: string | null = null;
+  let reachedSection = false;
   for (const line of raw.split("\n")) {
     const t = line.trim();
+    const marker = t.match(/^(`{3,}|~{3,})/)?.[0];
+    if (marker) {
+      if (!fence) fence = marker;
+      else if (marker[0] === fence[0] && marker.length >= fence.length) fence = null;
+      kept.push(line); continue;
+    }
+    if (fence) { kept.push(line); continue; }
+    if (/^#{2,6} /.test(t)) reachedSection = true;
+    if (!reachedSection && /^[A-Z]$/.test(t)) continue;
     if (t === SKIP_LINK) continue;
     if (t === TOC_HEADER) continue;
     if (t.endsWith(TITLE_BAR_SUFFIX)) continue;
@@ -83,15 +79,14 @@ export function cleanArticle(raw: string): string {
     )
       continue;
     if (NAV_ICON_IMAGE.test(t)) continue;
-    if (isDeadAnchorNavLine(t)) continue;
+    if (/^Updated (?:over |about )?(?:\d+ |a |an )?(?:seconds?|minutes?|hours?|days?|weeks?|months?|years?) ago[. ]*$/.test(t)) continue;
     // Zero-width-space-only lines left behind by the scraper.
     if (/^[​﻿]+$/.test(t)) continue;
     if (!strippedH1 && t.startsWith("# ")) {
       strippedH1 = true;
       continue;
     }
-    // Inline dead anchors unwrap to their text so the sentence still reads.
-    kept.push(line.replace(DEAD_ANCHOR_LINK, "$1"));
+    kept.push(t.startsWith("# ") ? line.replace("# ", "## ") : line);
   }
   return kept.join("\n").trim();
 }

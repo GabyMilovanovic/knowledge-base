@@ -103,7 +103,7 @@ It is important to note this when setting up your firewall and port settings. If
 
 ![Breaking Line](_images/682991ade0be9812.png)
 
-**[THIS PRODUCT IS NO LONGER AVAILABLE](https://support.telnyx.com/en/articles/6461350-hvsd-outbound-profile-end)**
+**THIS PRODUCT IS NO LONGER AVAILABLE**
 
 Our high volume short duration product (<https://siphv.telnyx.com/>) does not currently support SIP Registration for inbound calls. If you want to receive inbound calls please register with our other FQDN's: sip.telnyx.com, sip.telnyx.ca, sip.telnyx.eu & sip.telnyx.com.au.
 ​

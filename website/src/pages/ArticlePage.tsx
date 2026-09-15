@@ -16,17 +16,6 @@ type BodyState = {
   error: boolean;
 };
 
-function formatDate(iso: string): string | null {
-  const date = new Date(`${iso}T00:00:00Z`);
-  if (Number.isNaN(date.getTime())) return null;
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    timeZone: "UTC",
-  });
-}
-
 function relatedArticles(slug: string, collectionPath: string, count: number) {
   const collection = collections.find((c) => c.path === collectionPath);
   if (!collection) return [];
@@ -40,11 +29,13 @@ function relatedArticles(slug: string, collectionPath: string, count: number) {
     .filter((a): a is (typeof articles)[number] => a !== undefined);
 }
 
-export function ArticlePage() {
+export function ArticlePage({ initialBody }: { initialBody?: string } = {}) {
   const { slug } = useParams<{ slug: string }>();
 
   const article = slug ? articles.find((a) => a.slug === slug) : undefined;
-  const [state, setState] = useState<BodyState | null>(null);
+  const [state, setState] = useState<BodyState | null>(
+    initialBody !== undefined && slug ? { slug, body: initialBody, error: false } : null,
+  );
 
   useDocumentTitle(article?.title);
 
@@ -86,29 +77,15 @@ export function ArticlePage() {
   }
 
   const current = state?.slug === slug ? state : null;
-  const scrapedDate = article.scraped ? formatDate(article.scraped) : null;
+
   const related = relatedArticles(slug, article.collectionPath, 4);
 
   return (
     <div className="container article">
       <header className="article-header">
-        <Breadcrumbs collectionPath={article.collectionPath} />
+        <Breadcrumbs collectionPath={article.collectionPath} linkCurrent />
         <h1 className="article-title">{article.title}</h1>
-        <p className="article-meta">
-          {scrapedDate && (
-            <span className="article-meta-item">As of {scrapedDate}</span>
-          )}
-          {article.sourceUrl && (
-            <a
-              className="article-meta-item article-meta-source"
-              href={article.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View original ↗
-            </a>
-          )}
-        </p>
+
       </header>
 
       <div className="article-card">
@@ -121,7 +98,7 @@ export function ArticlePage() {
             This article failed to load. Refresh the page to try again.
           </p>
         ) : (
-          <ArticleContent body={current.body} />
+          <ArticleContent body={current.body} anchors={article.headingAnchors} />
         )}
       </div>
 

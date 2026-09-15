@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { execFileSync } from "node:child_process";
 import type { Article, Collection } from "../src/content/types";
 import {
   cleanArticle,
@@ -11,6 +12,7 @@ import { recoverCollections } from "./content/collections";
 import { applyCollectionMemberships, type MembershipSnapshot } from "./content/collection-memberships";
 import { fallbackRootFor } from "./content/fallback";
 import { copyArticleImages, copyThemeFonts, writeArticleBodies } from "./content/assets";
+import { routeRegistry, canonicalizeSupportLinks } from "./content/routes";
 import { firstH1, parseFrontmatter } from "./content/markdown";
 
 const supportDocsDir = path.resolve(import.meta.dir, "..", "..", "support-docs");
@@ -42,6 +44,13 @@ const articleJsonDir = path.join(publicDir, "content", "articles");
 
 function main() {
   copyThemeFonts(bootstrapDistDir, publicDir);
+  const commitDates = new Map<string,string>();
+  let commitDate = "";
+  const history = execFileSync("git", ["log", "--format=COMMIT:%cI", "--name-only", "--", "support-docs"], {cwd: path.dirname(supportDocsDir), encoding: "utf8", maxBuffer: 20 * 1024 * 1024});
+  for (const line of history.split("\n")) {
+    if (line.startsWith("COMMIT:")) commitDate = line.slice(7);
+    else if (line.startsWith("support-docs/") && !commitDates.has(line.slice(13))) commitDates.set(line.slice(13), commitDate);
+  }
   const manifestData = readJson<ManifestData>(manifestPath);
 
   const sourceFiles = manifestData.files
@@ -93,6 +102,10 @@ function main() {
     readJson<MembershipSnapshot>(path.join(supportDocsDir, "_collection-memberships.json")),
   );
 
+  const registry = routeRegistry(sourcePages.filter(p => p.kind === "article"), collections);
+  const anchorData = readJson<{articles: Record<string, {headings: {text: string; id: string}[]; collectionPath?: string}>}>(path.join(supportDocsDir, "_heading-anchors.json")).articles;
+  const aliases = readJson<{articles: Record<string, {text: string; id: string}[]>}>(path.join(supportDocsDir, "_anchor-aliases.json")).articles;
+  const videos = readJson<{articles: Record<string, {url: string; title: string}[]>}>(path.join(supportDocsDir, "_videos.json")).articles;
   const articles: Article[] = [];
   const referencedImages = new Set<string>();
   let skippedCollectionMd = 0;
@@ -129,23 +142,33 @@ function main() {
     }
 
     const { fm, body } = parseFrontmatter(content);
-    const cleanedBody = rewriteLegacyArticleLinks(
+    let cleanedBody = canonicalizeSupportLinks(rewriteLegacyArticleLinks(
       stripFeedbackTrailer(cleanArticle(body)),
-    );
+    ), registry).replace(/(#h_[a-zA-Z0-9_-]+)\\(?=\))/g, "$1");
+    const videoLinks = (videos[sourcePage.slug.split("-")[0]] ?? []).filter(video => !cleanedBody.includes(video.url));
+    if (videoLinks.length) cleanedBody += "\n\n## Video walkthroughs\n\n" + videoLinks.map(video => `- [${video.title.replace(/[\[\]\n]/g, " ")} — watch video](${video.url})`).join("\n");
     for (const m of cleanedBody.matchAll(IMAGE_REF)) {
       referencedImages.add(m[1]);
     }
     const slug = sourcePage.slug;
     const title = firstH1(body) ?? slug;
+    const sourceMetadata = anchorData[slug.split("-")[0]];
     const recoveredCollection = collections.find((collection) =>
       collection.articleSlugs.includes(slug),
     );
-    const collectionPath = recoveredCollection?.path ?? fallbackRootFor(title, slug);
-    const collectionMembership = recoveredCollection ? "recovered" : "fallback";
+    const declaredPath = fm.collection_path || sourceMetadata?.collectionPath;
+    const declaredCollection = declaredPath ? collections.find(c => c.path === declaredPath) : undefined;
+    if (fm.collection_path && !declaredCollection) throw new Error(`Unknown declared collection ${fm.collection_path}`);
+    const owner = recoveredCollection ?? declaredCollection;
+    const collectionPath = owner?.path ?? fallbackRootFor(title, slug);
+    const collectionMembership = owner ? "recovered" : "fallback";
 
     articles.push({
       slug,
       title,
+      seoTitle: fm.title ?? title,
+      modifiedAt: fm.modified_at || commitDates.get(relPath),
+      headingAnchors: [...(sourceMetadata?.headings ?? []), ...(aliases[slug.split("-")[0]] ?? [])],
       description: fm.description ?? null,
       sourceUrl: fm.source_url ?? null,
       scraped: fm.scraped ?? null,
@@ -170,6 +193,9 @@ function main() {
   const articlesPublic = articles.map((a) => ({
     slug: a.slug,
     title: a.title,
+    seoTitle: a.seoTitle,
+    modifiedAt: a.modifiedAt,
+    headingAnchors: a.headingAnchors,
     description: a.description,
     sourceUrl: a.sourceUrl,
       scraped: a.scraped,

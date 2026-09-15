@@ -3,6 +3,9 @@ export type ContentPageKind = "article" | "collection";
 export interface Article {
   slug: string;
   title: string;
+  seoTitle?: string;
+  modifiedAt?: string;
+  headingAnchors?: { text: string; id: string }[];
   description: string | null;
   sourceUrl: string | null;
   scraped: string | null;

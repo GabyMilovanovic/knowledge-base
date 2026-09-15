@@ -21,7 +21,7 @@ Port your numbers to Telnyx with comprehensive guides and support, for a smooth 
 
 The Telnyx Mission Control platform allows you to submit ports directly from the online portal and view the status of any existing port requests in real time.
 
-Alternatively, you can port numbers through the [Mission Control API](https://support.telnyx.com/en/articles/1130736-mission-control-api-porting), which can be useful for those who wish to write programs that automate usage of Telnyx features.
+Alternatively, you can port numbers through the [Mission Control API](https://developers.telnyx.com/docs/numbers/porting/getting-started), which can be useful for those who wish to write programs that automate usage of Telnyx features.
 
 ## Step-by-Step Guide to Porting
 

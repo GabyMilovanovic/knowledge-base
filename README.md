@@ -103,50 +103,76 @@ The incremental wiki update intentionally does **not** run the full LLMWiki comp
 
 ## Website
 
-`website/` is a React 19 + Vite single-page app built and run with [Bun](https://bun.sh). All commands run from the `website/` directory:
+`website/` uses React 19 to render complete static HTML at build time, Vite to
+compile styles and a small search/filter script, and Bun to build and preview.
+The current migration target is `https://d27az1l5lty0u1.cloudfront.net`.
 
-```bash
+```sh
 cd website
-bun install
+bun install --frozen-lockfile
+bun run build
+bun run type-check
+bun test
+bun run verify
+bun run preview:edge   # http://127.0.0.1:4173
 ```
 
-### Run locally (dev)
+`bun run dev` builds once and starts the same exact-key preview. Rebuild/restart
+after edits. The preview executes the shared CloudFront routing logic and does
+not hide missing objects behind an SPA fallback.
 
-```bash
-bun run dev
+### Content and rendering
+
+`build-content.ts` reads the checked-in Markdown inventory. Source URLs determine
+canonical identity. It combines root snapshots, the verified 355 memberships in
+66 pre-existing Intercom leaf collections, and explicit/source-evidenced article
+ownership. No build fetches Intercom or creates new collection categories.
+
+The migration inventory now has 906 articles and 115 existing collections,
+including the previously omitted Telnyx Email and RCS roots. 902 article
+memberships are recovered; four use the documented fallback. All collection
+counts include unique available descendants; lists/filters show direct members.
+
+Checked-in heading IDs, reviewed section aliases, image dimensions, and recovered
+video links preserve functionality lost in the original scrape. Existing GitHub
+article content is retained; published content absent from the repo is imported
+separately. The two PR 51 consolidations remain removed and receive redirects.
+
+`render-site.tsx` generates full HTML for every canonical path, initial titles,
+descriptions, canonicals, Article/Breadcrumb JSON-LD, a sitemap, robots.txt, and an
+LLM index. Article modification dates come from explicit source dates or actual
+Git history, not build/scrape timestamps. CI checks out full history. Search loads
+a small index only when used; article reading and ordinary navigation need no JS.
+
+Builds default to the temporary origin and `noindex,follow`. `SITE_ORIGIN` controls
+canonical/sitemap URLs. Indexability requires the explicit `SITE_INDEXABLE=true`
+setting and production origin. Public-domain cutover remains outside this work.
+
+### Routing and verification
+
+The generated CloudFront Function and KeyValueStore provide same-host HTTP 301s
+for `/en`, `/en/`, old titles, bare IDs, known old custom paths, and consolidated
+articles. Unknown content URLs return 404. Deploying HTML alone does not install
+this function. See [edge rollout](website/edge/README.md).
+
+`bun run verify` checks all rendered pages, links/anchors, metadata, local images,
+nonempty collections, sitemap coverage, and a 30 KB client-JS budget. Its report
+explicitly lists the remaining editorial links to two retired guides rather than
+claiming they work. Resolve these before declaring the migration complete. `bun run verify:strict`
+is the no-exceptions release check and currently fails for those known links.
+
+For Growth's real GSC/backlink URL export:
+
+```sh
+python3 scripts/audit-migration-urls.py growth.csv --output results.json
 ```
 
-This first regenerates the content from `../support-docs` (see the pipeline below), then starts the Vite dev server with hot reload at [http://localhost:5173](http://localhost:5173). Re-run the command after changing anything under `support-docs/` — content is generated at startup, not watched.
+The audit records statuses, redirects and fragment targets, preserving supplied
+click/impression/backlink weights. It supports `--url-column` and a local preview
+origin. No traffic weight is fabricated when the export is absent.
 
-### Run the built version
-
-```bash
-bun run build      # full production build into website/dist
-bun run preview    # serve website/dist at http://localhost:4173
-```
-
-`build` runs the whole production pipeline: content generation, `tsc`-independent Vite build, and route-file generation. `preview` serves the resulting `dist/` exactly as produced, which is the closest local approximation of the S3 deployment (one difference: the dev/preview server falls back to `index.html` for unknown paths on its own, while production relies on the generated route files and the S3 error document).
-
-Other useful scripts:
-
-```bash
-bun run type-check    # tsc --noEmit
-bun run gen-content   # regenerate content without building
-```
-
-### How the build works
-
-The content pipeline (`website/scripts/build-content.ts`, runs as a `prebuild`/`predev` step) reads `support-docs/`, cleans scraper noise from article bodies, rewrites internal support links while preserving query strings and fragments, copies theme fonts and referenced images into `website/public/`, emits per-article JSON for on-demand loading, and generates a typed content manifest. It recovers 15 source-root collections and 98 linked children in source and encounter order. Every child has exactly one existing parent; duplicate identities, conflicting parents, cycles, and duplicate article memberships are rejected. The linked children have no source files, so they receive only locally evidenced title, parent, order, and members: no body or description is invented.
-
-The root collection snapshots recover membership for 523 local articles. `support-docs/_collection-memberships.json` restores another 355 memberships from the 66 existing Intercom leaf pages, verified on 2026-09-15. Every entry records its original URL, HTML hash, parent snapshot evidence, and articles in source order. All 355 articles already existed locally; this snapshot adds no collection URLs or article files. Builds do not fetch Intercom. Ingestion rejects unknown collections, unavailable articles, and duplicate ownership instead of silently changing the inventory.
-
-Together these sources recover membership for 878 of 882 articles and leave no empty leaf collections. The remaining four articles retain deterministic fallback membership, distinct in generated metadata from recovered membership: Workspaces under General - Telnyx Portal & Account, and Bosnia Herzegovina DID Requirements, Venezuela DID Requirements, and Turkey Number Porting under Telnyx Number Management Guide. A later content deletion or rename must update the membership snapshot in the same change. Homepage and collection-header counts include unique available articles in all descendants; article lists and their filters continue to show direct members.
-
-A postbuild step (`website/scripts/generate-route-files.ts`) materializes extensionless canonical `/en/articles/...` and `/en/collections/...` objects, their language-root index, and a `404.html` fallback so deep links work on S3. Deployment uploads the canonical `en` tree as HTML; no custom article or collection route trees are deployed.
-
-The local branch includes a CloudFront viewer-request function for permanent `/en` and `/en/` redirects to the same host's `/`, preserving query strings. This must be installed on the temporary distribution separately: copying `en/index.html` to a REST-origin bucket does not fix requests for `en` or `en/`. See `website/edge/README.md` for the temporary-domain rollout and `bun run preview:edge` for local exact-key validation. No DNS/domain cutover is part of these changes.
-
-Deployment runs from `.github/workflows/deploy-website.yml` on pushes to `main`, using OIDC role assumption for AWS credentials.
+The existing push-to-main workflow uploads to S3 using AWS OIDC. This local branch
+has not been merged or deployed; the CloudFront routing rollout is separate.
 
 ## LLMWiki refresh model
 

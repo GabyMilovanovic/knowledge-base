@@ -1,0 +1,153 @@
+---
+source_url: "https://support.telnyx.com/en/articles/16099889-setting-up-and-troubleshooting-telnyx-email-webhooks"
+title: "Setting up and troubleshooting Telnyx Email webhooks"
+scraped: "2026-09-15"
+modified_at: "2026-07-28T20:57:46Z"
+collection_path: "19683795-telnyx-email"
+content_hash: "8988b8634607a5cb225befa8630a14254c07081494852c5a2a46b09efedb6060"
+---
+
+# Setting up and troubleshooting Telnyx Email webhooks
+
+Use an Email webhook when your application needs delivery, engagement, inbound, or sending-domain updates without polling. This guide shows you how to create a focused event subscription, test it with a new message, and interpret the payload correctly.
+
+---
+
+# **Before you start**
+
+You need a Telnyx API key, the ID of your sending domain, and a publicly reachable HTTPS endpoint. Your endpoint must accept JSON POST requests.
+
+Choose only the events your application handles. A webhook subscription is an explicit allowlist; there is no default that subscribes you to every event.
+
+---
+
+# **Step 1: Create the webhook**
+
+Create the webhook under the sending domain. This example covers the most useful outbound lifecycle events:
+
+```
+curl -X POST "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks" \  
+  -H "Authorization: Bearer YOUR_API_KEY" \  
+  -H "Content-Type: application/json" \  
+  -d '{  
+    "url": "https://example.com/webhooks/telnyx-email",  
+    "events": [  
+      "email.queued",  
+      "email.sent",  
+      "email.delivered",  
+      "email.deferred",  
+      "email.bounced",  
+      "email.failed",  
+      "email.complained"  
+    ]  
+  }'
+```
+
+A successful request returns `201 Created`. Save the webhook `id` from the response.
+
+---
+
+# **Step 2: Confirm the saved subscription**
+
+List the webhooks attached to the domain and confirm that the URL and event allowlist are correct:
+
+```
+curl "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks" \  
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+To change the destination or event list, update the webhook by ID:
+
+```
+curl -X PATCH "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks/{webhook_id}" \  
+  -H "Authorization: Bearer YOUR_API_KEY" \  
+  -H "Content-Type: application/json" \  
+  -d '{  
+    "events": [  
+      "email.sent",  
+      "email.delivered",  
+      "email.bounced",  
+      "email.complained",  
+      "email.opened",  
+      "email.clicked"  
+    ]  
+  }'
+```
+
+**Important:** webhook settings are snapshotted when a message is accepted. A change affects new messages, not messages that were already queued or scheduled.
+
+---
+
+# **Step 3: Trigger a new event**
+
+Send a new message from the domain after the webhook is saved or updated:
+
+```
+curl -X POST "https://api.telnyx.com/v2/email_messages" \  
+  -H "Authorization: Bearer YOUR_API_KEY" \  
+  -H "Content-Type: application/json" \  
+  -d '{  
+    "from": "sender@mail.yourcompany.com",  
+    "to": ["recipient@example.com"],  
+    "subject": "Telnyx webhook test",  
+    "text_body": "Testing my Telnyx Email webhook."  
+  }'
+```
+
+Use a new send for every subscription test. Updating a webhook and then waiting on an older in-flight message can make a correct setup look broken.
+
+---
+
+# **Choose the right event**
+
+|  |  |
+| --- | --- |
+| **Event** | **What it means** |
+| `email.queued` | Telnyx accepted the message for processing. |
+| `email.sent` | The recipient was accepted into the Telnyx mail queue. |
+| `email.delivered` | The receiving mail server accepted the recipient. |
+| `email.deferred` | Delivery was temporarily delayed and remains retryable. |
+| `email.bounced` | Delivery ended without success. Read `error_evidence.code` to distinguish a hard bounce from queue expiry or another mapped outcome. |
+| `email.failed` | A platform or injection-stage failure prevented delivery. |
+| `email.opened` / `email.clicked` | Engagement was detected when the corresponding tracking feature was enabled. |
+| `email_domain.*` | The domain was created, verified, degraded, suspended, or deleted. |
+
+**Do not subscribe to `email.sending` for application logic.** The value is accepted by the subscription API for compatibility, but it is not currently published as a webhook.
+
+---
+
+# **Interpret outbound payloads correctly**
+
+Normal outbound delivery webhooks are recipient-scoped: one recipient produces one event. Do not expect message-level arrays of every `to`, `cc`, or `bcc` address.
+
+|  |  |
+| --- | --- |
+| **Field** | **How to use it** |
+| `id` | The parent email message ID. |
+| `recipient_id` | The durable recipient ID. Store it with the event for correlation. |
+| `to`, `cc`, or `bcc` | Exactly one recipient projection. BCC addresses are intentionally redacted. |
+| `status` | The webhook event slug, not the authoritative recipient-state value. |
+| `error_evidence` | For error events, use the normalized `code`, SMTP evidence, source, and `retryable` flag to decide the next action. |
+
+For example, queue expiry is a terminal recipient status named `expired`, but the public webhook is `email.bounced` with delivery code `30005`. Route on the event type, then inspect `error_evidence` for the reason.
+
+`bounce_category` is not part of the normal public webhook contract. Do not make retry or suppression decisions from that field.
+
+---
+
+# **If your webhook appears silent**
+
+- List the webhook and confirm its URL and explicit event allowlist.
+- Send a new message after the webhook was created or updated.
+- Confirm you subscribed to `email.sent`, `email.delivered`, or another event that is actually published—not `email.sending`.
+- Log the message `id`, `recipient_id`, event `status`, `occurred_at`, and `error_evidence`. Do not log API keys or message content.
+
+---
+
+Related Articles
+
+- [Getting started with Telnyx Email](https://support.telnyx.com/en/articles/15853622-getting-started-with-telnyx-email)
+- [Setting up your email sending domain](https://support.telnyx.com/en/articles/15853623-setting-up-your-email-sending-domain)
+- [Why didn't my email arrive?](https://support.telnyx.com/en/articles/15853625-why-didn-t-my-email-arrive)
+- [Managing email suppressions and unsubscribes](https://support.telnyx.com/en/articles/15853626-managing-email-suppressions-and-unsubscribes)
+- [Scheduling and cancelling an email send](https://support.telnyx.com/en/articles/16099894-scheduling-and-cancelling-an-email-send)

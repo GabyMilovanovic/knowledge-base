@@ -36,7 +36,7 @@ Additional documentation and resources:
 
 In this activity you will:
 
-1. [Create your SIP line](#h_ef640d5b47%5C)
+1. [Create your SIP line](#h_ef640d5b47)
 
 **Pre-requisites**
 

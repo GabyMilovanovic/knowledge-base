@@ -1,4 +1,6 @@
 import React from "react";
+import imageDimensions from "../../../support-docs/_image-dimensions.json";
+const dimensions: Record<string, {width: number; height: number}> = imageDimensions;
 import { Link } from "wouter";
 import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -6,6 +8,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import { assetBase } from "../utils/base-path";
 import { isSupportPath } from "../utils/support-paths";
+import { headingAnchors, type HeadingAnchor } from "../utils/heading-anchors";
 import "./ArticleContent.css";
 
 // Image references are relative (_images/<hash>.<ext>), which would resolve
@@ -18,16 +21,19 @@ function urlTransform(url: string): string | null | undefined {
 
 export const ArticleContent = React.memo(function ArticleContent({
   body,
+  anchors = [],
 }: {
   body: string;
+  anchors?: HeadingAnchor[];
 }) {
   return (
     <div className="article-content">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw, rehypeSanitize]}
+        rehypePlugins={[rehypeRaw, rehypeSanitize, headingAnchors(anchors)]}
         urlTransform={urlTransform}
         components={{
+          img: ({ node: _node, ...props }) => <img {...props} {...dimensions[(props.src ?? "").split("/").pop() ?? ""]} loading="lazy" decoding="async" />,
           a: ({ href, children, ...props }) => {
             const isExternal =
               href && (href.startsWith("http://") || href.startsWith("https://"));

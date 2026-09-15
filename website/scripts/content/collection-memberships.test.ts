@@ -41,8 +41,8 @@ test("all 66 existing leaf collections have their verified local articles", () =
   for (const entry of snapshot.collections) {
     expect(collections.find((collection) => collection.path === entry.path)?.articleSlugs).toEqual(entry.articleSlugs);
   }
-  expect(collections).toHaveLength(113);
+  expect(collections).toHaveLength(115);
   expect(collections.filter((collection) => !collection.articleSlugs.length && !collection.childCollectionPaths.length)).toHaveLength(0);
-  expect(articles.filter((article) => article.collectionMembership === "recovered")).toHaveLength(878);
+  expect(articles.filter((article) => article.collectionMembership === "recovered")).toHaveLength(902);
   expect(articles.filter((article) => article.collectionMembership === "fallback")).toHaveLength(4);
 });

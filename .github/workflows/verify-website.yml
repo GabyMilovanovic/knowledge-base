@@ -1,0 +1,28 @@
+name: Verify website migration
+on:
+  pull_request:
+    paths:
+      - 'website/**'
+      - 'support-docs/**'
+      - '.github/workflows/verify-website.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+        with:
+          fetch-depth: 0
+      - uses: ./.github/utils/setup-runner
+      - name: Check source inventory
+        run: python3 scripts/regenerate_support_docs_manifest.py --check
+      - name: Build, test, and audit preview
+        working-directory: website
+        run: |
+          bun run gen-content
+          bun run type-check
+          bun test
+          bun run build
+          bun run verify

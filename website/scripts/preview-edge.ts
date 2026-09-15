@@ -6,8 +6,9 @@ import vm from "node:vm";
 // Vite's SPA fallback hides missing-object errors that occur at an S3 origin.
 const dist = path.resolve(import.meta.dir, "../dist");
 const context = vm.createContext({});
-vm.runInContext(fs.readFileSync(path.resolve(import.meta.dir, "../edge/homepage-redirect.js"), "utf8"), context);
+vm.runInContext(fs.readFileSync(path.resolve(import.meta.dir, "../edge/routing.js"), "utf8"), context);
 
+const registry = JSON.parse(fs.readFileSync(path.resolve(dist, "../dist-edge/routes.json"), "utf8"));
 const server = Bun.serve({
   hostname: "127.0.0.1",
   port: Number(process.env.PORT || 4173),
@@ -25,9 +26,9 @@ const server = Bun.serve({
         querystring[key] = { value };
       }
     }
-    const result = context.handler({ request: { uri: url.pathname, method: request.method, querystring } });
+    const result = await context.routeRequest({ uri: url.pathname, method: request.method, querystring }, async (key: string) => registry[key]);
     if (result.statusCode) {
-      return new Response(null, {
+      return new Response(request.method === "HEAD" ? null : result.body || null, {
         status: result.statusCode,
         headers: Object.fromEntries(Object.entries(result.headers).map(([key, item]) => [key, (item as { value: string }).value])),
       });
@@ -46,4 +47,4 @@ const server = Bun.serve({
     });
   },
 });
-console.log(`Exact-key preview with CloudFront homepage redirects: ${server.url}`);
+console.log(`Exact-key preview with CloudFront ID routing: ${server.url}`);

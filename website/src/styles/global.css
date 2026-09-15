@@ -21,6 +21,10 @@ html {
   box-sizing: border-box;
 }
 
+[hidden] { display: none !important; }
+.search-result > a { display: block; color: inherit; text-decoration: none; width: 100%; }
+.article-content [id] { scroll-margin-top: 24px; }
+
 *,
 *::before,
 *::after {
