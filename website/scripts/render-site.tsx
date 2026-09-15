@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { parse, parseFragment, serializeOuter, type DefaultTreeAdapterMap } from "parse5";
 import path from "node:path";
 import { renderToString } from "react-dom/server";
 import { Router } from "wouter";
@@ -8,7 +9,25 @@ import { articles, collections } from "../src/content/manifest";
 import { routeRegistry } from "./content/routes";
 const esc = (s: string) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const json = (v: unknown) => JSON.stringify(v).replace(/</g,"\\u003c");
-const plain = (s: string) => s.replace(/!\[[^\]]*\]\([^)]*\)/g,"").replace(/\[([^\]]+)\]\([^)]*\)/g,"$1").replace(/<[^>]+>/g,"").replace(/[*_`#]/g,"").replace(/\s+/g," ").trim();
+type HtmlNode = DefaultTreeAdapterMap["node"];
+function textOf(node: HtmlNode): string {
+  if ("tagName" in node && ["script", "style"].includes(node.tagName)) return "";
+  if ("value" in node) return node.value;
+  return "childNodes" in node ? node.childNodes.map(textOf).join("") : "";
+}
+const plain = (s: string) => textOf(parseFragment(s.replace(/!\[[^\]]*\]\([^)]*\)/g, "").replace(/\[([^\]]+)\]\([^)]*\)/g, "$1"))).replace(/[*_`#]/g, "").replace(/\s+/g, " ").trim();
+function compiledAssetTags(html: string): string {
+  const tags: string[] = [];
+  function visit(node: HtmlNode) {
+    if ("tagName" in node) {
+      const attrs = new Map(node.attrs.map(a => [a.name, a.value]));
+      if (node.tagName === "link" && attrs.get("rel") === "stylesheet" || node.tagName === "script" && attrs.get("type") === "module" && attrs.has("src")) tags.push(serializeOuter(node));
+    }
+    if ("childNodes" in node) node.childNodes.forEach(visit);
+  }
+  visit(parse(html));
+  return tags.join("\n");
+}
 export function descriptionFor(description: string | null, body = "") {
   const candidate = description?.trim() || body.split(/\n\s*\n/).find(p => !/^\s*(?:#|[-|>]|```|!\[)/.test(p) && plain(p).length >= 50) || "Read Telnyx support guides, setup instructions, and troubleshooting advice for your connectivity services.";
   const text = plain(candidate);
@@ -21,7 +40,7 @@ export function renderSite(dist: string) {
   if (indexable && origin.hostname !== "support.telnyx.com") throw new Error("Only the approved production origin may be indexable");
   const base = origin.origin;
   const shell = fs.readFileSync(path.join(dist,"index.html"),"utf8");
-  const assetTags = shell.match(/<(?:script\b[^>]*>[\s\S]*?<\/script|link\b[^>]*rel="stylesheet"[^>]*\/?)>/g)?.join("\n") ?? "";
+  const assetTags = compiledAssetTags(shell);
   if (!assetTags.includes("script")) throw new Error("Missing compiled enhancement script");
   const byCollection = new Map(collections.map(c => [c.path,c]));
   function trail(collectionPath?: string) {

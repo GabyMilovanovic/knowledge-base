@@ -6,3 +6,7 @@ test("SEO descriptions prefer metadata and fall back to meaningful body text",()
  expect(descriptionFor("a ".repeat(100)).length).toBeLessThanOrEqual(160);
  expect(descriptionFor(null, "# Only a title")).toContain("Telnyx support guides");
 });
+
+test("metadata text parsing removes script/style content regardless of case",()=>{
+ expect(descriptionFor("A <SCRIPT>alert(1)</SCRIPT><b>safe</b> description")).toBe("A safe description");
+});
