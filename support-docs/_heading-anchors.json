@@ -29503,6 +29503,508 @@
       "headings": [],
       "collectionPath": null,
       "importedFile": "8159875-10dlc-privacy-policy-terms-and-conditions-best-practices.md"
+    },
+    "4404575": {
+      "id": "4404575",
+      "sourceUrl": "https://support.telnyx.com/en/articles/4404575-tls-and-srtp",
+      "headings": [
+        {
+          "text": "Securing SIP and VoIP Calls with TLS and SRTP",
+          "id": "h_1a9c5b0bde"
+        },
+        {
+          "text": "SIP Security Risks: Why Encryption is Critical",
+          "id": "h_d28cae9870"
+        },
+        {
+          "text": "Certificates for Authentication and Encryption",
+          "id": "h_6f9c9d49d5"
+        },
+        {
+          "text": "Certificates Chains",
+          "id": "h_f8009b618c"
+        },
+        {
+          "text": "OpenSSL",
+          "id": "h_388301d4d9"
+        },
+        {
+          "text": "TLS and SRTP: Securing SIP Signaling and Media",
+          "id": "h_96a426bee2"
+        },
+        {
+          "text": "Important Note:",
+          "id": "h_3593da8da6"
+        },
+        {
+          "text": "Deprecating Support for TLS 1.0 and TLS 1.1",
+          "id": "h_d96e09ea0f"
+        },
+        {
+          "text": "SRTP for Media Encryption",
+          "id": "h_6c15b983db"
+        },
+        {
+          "text": "What is SRTP?",
+          "id": "what-is-srtp-"
+        },
+        {
+          "text": "Example SDP of the media audio parameters in the SIP INVITE from the client",
+          "id": "example-sdp-of-the-media-audio-parameters-in-the-sip-invite-from-the-client"
+        },
+        {
+          "text": "In 183 with SDP / 200 OK Telnyx agrees on one of the clients attributes and presents our media IP address",
+          "id": "in-183-with-sdp--200-ok-telnyx-agrees-on-one-of-the-clients-attributes-and-presents-our-media-ip-address"
+        },
+        {
+          "text": "TLS and SRTP Conclusion",
+          "id": "h_03df1e42d4"
+        },
+        {
+          "text": "Inbound and Outbound Call Security Settings",
+          "id": "h_880d0a3a29"
+        },
+        {
+          "text": "Inbound Settings",
+          "id": "h_72e7fc088b"
+        },
+        {
+          "text": "Inbound Settings Notes",
+          "id": "h_ba6a5cc00d"
+        },
+        {
+          "text": "Outbound Settings",
+          "id": "h_44019c2080"
+        },
+        {
+          "text": "Special Case: WebRTC Clients (Voice SDK)",
+          "id": "h_f07e2dd666"
+        }
+      ],
+      "collectionPath": "2492902-general"
+    },
+    "96934": {
+      "id": "96934",
+      "sourceUrl": "https://support.telnyx.com/en/articles/96934-rate-limits-for-messaging",
+      "headings": [
+        {
+          "text": "What happens if you exceed your rate limit?",
+          "id": "h_87027e705b"
+        },
+        {
+          "text": "Example",
+          "id": "h_c7acb54ee2"
+        }
+      ],
+      "collectionPath": "2462765-messaging-miscellaneous"
+    },
+    "10523949": {
+      "id": "10523949",
+      "sourceUrl": "https://support.telnyx.com/en/articles/10523949-forwarding-sms-mms-automation-using-telnyx-flow",
+      "headings": [
+        {
+          "text": "Introduction",
+          "id": "h_b2b1c67bb9"
+        },
+        {
+          "text": "Creation and Set up of the Workflow",
+          "id": "h_e19ee48fe4"
+        },
+        {
+          "text": "Testing your Workflow",
+          "id": "h_b5775f45b9"
+        }
+      ],
+      "collectionPath": null
+    },
+    "3078492": {
+      "id": "3078492",
+      "sourceUrl": "https://support.telnyx.com/en/articles/3078492-migrate-your-lrn-lookup-api-from-v1-to-v1-1",
+      "headings": [
+        {
+          "text": "A quick recap of the format of an LRN:",
+          "id": "a-quick-recap-of-the-format-of-an-lrn"
+        },
+        {
+          "text": "What\u2019s changed in v1.1:",
+          "id": "h_d5332ffdf3"
+        },
+        {
+          "text": "Examples :",
+          "id": "h_dfaef133b3"
+        },
+        {
+          "text": "LRN lookup using the v1 API",
+          "id": "lrn-lookup-using-the-v1-api"
+        },
+        {
+          "text": "Request",
+          "id": "request"
+        },
+        {
+          "text": "Response",
+          "id": "response"
+        },
+        {
+          "text": "LRN lookup using the v1.1 API if you aren\u2019t a customer of NPAC",
+          "id": "lrn-lookup-using-the-v11-api-if-you-arent-a-customer-of-npac"
+        },
+        {
+          "text": "Request",
+          "id": "request"
+        },
+        {
+          "text": "Response",
+          "id": "response"
+        },
+        {
+          "text": "LRN lookup using the v1.1 API if you are a customer of NPAC",
+          "id": "lrn-lookup-using-the-v11-api-if-you-are-a-customer-of-npac"
+        },
+        {
+          "text": "Request",
+          "id": "request"
+        },
+        {
+          "text": "Response",
+          "id": "response"
+        }
+      ],
+      "collectionPath": "3968260-telnyx-identity-verification-tools"
+    },
+    "4394516": {
+      "id": "4394516",
+      "sourceUrl": "https://support.telnyx.com/en/articles/4394516-configuring-programmable-fax-applications",
+      "headings": [
+        {
+          "text": "Configuration of Programmable Fax",
+          "id": "h_cae5e8efb8"
+        },
+        {
+          "text": "Step By Step Guide to Programmable Fax",
+          "id": "h_6072f08713"
+        },
+        {
+          "text": "Fax Application Settings",
+          "id": "app-info"
+        },
+        {
+          "text": "App Name",
+          "id": "h_09c2102106"
+        },
+        {
+          "text": "Send a webhook to the URL",
+          "id": "h_a6c8c2fadc"
+        },
+        {
+          "text": "Custom webhook timeout (seconds)",
+          "id": "h_9d880a1428"
+        },
+        {
+          "text": "AnchorSite\u00ae Selection",
+          "id": "h_a1679a0082"
+        },
+        {
+          "text": "RTCP Capture",
+          "id": "h_75f41ed5cd"
+        },
+        {
+          "text": "Custom Headers",
+          "id": "h_33c23eba0a"
+        },
+        {
+          "text": "Inbound Settings",
+          "id": "inbound-settings"
+        },
+        {
+          "text": "Subdomain",
+          "id": "h_b0e08c8cbd"
+        },
+        {
+          "text": "Inbound Channel Limit",
+          "id": "h_e088d78054"
+        },
+        {
+          "text": "File Type",
+          "id": "h_df2946c55b"
+        },
+        {
+          "text": "Outbound Settings",
+          "id": "outbound-settings"
+        },
+        {
+          "text": "Outbound Voice Profile",
+          "id": "h_26ae3b61fd"
+        },
+        {
+          "text": "Outbound Channel Limit",
+          "id": "h_c4a6a9642d"
+        },
+        {
+          "text": "Notes on Programmable Fax",
+          "id": "h_aaa50ef2b2"
+        },
+        {
+          "text": "Where can I find my Fax application or app id?",
+          "id": "h_220a531ade"
+        },
+        {
+          "text": "Why do I need an Fax application or app id?",
+          "id": "h_c6beb7920b"
+        },
+        {
+          "text": "Where can I find the developer documentation for your programmable fax product?",
+          "id": "h_a728107a44"
+        }
+      ],
+      "collectionPath": "3968239-telnyx-fax-configuration-errors"
+    },
+    "5377454": {
+      "id": "5377454",
+      "sourceUrl": "https://support.telnyx.com/en/articles/5377454-call-recording",
+      "headings": [
+        {
+          "text": "Call Recording",
+          "id": "h_b5d4ee1598"
+        },
+        {
+          "text": "Features of Telnyx Call Recording",
+          "id": "h_d208eb8e04"
+        },
+        {
+          "text": "How to set up Call Recording on the Telnyx Mission Control Portal",
+          "id": "h_9bb2525c34"
+        },
+        {
+          "text": "Inbound",
+          "id": "h_0c2a26ca5e"
+        },
+        {
+          "text": "Outbound",
+          "id": "h_0e247375a2"
+        },
+        {
+          "text": "How to download or delete your call recordings",
+          "id": "h_838bb13dd9"
+        },
+        {
+          "text": "How long are the recordings made available for?",
+          "id": "h_aea7c3951a"
+        }
+      ],
+      "collectionPath": "2484711-reporting-articles-and-guides"
+    },
+    "2819215": {
+      "id": "2819215",
+      "sourceUrl": "https://support.telnyx.com/en/articles/2819215-bulk-edit-numbers-caller-id-inbound",
+      "headings": [
+        {
+          "text": "Guide to Adding Caller ID to your Inbound Numbers",
+          "id": "guide-to-adding-caller-id-to-your-inbound-numbers"
+        }
+      ],
+      "collectionPath": null
+    },
+    "9670281": {
+      "id": "9670281",
+      "sourceUrl": "https://support.telnyx.com/en/articles/9670281-transition-of-canadian-numbers-to-from-global-channel-billing-us-zone-to-zone-b",
+      "headings": [
+        {
+          "text": "How do I transition Canadian numbers in the Global Channel Billing US Zone to Zone B?",
+          "id": "h_43960f8753"
+        },
+        {
+          "text": "Purchase Zone B Channels",
+          "id": "h_69f159b173"
+        },
+        {
+          "text": "Update API Integration",
+          "id": "h_771b673898"
+        },
+        {
+          "text": "What is the difference in pricing between the US Zone and Zone B?",
+          "id": "h_234927782c"
+        },
+        {
+          "text": "Zone B",
+          "id": "h_1fab5af3c6"
+        },
+        {
+          "text": "Post-migration checks to ensure a seamless transition",
+          "id": "h_1786927e9c"
+        },
+        {
+          "text": "Remove Channels from Zone US",
+          "id": "h_08896dc38e"
+        },
+        {
+          "text": "Monitor Configurations",
+          "id": "h_baee1a9105"
+        },
+        {
+          "text": "Ensure Availability",
+          "id": "h_69e90ee35a"
+        }
+      ],
+      "collectionPath": null
+    },
+    "8762970": {
+      "id": "8762970",
+      "sourceUrl": "https://support.telnyx.com/en/articles/8762970-supported-emergency-numbers",
+      "headings": [
+        {
+          "text": "Telnyx: Emergency Numbers Supported by Country",
+          "id": "h_6bf993eb84"
+        }
+      ],
+      "collectionPath": null
+    },
+    "9118675": {
+      "id": "9118675",
+      "sourceUrl": "https://support.telnyx.com/en/articles/9118675-new-mobile-charges-for-international-markets",
+      "headings": [
+        {
+          "text": "Monthly Charges",
+          "id": "h_65af7377a7"
+        },
+        {
+          "text": "Inbound & Outbound SMS Prices",
+          "id": "h_e2b93dfaa5"
+        },
+        {
+          "text": "Inbound Per Minute Prices",
+          "id": "h_1bf9f45eb8"
+        }
+      ],
+      "collectionPath": null
+    },
+    "2807944": {
+      "id": "2807944",
+      "sourceUrl": "https://support.telnyx.com/en/articles/2807944-bulk-edit-numbers-call-forwarding",
+      "headings": [
+        {
+          "text": "Guide to Editing Your Numbers for Call Forwarding",
+          "id": "guide-to-editing-your-numbers-for-call-forwarding"
+        },
+        {
+          "text": "Video Walkthrough - Editing numbers for call forwarding",
+          "id": "h_929988963b"
+        }
+      ],
+      "collectionPath": null
+    },
+    "8380587": {
+      "id": "8380587",
+      "sourceUrl": "https://support.telnyx.com/en/articles/8380587-t-mobile-special-business-review",
+      "headings": [],
+      "collectionPath": null
+    },
+    "8173789": {
+      "id": "8173789",
+      "sourceUrl": "https://support.telnyx.com/en/articles/8173789-short-code-best-practices",
+      "headings": [
+        {
+          "text": "CTIA - US SMS Messaging Programs",
+          "id": "h_86c270b197"
+        },
+        {
+          "text": "Call-to-Action (CTA)",
+          "id": "h_6f15729902"
+        },
+        {
+          "text": "User Consent",
+          "id": "h_f92ebb6446"
+        },
+        {
+          "text": "Opt-in",
+          "id": "h_f9e00412d5"
+        },
+        {
+          "text": "Opt-out",
+          "id": "h_6b00774529"
+        },
+        {
+          "text": "Privacy Policy",
+          "id": "h_22ffcb852f"
+        },
+        {
+          "text": "Terms and Conditions",
+          "id": "h_78f5088521"
+        },
+        {
+          "text": "US - Program Message Flow Key Elements",
+          "id": "h_c23b543f90"
+        },
+        {
+          "text": "Opt-In Confirmation",
+          "id": "h_a4ea20a607"
+        },
+        {
+          "text": "HELP",
+          "id": "h_c860c98c77"
+        },
+        {
+          "text": "Opt-Out",
+          "id": "h_16bfa26f1e"
+        },
+        {
+          "text": "Robust Age Gates",
+          "id": "h_498d06bfa0"
+        }
+      ],
+      "collectionPath": null
+    },
+    "8008542": {
+      "id": "8008542",
+      "sourceUrl": "https://support.telnyx.com/en/articles/8008542-403-restricted-origination-number-d54",
+      "headings": [],
+      "collectionPath": null
+    },
+    "1130726": {
+      "id": "1130726",
+      "sourceUrl": "https://support.telnyx.com/en/articles/1130726-pending-order-error",
+      "headings": [
+        {
+          "text": "This article is for API V1, please use the Developer Center for API V2 guides.",
+          "id": "this-article-is-for-api-v1-please-use-the-developer-center-for-api-v2-guides"
+        },
+        {
+          "text": "Pending Order Error",
+          "id": "pending-order-error"
+        },
+        {
+          "text": "Related Errors",
+          "id": "related-errors"
+        },
+        {
+          "text": "What does it mean?",
+          "id": "what-does-it-mean"
+        },
+        {
+          "text": "Next steps",
+          "id": "next-steps"
+        },
+        {
+          "text": "Special note for resellers",
+          "id": "special-note-for-resellers"
+        }
+      ],
+      "collectionPath": null
+    },
+    "1130719": {
+      "id": "1130719",
+      "sourceUrl": "https://support.telnyx.com/en/articles/1130719-what-does-the-tech-prefix-option-do",
+      "headings": [
+        {
+          "text": "What does the \u201cTech Prefix\u201d option do?",
+          "id": "what-does-the-tech-prefix-option-do"
+        },
+        {
+          "text": "Can't find what you're looking for? Click the chat bubble at your lower right hand corner and start a chat!",
+          "id": "cant-find-what-youre-looking-for-click-the-chat-bubble-at-your-lower-right-hand-corner-and-start-a-chat"
+        }
+      ],
+      "collectionPath": null
     }
   }
 }

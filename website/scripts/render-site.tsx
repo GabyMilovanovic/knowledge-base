@@ -52,11 +52,11 @@ export function renderSite(dist: string) {
     }
     return [{name:"Home",item:base+"/"},...result];
   }
-  function page(route: string, title: string, description: string, body?: string, structured?: unknown, missing = false) {
+  function page(route: string, title: string, description: string, body?: string, structured?: unknown, missing = false, robots?: "noindex,nofollow") {
     const content = renderToString(<Router ssrPath={route}><DefaultLayout><AppRoutes articleBody={body}/></DefaultLayout></Router>);
     if ((content.match(/<h1(?:\s|>)/g) ?? []).length !== 1) throw new Error(`Expected exactly one H1: ${route}`);
     const canonical = base+route;
-    const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)} | Telnyx Help Center</title><meta name="description" content="${esc(description)}"><meta name="robots" content="${indexable&&!missing?"index,follow":"noindex,follow"}">${missing?"":`<link rel="canonical" href="${esc(canonical)}">`}<meta property="og:title" content="${esc(title)} | Telnyx Help Center"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:type" content="${body!==undefined?"article":"website"}"><meta property="og:site_name" content="Telnyx Help Center"><link rel="icon" href="/favicon.svg" type="image/svg+xml">${structured?`<script type="application/ld+json">${json(structured)}</script>`:""}${assetTags}</head><body><div id="root">${content}</div></body></html>`;
+    const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)} | Telnyx Help Center</title><meta name="description" content="${esc(description)}"><meta name="robots" content="${robots ?? (indexable&&!missing?"index,follow":"noindex,follow")}">${missing?"":`<link rel="canonical" href="${esc(canonical)}">`}<meta property="og:title" content="${esc(title)} | Telnyx Help Center"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:type" content="${body!==undefined?"article":"website"}"><meta property="og:site_name" content="Telnyx Help Center"><link rel="icon" href="/favicon.svg" type="image/svg+xml">${structured?`<script type="application/ld+json">${json(structured)}</script>`:""}${assetTags}</head><body><div id="root">${content}</div></body></html>`;
     const dest = path.join(dist,route==="/"?"index.html":route.slice(1));
     fs.mkdirSync(path.dirname(dest),{recursive:true}); fs.writeFileSync(dest,html);
   }
@@ -76,8 +76,8 @@ export function renderSite(dist: string) {
     page(route,a.seoTitle||a.title,description,body,{"@context":"https://schema.org","@graph":[
       {"@type":"Article",headline:a.title,description,url:base+route,mainEntityOfPage:base+route,...(modified?{dateModified:modified}:{}),publisher:{"@type":"Organization",name:"Telnyx"}},
       {"@type":"BreadcrumbList",itemListElement:breadcrumbs.map((b,i)=>({"@type":"ListItem",position:i+1,...b}))}
-    ]});
-    sitemap.push({route,lastmod:modified});
+    ]},false,a.robots);
+    if (!a.robots?.includes("noindex")) sitemap.push({route,lastmod:modified});
   }
   page("/404.html","Page not found","This page could not be found. Browse Telnyx support topics from the homepage.",undefined,undefined,true);
   fs.mkdirSync(path.join(dist,"en"),{recursive:true});

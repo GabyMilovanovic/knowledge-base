@@ -4,6 +4,7 @@ export interface Article {
   slug: string;
   title: string;
   seoTitle?: string;
+  robots?: "noindex,nofollow";
   modifiedAt?: string;
   headingAnchors?: { text: string; id: string }[];
   description: string | null;
