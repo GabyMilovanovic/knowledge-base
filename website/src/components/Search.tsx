@@ -1,6 +1,7 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { articles } from "../content/manifest";
+import { articlePath } from "../utils/support-paths";
 import "./Search.css";
 
 const MAX_RESULTS = 8;
@@ -61,7 +62,7 @@ export function Search({
     setQuery("");
     setOpen(false);
     setActiveIndex(-1);
-    navigate(`/article/${slug}`);
+    navigate(articlePath(slug));
   }
 
   function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {

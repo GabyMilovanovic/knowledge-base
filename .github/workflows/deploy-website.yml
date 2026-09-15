@@ -42,6 +42,10 @@ jobs:
         working-directory: website
         run: bun run gen-content
 
+      - name: Test website
+        working-directory: website
+        run: bun test
+
       - name: Type check
         working-directory: website
         run: bun run type-check
@@ -91,8 +95,6 @@ jobs:
             --exclude 'assets/*' \
             --exclude '_images/*' \
             --exclude 'content/*' \
-            --exclude 'article/*' \
-            --exclude 'collection/*' \
             --exclude 'en/*' \
             --exclude '*.woff' \
             --exclude '*.woff2' \
@@ -101,7 +103,7 @@ jobs:
           # 5) SPA route files — extensionless copies of index.html (deep-link
           #    support); uploaded separately because sync would guess
           #    application/octet-stream for files without extensions.
-          for prefix in article collection en; do
+          for prefix in en; do
             aws s3 sync ./website/dist/$prefix/ $BUCKET/$prefix/ \
               --delete \
               --content-type 'text/html; charset=utf-8' \

@@ -44,7 +44,11 @@ scripts/monthly_llmwiki_refresh.py
 .github/workflows/monthly-llmwiki-refresh.yml
 ```
 
-`support-docs/` is currently a flat snapshot: articles live directly in the directory as `en--articles--<id>-<slug>.md`, with YAML frontmatter (`source_url`, `title`, `description`, `scraped`, `content_hash`) and an H1 title in the body. `_manifest.json` is generated metadata: `scripts/regenerate_support_docs_manifest.py` derives `pages_saved` and `files` from the checked-in Markdown tree while preserving the snapshot's scrape date and asset inventory. Do not edit its source-file inventory by hand.
+`support-docs/` is currently a flat snapshot: article and collection sources live directly in the directory as `en--articles--<id>-<slug>.md` and `en--collections--<id>-<slug>.md`, with YAML frontmatter (`source_url`, `title`, `description`, `scraped`, `content_hash`) and an H1 title in the body. `_manifest.json` is generated metadata: `scripts/regenerate_support_docs_manifest.py` derives `pages_saved` and `files` from the checked-in Markdown tree while preserving the snapshot's scrape date and asset inventory. Do not edit its source-file inventory by hand.
+
+Website ingestion uses `source_url` to identify the canonical `/en/articles/...` or `/en/collections/...` path. Current prefixed filenames remain supported for compatibility. A future clean `<id>-<slug>.md` filename must include a valid type-bearing `source_url`; otherwise ingestion fails rather than guessing whether it is an article or collection.
+
+`source_url` metadata is authoritative and must be an HTTP or HTTPS URL on `support.telnyx.com` with no credentials or non-default port, and an English `/en/articles/<id>-<slug>` or `/en/collections/<id>-<slug>` path. Its identity need not match the storage filename.
 
 The internal organization of `wiki/` is generated and may evolve. Consumers should navigate via `wiki/index.md` rather than hard-coding paths.
 
@@ -132,7 +136,11 @@ bun run gen-content   # regenerate content without building
 
 ### How the build works
 
-The content pipeline (`website/scripts/build-content.ts`, runs as a `prebuild`/`predev` step) reads `support-docs/`, cleans scraper noise from article bodies, rewrites legacy help-center links, copies theme fonts and referenced images into `website/public/`, emits per-article JSON for on-demand loading, and generates a typed content manifest. When `support-docs/_tree.json` is absent (the current flat snapshot), it derives topic collections from keyword rules. A postbuild step (`website/scripts/generate-route-files.ts`) materializes every route — including legacy `/en/articles/...` URLs — as a static file so deep links work on S3, plus a `404.html` fallback.
+The content pipeline (`website/scripts/build-content.ts`, runs as a `prebuild`/`predev` step) reads `support-docs/`, cleans scraper noise from article bodies, rewrites internal support links while preserving query strings and fragments, copies theme fonts and referenced images into `website/public/`, emits per-article JSON for on-demand loading, and generates a typed content manifest. It recovers 15 source-root collections and 98 linked children in source and encounter order. Every child has exactly one existing parent; duplicate identities, conflicting parents, cycles, and duplicate article memberships are rejected. The linked children have no source files, so they receive only locally evidenced title, parent, order, and members: no body or description is invented.
+
+The collection snapshots recover membership for 523 local articles. The remaining 359 use deterministic fallback membership, distinct in generated metadata from recovered membership: Messaging to `133103-telnyx-sms-guide`; Voice and SIP Trunking to `3968237-telnyx-sip-trunking-configurations`; Numbers and Porting to `3968222-telnyx-number-management-guide`; IoT and Wireless to `1895859-telnyx-global-iot-sims`; Networking and Storage to `5317581-networking-using-telnyx`; Account, Billing and Portal to `133094-general-telnyx-portal-account`; AI and Automation to `19623087-ai-assistant`; and unmatched General to `133094-general-telnyx-portal-account`.
+
+A postbuild step (`website/scripts/generate-route-files.ts`) materializes extensionless canonical `/en/articles/...` and `/en/collections/...` objects, their language-root index, and a `404.html` fallback so deep links work on S3. Deployment uploads the canonical `en` tree as HTML; no custom article or collection route trees are deployed.
 
 Deployment runs from `.github/workflows/deploy-website.yml` on pushes to `main`, using OIDC role assumption for AWS credentials.
 

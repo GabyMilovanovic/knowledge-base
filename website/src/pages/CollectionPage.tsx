@@ -4,6 +4,10 @@ import { collections, articles } from "../content/manifest";
 import type { Article, Collection } from "../content/types";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { useDocumentTitle } from "../utils/document-title";
+import {
+  articlePath,
+  collectionPath as supportCollectionPath,
+} from "../utils/support-paths";
 import "./CollectionPage.css";
 
 function findCollection(path: string): Collection | undefined {
@@ -13,7 +17,7 @@ function findCollection(path: string): Collection | undefined {
 type ArticleMeta = Omit<Article, "body">;
 
 // wouter passes params raw, so a malformed percent-sequence in the URL
-// (e.g. /collection/100%zz) would make decodeURIComponent throw mid-render.
+// (e.g. /en/collections/100%zz) would make decodeURIComponent throw mid-render.
 function safeDecode(value: string): string {
   try {
     return decodeURIComponent(value);
@@ -80,7 +84,7 @@ export function CollectionPage() {
           <ul className="collection-children-list">
             {childCollections.map((child) => (
               <li key={child.path}>
-                <Link to={`/collection/${child.path}`}>{child.title}</Link>
+                <Link to={supportCollectionPath(child.path)}>{child.title}</Link>
               </li>
             ))}
           </ul>
@@ -104,7 +108,7 @@ export function CollectionPage() {
               {visibleArticles.map((article) => (
                 <li key={article.slug} className="article-list-item">
                   <Link
-                    to={`/article/${article.slug}`}
+                    to={articlePath(article.slug)}
                     className="article-list-link"
                   >
                     <span className="article-list-text">
