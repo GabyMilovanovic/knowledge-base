@@ -1,14 +1,12 @@
 const SKIP_LINK = "[Skip to main content](#main-content)";
-const LEGACY_ARTICLE_LINK =
-  /https?:\/\/support\.telnyx\.com\/en\/articles\/([A-Za-z0-9][A-Za-z0-9-]*)/g;
+const SUPPORT_LINK =
+  /https?:\/\/support\.telnyx\.com(\/en\/(?:articles|collections)\/[A-Za-z0-9][A-Za-z0-9-]*)/g;
 
-// Scraped bodies cross-reference other articles through the legacy Intercom
-// URL scheme (https://support.telnyx.com/en/articles/<id>-<slug>). This site
-// deploys to that same domain but serves articles at /article/en--articles--
-// <id>-<slug>, so rewrite the links to the new scheme (anchors survive: the
-// match stops before any #fragment).
+// Scraped bodies cross-reference same-host support pages through absolute URLs.
+// Rewriting only their hostname-qualified path keeps navigation client-side and
+// leaves query strings and fragments untouched.
 export function rewriteLegacyArticleLinks(body: string): string {
-  return body.replace(LEGACY_ARTICLE_LINK, "/article/en--articles--$1");
+  return body.replace(SUPPORT_LINK, "$1");
 }
 
 const FEEDBACK_PROMPT = "Did this answer your question?";

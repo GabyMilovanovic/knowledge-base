@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { collections } from "../content/manifest";
 import type { Collection } from "../content/types";
+import { collectionPath as supportCollectionPath } from "../utils/support-paths";
 import "./Breadcrumbs.css";
 
 function findCollection(path: string): Collection | undefined {
@@ -33,7 +34,7 @@ export function Breadcrumbs({ collectionPath }: { collectionPath: string }) {
             {isLast ? (
               <span className="breadcrumbs-current">{collection.title}</span>
             ) : (
-              <Link to={`/collection/${collection.path}`}>
+              <Link to={supportCollectionPath(collection.path)}>
                 {collection.title}
               </Link>
             )}

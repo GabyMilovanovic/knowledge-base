@@ -5,6 +5,7 @@ import { ArticleContent } from "../components/ArticleContent";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { useDocumentTitle } from "../utils/document-title";
 import { assetBase } from "../utils/base-path";
+import { articlePath } from "../utils/support-paths";
 import "./ArticlePage.css";
 
 const bodyCache = new Map<string, string>();
@@ -131,7 +132,7 @@ export function ArticlePage() {
             {related.map((a) => (
               <Link
                 key={a.slug}
-                to={`/article/${a.slug}`}
+                to={articlePath(a.slug)}
                 className="article-related-card"
               >
                 <span className="article-related-title">{a.title}</span>

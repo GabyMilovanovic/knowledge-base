@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { collections, articles } from "../content/manifest";
 import { Search } from "../components/Search";
 import { useDocumentTitle } from "../utils/document-title";
+import { collectionPath } from "../utils/support-paths";
 import "./HomePage.css";
 
 export function HomePage() {
@@ -31,7 +32,7 @@ export function HomePage() {
           {rootCollections.map((collection) => (
             <Link
               key={collection.path}
-              to={`/collection/${collection.path}`}
+              to={collectionPath(collection.path)}
               className="topic-card"
             >
               <h3 className="topic-card-title">{collection.title}</h3>

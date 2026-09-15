@@ -5,10 +5,11 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import { assetBase } from "../utils/base-path";
+import { isSupportPath } from "../utils/support-paths";
 import "./ArticleContent.css";
 
 // Image references are relative (_images/<hash>.<ext>), which would resolve
-// against the current route (/article/<slug>/...) and 404. The files are
+// against the current route (/en/articles/<slug>/...) and 404. The files are
 // served from the site root, so rewrite them to base-absolute URLs.
 function urlTransform(url: string): string | null | undefined {
   if (url.startsWith("_images/")) return `${assetBase}${url}`;
@@ -37,8 +38,7 @@ export const ArticleContent = React.memo(function ArticleContent({
                 </a>
               );
             }
-            // Rewritten article cross-links navigate client-side.
-            if (href?.startsWith("/article/")) {
+            if (href && isSupportPath(href)) {
               return (
                 <Link to={href} {...props}>
                   {children}

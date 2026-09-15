@@ -1,3 +1,5 @@
+export type ContentPageKind = "article" | "collection";
+
 export interface Article {
   slug: string;
   title: string;
@@ -5,6 +7,7 @@ export interface Article {
   sourceUrl: string | null;
   scraped: string | null;
   collectionPath: string;
+  collectionMembership: "recovered" | "fallback";
   body: string;
 }
 

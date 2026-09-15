@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Router, Route, Switch, Redirect, useLocation } from "wouter";
+import { Router, Route, Switch, useLocation } from "wouter";
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { HomePage } from "./pages/HomePage";
@@ -24,24 +24,21 @@ export function App() {
       <ScrollToTop />
       <DefaultLayout>
         <ErrorBoundary>
-          <Switch>
-            <Route path="/" component={HomePage} />
-            <Route path="/collection/:rest*" component={CollectionPage} />
-            <Route path="/article/:slug" component={ArticlePage} />
-            {/* Legacy Intercom help-center URLs — the site replaces an indexed
-                help center, so inbound links and search results still use the
-                old scheme. Article URLs map 1:1; everything else goes home. */}
-            <Route path="/en/articles/:slug">
-              {(params: { slug: string }) => (
-                <Redirect to={`/article/en--articles--${params.slug}`} replace />
-              )}
-            </Route>
-            <Route path="/en">{() => <Redirect to="/" replace />}</Route>
-            <Route path="/en/:rest*">{() => <Redirect to="/" replace />}</Route>
-            <Route path="/:rest*" component={NotFoundPage} />
-          </Switch>
+          <AppRoutes />
         </ErrorBoundary>
       </DefaultLayout>
     </Router>
+  );
+}
+
+export function AppRoutes() {
+  return (
+    <Switch>
+      <Route path="/" component={HomePage} />
+      <Route path="/en" component={HomePage} />
+      <Route path="/en/collections/:rest*" component={CollectionPage} />
+      <Route path="/en/articles/:slug" component={ArticlePage} />
+      <Route path="/:rest*" component={NotFoundPage} />
+    </Switch>
   );
 }
