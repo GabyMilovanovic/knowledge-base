@@ -4,11 +4,14 @@ import { collections, articles } from "../content/manifest";
 import type { Article, Collection } from "../content/types";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { useDocumentTitle } from "../utils/document-title";
+import { collectionArticleCounts } from "../utils/collection-articles";
 import {
   articlePath,
   collectionPath as supportCollectionPath,
 } from "../utils/support-paths";
 import "./CollectionPage.css";
+
+const articleCounts = collectionArticleCounts(collections, articles);
 
 function findCollection(path: string): Collection | undefined {
   return collections.find((collection) => collection.path === path);
@@ -53,6 +56,7 @@ export function CollectionPage() {
   const collectionArticles = collection.articleSlugs
     .map((slug) => articles.find((article) => article.slug === slug))
     .filter((article): article is ArticleMeta => article !== undefined);
+  const totalArticles = articleCounts.get(collection.path) ?? 0;
 
   const q = filter.trim().toLowerCase();
   const visibleArticles =
@@ -73,8 +77,9 @@ export function CollectionPage() {
           <p className="collection-description">{collection.description}</p>
         )}
         <p className="collection-count eyebrow">
-          {collectionArticles.length}{" "}
-          {collectionArticles.length === 1 ? "article" : "articles"}
+          {totalArticles}{" "}
+          {totalArticles === 1 ? "article" : "articles"}
+          {childCollections.length > 0 && " including subcollections"}
         </p>
       </header>
 

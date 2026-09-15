@@ -34,6 +34,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          fetch-depth: 0
 
       - name: Setup runner
         uses: ./.github/utils/setup-runner
@@ -54,7 +56,13 @@ jobs:
         working-directory: website
         env:
           BASE_PATH: "/"
+          SITE_ORIGIN: "https://d27az1l5lty0u1.cloudfront.net"
+          SITE_INDEXABLE: "false"
         run: bun run build
+
+      - name: Verify rendered pages and links
+        working-directory: website
+        run: bun run verify
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@e6de054238d6b7531b4efff3b6587d9aade6a06c # v6.2.3
@@ -72,7 +80,6 @@ jobs:
           #    bucket.
           for prefix in assets _images; do
             aws s3 sync ./website/dist/$prefix/ $BUCKET/$prefix/ \
-              --delete \
               --cache-control 'public, max-age=31536000, immutable'
           done
 
@@ -100,8 +107,8 @@ jobs:
             --exclude '*.woff2' \
             --cache-control 'public, no-cache'
 
-          # 5) SPA route files — extensionless copies of index.html (deep-link
-          #    support); uploaded separately because sync would guess
+          # 5) Complete prerendered pages at exact, extensionless keys.
+          #    Upload separately because sync would guess
           #    application/octet-stream for files without extensions.
           for prefix in en; do
             aws s3 sync ./website/dist/$prefix/ $BUCKET/$prefix/ \

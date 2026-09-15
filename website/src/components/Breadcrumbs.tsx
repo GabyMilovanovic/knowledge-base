@@ -8,7 +8,7 @@ function findCollection(path: string): Collection | undefined {
   return collections.find((collection) => collection.path === path);
 }
 
-export function Breadcrumbs({ collectionPath }: { collectionPath: string }) {
+export function Breadcrumbs({ collectionPath, linkCurrent = false }: { collectionPath: string; linkCurrent?: boolean }) {
   const trail: Collection[] = [];
   const seen = new Set<string>();
   let current = findCollection(collectionPath);
@@ -31,7 +31,7 @@ export function Breadcrumbs({ collectionPath }: { collectionPath: string }) {
             <span className="breadcrumbs-separator" aria-hidden="true">
               /
             </span>
-            {isLast ? (
+            {isLast && !linkCurrent ? (
               <span className="breadcrumbs-current">{collection.title}</span>
             ) : (
               <Link to={supportCollectionPath(collection.path)}>

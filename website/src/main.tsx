@@ -1,10 +1,13 @@
 import "@telnyx-private/bootstrap";
 import "./styles/global.css";
-import { App } from "./App";
-import { createRoot } from "react-dom/client";
-
-const rootElement = document.getElementById("root");
-
-if (rootElement) {
-  createRoot(rootElement).render(<App />);
-}
+import "./layouts/DefaultLayout.css";
+import "./components/Footer.css";
+import "./components/Search.css";
+import "./components/Breadcrumbs.css";
+import "./components/ArticleContent.css";
+import "./pages/HomePage.css";
+import "./pages/ArticlePage.css";
+import "./pages/CollectionPage.css";
+import "./pages/NotFoundPage.css";
+import { enhance } from "./enhance";
+enhance(document);

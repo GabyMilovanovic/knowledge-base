@@ -18,4 +18,4 @@ runs:
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       shell: bash
       working-directory: website
-      run: bun install
+      run: bun install --frozen-lockfile

@@ -31,13 +31,13 @@ export function App() {
   );
 }
 
-export function AppRoutes() {
+export function AppRoutes({ articleBody }: { articleBody?: string } = {}) {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
       <Route path="/en" component={HomePage} />
       <Route path="/en/collections/:rest*" component={CollectionPage} />
-      <Route path="/en/articles/:slug" component={ArticlePage} />
+      <Route path="/en/articles/:slug"><ArticlePage initialBody={articleBody} /></Route>
       <Route path="/:rest*" component={NotFoundPage} />
     </Switch>
   );

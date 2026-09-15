@@ -3,7 +3,10 @@ import { collections, articles } from "../content/manifest";
 import { Search } from "../components/Search";
 import { useDocumentTitle } from "../utils/document-title";
 import { collectionPath } from "../utils/support-paths";
+import { collectionArticleCounts } from "../utils/collection-articles";
 import "./HomePage.css";
+
+const articleCounts = collectionArticleCounts(collections, articles);
 
 export function HomePage() {
   useDocumentTitle();
@@ -42,8 +45,8 @@ export function HomePage() {
                 </p>
               )}
               <span className="topic-card-count">
-                {collection.articleSlugs.length}{" "}
-                {collection.articleSlugs.length === 1 ? "article" : "articles"}
+                {articleCounts.get(collection.path) ?? 0}{" "}
+                {articleCounts.get(collection.path) === 1 ? "article" : "articles"}
                 <span className="topic-card-arrow" aria-hidden="true">
                   →
                 </span>
