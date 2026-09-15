@@ -21,7 +21,7 @@ An email that did not arrive almost always leaves a trail. Telnyx records reques
 Start with the parent message. If you saved the message `id` returned when you sent it, look it up:
 
 ```
-curl https://api.telnyx.com/v2/email_messages/{message_id} \  
+curl https://api.telnyx.com/v2/email_messages/{message_id} \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -30,14 +30,14 @@ The parent message `status` describes request processing, not delivery to every 
 Next, request the recipient-scoped event history:
 
 ```
-curl "https://api.telnyx.com/v2/email_messages/{message_id}/events?page_size=25" \  
+curl "https://api.telnyx.com/v2/email_messages/{message_id}/events?page_size=25" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
 The default event page contains up to 25 records. If the response includes `meta.page_cursor`, request the next page and repeat until no cursor is returned:
 
 ```
-curl "https://api.telnyx.com/v2/email_messages/{message_id}/events?page_size=25&page_cursor={page_cursor}" \  
+curl "https://api.telnyx.com/v2/email_messages/{message_id}/events?page_size=25&page_cursor={page_cursor}" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -78,14 +78,14 @@ Telnyx may suppress an address after eligible delivery failures, repeated soft-b
 List suppression records and inspect their `to` values. The list endpoint does not support `filter[to]`; use supported filters such as reason, domain, or creation date, and page through the results when necessary:
 
 ```
-curl "https://api.telnyx.com/v2/email_blocks?page[size]=100&page[number]=1" \  
+curl "https://api.telnyx.com/v2/email_blocks?page[size]=100&page[number]=1" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
 Every suppression can be removed by ID, regardless of its reason:
 
 ```
-curl -X DELETE https://api.telnyx.com/v2/email_blocks/{block_id} \  
+curl -X DELETE https://api.telnyx.com/v2/email_blocks/{block_id} \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -100,14 +100,14 @@ A degraded sending domain is a domain problem, not a recipient problem. The publ
 Fetch the expected records:
 
 ```
-curl https://api.telnyx.com/v2/email_domains/{domain_id}/dns_records \  
+curl https://api.telnyx.com/v2/email_domains/{domain_id}/dns_records \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
 Restore records that are missing or changed, wait for DNS propagation, and then re-run verification:
 
 ```
-curl -X POST https://api.telnyx.com/v2/email_domains/{domain_id}/verify \  
+curl -X POST https://api.telnyx.com/v2/email_domains/{domain_id}/verify \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

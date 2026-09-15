@@ -18,20 +18,20 @@ In order to purchase a Bosnia and Herzegovina number you will need to provide th
 
 ## **Local Numbers in** Bosnia and Herzegovina
 
-For **business identity** verification:  
-\* Name, last name of an authorized representative  
-\* Contact phone number  
-\* Company name  
-\* Contact e-mail  
-\* Passport or ID copy of an authorized representative  
-\* Local Company Registration Document  
-\* Recently Signed LOI (Signed Within 1 Month)  
-​  
-For **address** verification:  
-\* Address in Bosnia and Herzegovina (street, building number, postal code, city, and country)  
-\* Proof of address (dated within 3 months)  
-​  
-​**Additional Information:**  
+For **business identity** verification:\
+\* Name, last name of an authorized representative\
+\* Contact phone number\
+\* Company name\
+\* Contact e-mail\
+\* Passport or ID copy of an authorized representative\
+\* Local Company Registration Document\
+\* Recently Signed LOI (Signed Within 1 Month)\
+​\
+For **address** verification:\
+\* Address in Bosnia and Herzegovina (street, building number, postal code, city, and country)\
+\* Proof of address (dated within 3 months)\
+​\
+​**Additional Information:**\
 \* Business use required: Business use is required, private use is not allowed.
 
 ---

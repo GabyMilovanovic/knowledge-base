@@ -38,9 +38,9 @@ Authorization: Bearer YOUR_API_KEY
 Telnyx sends your email using a domain you control, such as `mail.yourcompany.com`. This is what recipients and inbox providers use to confirm the mail really came from you. Add your domain with a single request:
 
 ```
-curl -X POST https://api.telnyx.com/v2/email_domains \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
+curl -X POST https://api.telnyx.com/v2/email_domains \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
   -d '{"domain": "mail.yourcompany.com"}'
 ```
 
@@ -55,14 +55,14 @@ For a full walkthrough of DNS setup, see **Setting up your email sending domain*
 Fetch the DNS records Telnyx generated for your domain:
 
 ```
-curl https://api.telnyx.com/v2/email_domains/{domain_id}/dns_records \  
+curl https://api.telnyx.com/v2/email_domains/{domain_id}/dns_records \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
 Add each record at your DNS provider (your domain registrar or hosting provider). Then ask Telnyx to check them:
 
 ```
-curl -X POST https://api.telnyx.com/v2/email_domains/{domain_id}/verify \  
+curl -X POST https://api.telnyx.com/v2/email_domains/{domain_id}/verify \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -77,14 +77,14 @@ With a verified domain, send a message. The `from` address must use your verifie
 **Trial-account restriction:** Trial accounts can send only to the Telnyx account owner's email address. Every `to`, `cc`, and `bcc` recipient must use that address. Use the owner address for this first test, and upgrade your account before sending to anyone else.
 
 ```
-curl -X POST https://api.telnyx.com/v2/email_messages \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "from": "you@mail.yourcompany.com",  
-    "to": ["account-owner@example.com"],  
-    "subject": "Hello from Telnyx",  
-    "text_body": "This is my first email sent with Telnyx."  
+curl -X POST https://api.telnyx.com/v2/email_messages \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "from": "you@mail.yourcompany.com",
+    "to": ["account-owner@example.com"],
+    "subject": "Hello from Telnyx",
+    "text_body": "This is my first email sent with Telnyx."
   }'
 ```
 
@@ -97,14 +97,14 @@ A successful request returns `202 Accepted` with a message `id` and a `status` o
 Look up the message resource at any time. Its parent `status` tracks message-wide processing, not delivery success. A parent status of `completed` means all recipients reached a terminal state; it does not mean every recipient was delivered. To confirm delivery, inspect the response's recipient-scoped `recipient_statuses` counts and the recipient events below:
 
 ```
-curl https://api.telnyx.com/v2/email_messages/{message_id} \  
+curl https://api.telnyx.com/v2/email_messages/{message_id} \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
 For the full history of what happened to a message, request its events:
 
 ```
-curl https://api.telnyx.com/v2/email_messages/{message_id}/events \  
+curl https://api.telnyx.com/v2/email_messages/{message_id}/events \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

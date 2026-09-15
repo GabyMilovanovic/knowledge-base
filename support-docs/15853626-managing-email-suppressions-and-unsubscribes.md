@@ -56,14 +56,14 @@ Keep one-click unsubscribe enabled for eligible mail. Gmail and Yahoo require it
 List the first page of suppression records:
 
 ```
-curl "https://api.telnyx.com/v2/email_blocks?page[size]=25" \  
+curl "https://api.telnyx.com/v2/email_blocks?page[size]=25" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
 The list endpoint does not support `filter[to]`. Supported filters include reason, domain ID, and creation date. To inspect more results with cursor pagination, copy `meta.next_cursor` from the response into `page[after]`:
 
 ```
-curl "https://api.telnyx.com/v2/email_blocks?page[size]=25&page[after]={next_cursor}" \  
+curl "https://api.telnyx.com/v2/email_blocks?page[size]=25&page[after]={next_cursor}" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -78,9 +78,9 @@ Repeat until `meta.has_next` is false. Each record includes fields such as `to`,
 Create a manual block:
 
 ```
-curl -X POST https://api.telnyx.com/v2/email_blocks \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
+curl -X POST https://api.telnyx.com/v2/email_blocks \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
   -d '{"to":"recipient@example.com"}'
 ```
 
@@ -89,7 +89,7 @@ The service stores this as `manual_block` regardless of any supplied `reason`.
 Remove any suppression by its ID:
 
 ```
-curl -X DELETE https://api.telnyx.com/v2/email_blocks/{block_id} \  
+curl -X DELETE https://api.telnyx.com/v2/email_blocks/{block_id} \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -111,15 +111,15 @@ Telnyx auto-detects supported CSV formats from their header row. Dedicated detec
 Postmark is not a dedicated detected format. Convert a Postmark export to the generic format before importing it. Upload only the file; do not send a `format` field:
 
 ```
-curl -X POST https://api.telnyx.com/v2/email_blocks/import \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
+curl -X POST https://api.telnyx.com/v2/email_blocks/import \
+  -H "Authorization: Bearer YOUR_API_KEY" \
   -F "file=@suppressions.csv"
 ```
 
 The import is asynchronous. Use the returned import ID to check progress:
 
 ```
-curl https://api.telnyx.com/v2/email_blocks/import/{import_id} \  
+curl https://api.telnyx.com/v2/email_blocks/import/{import_id} \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -132,7 +132,7 @@ Imports support files up to 25 MB or 250,000 rows.
 Export the account's suppression records for reporting or audit:
 
 ```
-curl https://api.telnyx.com/v2/email_blocks/export \  
+curl https://api.telnyx.com/v2/email_blocks/export \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

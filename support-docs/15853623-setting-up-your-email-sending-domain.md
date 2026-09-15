@@ -21,9 +21,9 @@ Before Telnyx can send email for you, you need to prove you own the domain you s
 Most senders use a subdomain such as `mail.yourcompany.com` rather than the root domain. A subdomain keeps your sending reputation separate from your regular corporate mail and is the recommended approach. Add it:
 
 ```
-curl -X POST https://api.telnyx.com/v2/email_domains \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
+curl -X POST https://api.telnyx.com/v2/email_domains \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
   -d '{"domain": "mail.yourcompany.com"}'
 ```
 
@@ -36,7 +36,7 @@ The response contains the domain `id` and a `status` of `pending`. Note the `id`
 Ask Telnyx for the records to publish:
 
 ```
-curl https://api.telnyx.com/v2/email_domains/{domain_id}/dns_records \  
+curl https://api.telnyx.com/v2/email_domains/{domain_id}/dns_records \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -79,7 +79,7 @@ Sign in to wherever your domain's DNS is managed and add each record exactly as 
 Once the records are saved, ask Telnyx to check them:
 
 ```
-curl -X POST https://api.telnyx.com/v2/email_domains/{domain_id}/verify \  
+curl -X POST https://api.telnyx.com/v2/email_domains/{domain_id}/verify \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

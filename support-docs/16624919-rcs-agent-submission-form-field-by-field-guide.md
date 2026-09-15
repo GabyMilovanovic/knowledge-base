@@ -12,9 +12,9 @@ content_hash: "570429e1288494bfccee46c4ae2abb7c2eb5aa7647f82c6f2797a7b4a9fbbace"
 
 You should use this guide if you want to launch an agent in a market other than the US. For US agents, please use the provisioning API - <https://developers.telnyx.com/docs/messaging/rcs/agent-registration>
 
-Before submitting an agent, please review the [RCS Fees and Charges](https://support.telnyx.com/en/articles/16624343-rcs-fees-and-charges)   
-​  
-​**Business Information**  
+Before submitting an agent, please review the [RCS Fees and Charges](https://support.telnyx.com/en/articles/16624343-rcs-fees-and-charges)\
+​\
+​**Business Information**\
 ​
 
 ## **Organization Name**
@@ -32,7 +32,7 @@ Your customer-facing brand name, if different from your legal organization name.
 
 ## **Contact First Name / Last Name**
 
-The name of the person responsible who can approve RCS agent submission in the Brand Vetting stage.   
+The name of the person responsible who can approve RCS agent submission in the Brand Vetting stage.\
 ​
 
 **Contact Title**
@@ -60,22 +60,22 @@ A direct phone number for the contact person, in international format.
 
 ## **Industry**
 
-Select your industry from the drop down list available.   
+Select your industry from the drop down list available.\
 ​
 
 ## **National Tax ID / Business ID**
 
-The company’s EIN or business registration ID. Used for brand verification.  
+The company’s EIN or business registration ID. Used for brand verification.\
 ​
 
 ## **Registered Company Address**
 
-The official registered address of the business as it appears on your incorporation or registration documents.  
+The official registered address of the business as it appears on your incorporation or registration documents.\
 ​
 
 ## **Company Trading Address**
 
-The primary operating address, if different from the registered address. Leave blank if they are the same.  
+The primary operating address, if different from the registered address. Leave blank if they are the same.\
 ​
 
 ## **Legal Form**
@@ -98,7 +98,7 @@ If your company is publicly traded, provide the stock ticker symbol. Leave blank
 
 ---
 
-**Agent Details**  
+**Agent Details**\
 ​
 
 ## **Agent Display Name**
@@ -160,7 +160,7 @@ A longer description used during the carrier review process. This can provide mo
 - Expected message frequency
 - Your target audience
 
-This description is not shown to end users — it's for the carrier review team only.  
+This description is not shown to end users — it's for the carrier review team only.\
 ​
 
 ## **Agent Logo**
@@ -171,7 +171,7 @@ A small image that appears as your agent's avatar next to messages, similar to a
 - **Maximum file size:** 50 KB
 - **Accepted formats:** JPEG, JPG, or PNG
 
-Your logo will display as small as 48×48 pixels on some devices, so keep it simple. A clean icon or logomark works better than a detailed wordmark at this size. Avoid fine text or intricate details.  
+Your logo will display as small as 48×48 pixels on some devices, so keep it simple. A clean icon or logomark works better than a detailed wordmark at this size. Avoid fine text or intricate details.\
 ​
 
 ## **Banner / Hero Image**
@@ -182,7 +182,7 @@ A wider image that appears at the top of your agent's profile when a user taps o
 - **Maximum file size:** 200 KB
 - **Accepted formats:** JPEG, JPG, or PNG
 
-Use a clean, high-quality image that represents your brand. Avoid placing important content near the edges, as different devices may crop slightly.  
+Use a clean, high-quality image that represents your brand. Avoid placing important content near the edges, as different devices may crop slightly.\
 ​
 
 ## **Brand Color**
@@ -194,7 +194,7 @@ Your brand color is displayed in the conversation header and other UI elements.
 
 Before submitting, check your color at [WebAIM's Contrast Checker](https://webaim.org/resources/contrastchecker). Enter your hex color as the foreground and #FFFFFF as the background. If the ratio is below 4.5:1, choose a darker shade.
 
-Colors that commonly fail: light blues, yellows, pastels, light greens. If your submitted color doesn't meet the contrast requirement, we'll substitute it with black (#000000) and let you know — you can request a change later.  
+Colors that commonly fail: light blues, yellows, pastels, light greens. If your submitted color doesn't meet the contrast requirement, we'll substitute it with black (#000000) and let you know — you can request a change later.\
 ​
 
 ## **Webhook URL**
@@ -207,7 +207,7 @@ The URL where Telnyx will send delivery receipts and inbound message events for 
 
 ---
 
-**Contact & Online Presence**  
+**Contact & Online Presence**\
 ​
 
 ## **Primary Phone Number**
@@ -224,7 +224,7 @@ A short label for the phone number shown to users.
 
 ## **Primary Email**
 
-An email address displayed on your agent's profile.   
+An email address displayed on your agent's profile.\
 ​
 
 ## **Primary Email Label**

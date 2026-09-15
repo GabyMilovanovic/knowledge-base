@@ -15,7 +15,7 @@ If `POST /v2/email_domains/{domain_id}/verify` is not returning a `verified` sta
 **Start here every time:** run verify and read the per-record status in the response. The verify response tells you which records passed and which did not, so you can go straight to the one that needs fixing instead of guessing.
 
 ```
-curl -X POST https://api.telnyx.com/v2/email_domains/{domain_id}/verify \  
+curl -X POST https://api.telnyx.com/v2/email_domains/{domain_id}/verify \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

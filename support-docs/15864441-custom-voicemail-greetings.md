@@ -69,16 +69,16 @@ Note: Only one custom voicemail greeting is supported per number. Saving a new g
 Before setting a custom greeting via the API, upload your greeting audio to Telnyx using POST /v2/media. Then reference the returned media\_name in the voicemail configuration:
 
 ```
-curl -X POST "https://api.telnyx.com/v2/phone_numbers/{number_id}/voicemail" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "enabled": true,  
-    "pin": "1234",  
-    "greeting": {  
-      "mode": "custom_greeting",  
-      "media_name": "custom_greeting_acme"  
-    }  
+curl -X POST "https://api.telnyx.com/v2/phone_numbers/{number_id}/voicemail" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "enabled": true,
+    "pin": "1234",
+    "greeting": {
+      "mode": "custom_greeting",
+      "media_name": "custom_greeting_acme"
+    }
   }'
 ```
 
@@ -91,7 +91,7 @@ curl -X POST "https://api.telnyx.com/v2/phone_numbers/{number_id}/voicemail" \
 You can view the active greeting mode in the Mission Control Portal under the number's voicemail settings, or via the API:
 
 ```
-curl "https://api.telnyx.com/v2/phone_numbers/{number_id}/voicemail" \  
+curl "https://api.telnyx.com/v2/phone_numbers/{number_id}/voicemail" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -110,15 +110,15 @@ To switch back to the default Telnyx greeting:
 ## **Through the API**
 
 ```
-curl -X POST "https://api.telnyx.com/v2/phone_numbers/{number_id}/voicemail" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "enabled": true,  
-    "pin": "1234",  
-    "greeting": {  
-      "mode": "default"  
-    }  
+curl -X POST "https://api.telnyx.com/v2/phone_numbers/{number_id}/voicemail" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "enabled": true,
+    "pin": "1234",
+    "greeting": {
+      "mode": "default"
+    }
   }'
 ```
 

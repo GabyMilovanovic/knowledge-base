@@ -18,14 +18,14 @@ Telnyx Email has two different kinds of errors: request errors returned immediat
 Send requests return a standard `errors` array when the API cannot accept the message. Use `-i` while troubleshooting so you can see the HTTP status as well as the JSON body:
 
 ```
-curl -i -X POST "https://api.telnyx.com/v2/email_messages" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "from": "sender@mail.yourcompany.com",  
-    "to": ["recipient@example.com"],  
-    "subject": "Order update",  
-    "text_body": "Your order has shipped."  
+curl -i -X POST "https://api.telnyx.com/v2/email_messages" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "from": "sender@mail.yourcompany.com",
+    "to": ["recipient@example.com"],
+    "subject": "Order update",
+    "text_body": "Your order has shipped."
   }'
 ```
 
@@ -62,7 +62,7 @@ An unkeyed request bypasses the 8,000,000-byte Edge cap, but it is still subject
 A `202 Accepted` response means Telnyx created the message; it does not guarantee final delivery. Retrieve the message event history with the message ID:
 
 ```
-curl "https://api.telnyx.com/v2/email_messages/{message_id}/events" \  
+curl "https://api.telnyx.com/v2/email_messages/{message_id}/events" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

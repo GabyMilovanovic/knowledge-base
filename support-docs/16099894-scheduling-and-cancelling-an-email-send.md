@@ -18,15 +18,15 @@ Add `scheduled_at` when Telnyx should accept an email now and queue it for a fut
 Use the canonical `scheduled_at` field with a valid ISO 8601 timestamp in the future:
 
 ```
-curl -X POST "https://api.telnyx.com/v2/email_messages" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "from": "sender@mail.yourcompany.com",  
-    "to": ["recipient@example.com"],  
-    "subject": "Scheduled maintenance reminder",  
-    "text_body": "Maintenance starts in one hour.",  
-    "scheduled_at": "2030-01-15T15:00:00Z"  
+curl -X POST "https://api.telnyx.com/v2/email_messages" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "from": "sender@mail.yourcompany.com",
+    "to": ["recipient@example.com"],
+    "subject": "Scheduled maintenance reminder",
+    "text_body": "Maintenance starts in one hour.",
+    "scheduled_at": "2030-01-15T15:00:00Z"
   }'
 ```
 
@@ -52,7 +52,7 @@ Always check both response fields before assuming the schedule was saved:
 Retrieve the message by ID:
 
 ```
-curl "https://api.telnyx.com/v2/email_messages/{message_id}" \  
+curl "https://api.telnyx.com/v2/email_messages/{message_id}" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -65,7 +65,7 @@ Before the send fires, the message should remain `scheduled`. The `scheduled_at`
 Cancel the schedule with the message ID:
 
 ```
-curl -X DELETE "https://api.telnyx.com/v2/email_messages/{message_id}/schedule" \  
+curl -X DELETE "https://api.telnyx.com/v2/email_messages/{message_id}/schedule" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -82,7 +82,7 @@ Scheduled sends are accepted before they enter the delivery queue and are exempt
 If a scheduled message did not queue at the expected time, retrieve its events:
 
 ```
-curl "https://api.telnyx.com/v2/email_messages/{message_id}/events" \  
+curl "https://api.telnyx.com/v2/email_messages/{message_id}/events" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

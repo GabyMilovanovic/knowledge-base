@@ -18,14 +18,14 @@ Email templates let you store reusable Liquid subject and body content, then pro
 Create the template with a unique name and Liquid variables in double braces:
 
 ```
-curl -X POST "https://api.telnyx.com/v2/email_templates" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "name": "Welcome_Email",  
-    "subject": "Welcome, \u007b\u007b first_name \u007d\u007d!",  
-    "html_body": "<h1>Hello \u007b\u007b first_name \u007d\u007d</h1><p>Your account is ready.</p>",  
-    "text_body": "Hello \u007b\u007b first_name \u007d\u007d. Your account is ready."  
+curl -X POST "https://api.telnyx.com/v2/email_templates" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Welcome_Email",
+    "subject": "Welcome, \u007b\u007b first_name \u007d\u007d!",
+    "html_body": "<h1>Hello \u007b\u007b first_name \u007d\u007d</h1><p>Your account is ready.</p>",
+    "text_body": "Hello \u007b\u007b first_name \u007d\u007d. Your account is ready."
   }'
 ```
 
@@ -42,13 +42,13 @@ Template names may contain letters, numbers, spaces, hyphens, and underscores. I
 Render the template with representative variables before using it in production:
 
 ```
-curl -X POST "https://api.telnyx.com/v2/email_templates/{template_id}/render" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "template_variables": {  
-      "first_name": "Ada"  
-    }  
+curl -X POST "https://api.telnyx.com/v2/email_templates/{template_id}/render" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "template_variables": {
+      "first_name": "Ada"
+    }
   }'
 ```
 
@@ -63,16 +63,16 @@ The response returns the rendered `subject`, `html_body`, and `text_body`. Missi
 Pass the saved `template_id` and a JSON object of `template_variables`:
 
 ```
-curl -X POST "https://api.telnyx.com/v2/email_messages" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "from": "sender@mail.yourcompany.com",  
-    "to": ["recipient@example.com"],  
-    "template_id": "{template_id}",  
-    "template_variables": {  
-      "first_name": "Ada"  
-    }  
+curl -X POST "https://api.telnyx.com/v2/email_messages" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "from": "sender@mail.yourcompany.com",
+    "to": ["recipient@example.com"],
+    "template_id": "{template_id}",
+    "template_variables": {
+      "first_name": "Ada"
+    }
   }'
 ```
 
@@ -87,11 +87,11 @@ The rendered subject must be non-empty. A template with no subject, or one whose
 `PUT` behaves as a partial update for `name`, `subject`, `html_body`, and `text_body`: omitted fields are preserved rather than cleared. The `variables` field is the exception. If you omit `variables`, Telnyx regenerates it from the resulting template content. Include `variables` explicitly in the update to preserve a custom list:
 
 ```
-curl -X PUT "https://api.telnyx.com/v2/email_templates/{template_id}" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "subject": "Your Telnyx account is ready, \u007b\u007b first_name \u007d\u007d"  
+curl -X PUT "https://api.telnyx.com/v2/email_templates/{template_id}" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "subject": "Your Telnyx account is ready, \u007b\u007b first_name \u007d\u007d"
   }'
 ```
 

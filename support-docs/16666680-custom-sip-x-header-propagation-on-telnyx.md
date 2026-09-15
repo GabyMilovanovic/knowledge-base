@@ -47,7 +47,7 @@ When a call originates from one Telnyx SIP Trunk and terminates to another Telny
 Sending side (Asterisk PJSIP):
 
 ```
-PJSIP_HEADER(add,X-Trace-Id)=my-trace-12345  
+PJSIP_HEADER(add,X-Trace-Id)=my-trace-12345
 PJSIP_HEADER(add,X-Custom-Header)=my-value
 ```
 
@@ -71,18 +71,18 @@ When a call arrives on a SIP Trunk and is routed to a Programmable Voice applica
 
 **Reserved namespace:** Headers prefixed with `X-Telnyx` are treated as internal/reserved and are **stripped** from the webhook `custom_headers` payload.
 
-This filter is case-insensitive and does not require a dash after `X-Telnyx` — for example, `X-Telnyx-Foo`, `X-TelnyxABC`, and `x-telnyx-lower` are all stripped.   
+This filter is case-insensitive and does not require a dash after `X-Telnyx` — for example, `X-Telnyx-Foo`, `X-TelnyxABC`, and `x-telnyx-lower` are all stripped.\
 Do not use the `X-Telnyx` prefix for your custom application headers.
 
 **Example webhook payload (`call.initiated`):**
 
 ```
-{  
-  "event_type": "call.initiated",  
-  "custom_headers": [  
-    {"name": "X-Trace-Id", "value": "my-trace-12345"},  
-    {"name": "X-Custom-Header", "value": "my-value"}  
-  ]  
+{
+  "event_type": "call.initiated",
+  "custom_headers": [
+    {"name": "X-Trace-Id", "value": "my-trace-12345"},
+    {"name": "X-Custom-Header", "value": "my-value"}
+  ]
 }
 ```
 
@@ -97,11 +97,11 @@ This provides a mechanism for one-way header injection from your application int
 **Example (Programmable Voice):**
 
 ```
-{  
-  "custom_headers": [  
-    {"name": "X-App-Trace-Id", "value": "abc-123"},  
-    {"name": "X-Priority", "value": "high"}  
-  ]  
+{
+  "custom_headers": [
+    {"name": "X-App-Trace-Id", "value": "abc-123"},
+    {"name": "X-Priority", "value": "high"}
+  ]
 }
 ```
 

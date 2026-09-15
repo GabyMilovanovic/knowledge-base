@@ -26,20 +26,20 @@ Choose only the events your application handles. A webhook subscription is an ex
 Create the webhook under the sending domain. This example covers the most useful outbound lifecycle events:
 
 ```
-curl -X POST "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "url": "https://example.com/webhooks/telnyx-email",  
-    "events": [  
-      "email.queued",  
-      "email.sent",  
-      "email.delivered",  
-      "email.deferred",  
-      "email.bounced",  
-      "email.failed",  
-      "email.complained"  
-    ]  
+curl -X POST "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://example.com/webhooks/telnyx-email",
+    "events": [
+      "email.queued",
+      "email.sent",
+      "email.delivered",
+      "email.deferred",
+      "email.bounced",
+      "email.failed",
+      "email.complained"
+    ]
   }'
 ```
 
@@ -52,25 +52,25 @@ A successful request returns `201 Created`. Save the webhook `id` from the respo
 List the webhooks attached to the domain and confirm that the URL and event allowlist are correct:
 
 ```
-curl "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks" \  
+curl "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
 To change the destination or event list, update the webhook by ID:
 
 ```
-curl -X PATCH "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks/{webhook_id}" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "events": [  
-      "email.sent",  
-      "email.delivered",  
-      "email.bounced",  
-      "email.complained",  
-      "email.opened",  
-      "email.clicked"  
-    ]  
+curl -X PATCH "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks/{webhook_id}" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "events": [
+      "email.sent",
+      "email.delivered",
+      "email.bounced",
+      "email.complained",
+      "email.opened",
+      "email.clicked"
+    ]
   }'
 ```
 
@@ -83,14 +83,14 @@ curl -X PATCH "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks/{web
 Send a new message from the domain after the webhook is saved or updated:
 
 ```
-curl -X POST "https://api.telnyx.com/v2/email_messages" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -d '{  
-    "from": "sender@mail.yourcompany.com",  
-    "to": ["recipient@example.com"],  
-    "subject": "Telnyx webhook test",  
-    "text_body": "Testing my Telnyx Email webhook."  
+curl -X POST "https://api.telnyx.com/v2/email_messages" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "from": "sender@mail.yourcompany.com",
+    "to": ["recipient@example.com"],
+    "subject": "Telnyx webhook test",
+    "text_body": "Testing my Telnyx Email webhook."
   }'
 ```
 

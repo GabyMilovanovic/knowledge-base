@@ -9,8 +9,8 @@ content_hash: "39c1d2bced516cbe7f0da3e0840c34636128d24a59712dec9a6e3b4fe01e81b5"
 
 # RCS Fees and Charges
 
-Telnyx RCS charges fall into three categories: onboarding fees, recurring agent fees, and messaging usage.  
-​  
+Telnyx RCS charges fall into three categories: onboarding fees, recurring agent fees, and messaging usage.\
+​\
 ​**Onboarding fees**
 
 The following fees apply to US RCS agents. All amounts are in USD.
@@ -38,7 +38,7 @@ The following fees may apply if there are issues with the initial vetting or if 
 - **RCS Banner Verification Update — $22:** Applies when a banner change is requested after vetting is complete.
 - **Agent Name Change — $22**
 
-For current onboarding fees for other markets, please reach out to your account manager or [rcscompliance@telnyx.com](mailto:rcscompliance@telnyx.com)  
+For current onboarding fees for other markets, please reach out to your account manager or [rcscompliance@telnyx.com](mailto:rcscompliance@telnyx.com)\
 ​
 
 ## **Monthly agent maintenance fee**

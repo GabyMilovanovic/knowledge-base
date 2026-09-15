@@ -18,30 +18,30 @@ Network timeouts can leave you unsure whether an email send succeeded. Add an `I
 Generate one unique key for each logical send. UUID v4 values are a good choice. Put the key in the HTTP header—not in the JSON body:
 
 ```
-curl -i -X POST "https://api.telnyx.com/v2/email_messages" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -H "Idempotency-Key: 7e85df5e-9f71-4ce9-a57a-811dd96c031a" \  
-  -d '{  
-    "from": "sender@mail.yourcompany.com",  
-    "to": ["recipient@example.com"],  
-    "subject": "Your receipt",  
-    "text_body": "Thanks for your order."  
+curl -i -X POST "https://api.telnyx.com/v2/email_messages" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Idempotency-Key: 7e85df5e-9f71-4ce9-a57a-811dd96c031a" \
+  -d '{
+    "from": "sender@mail.yourcompany.com",
+    "to": ["recipient@example.com"],
+    "subject": "Your receipt",
+    "text_body": "Thanks for your order."
   }'
 ```
 
 If the client times out or loses the response, repeat the same request with the same key and the same body:
 
 ```
-curl -i -X POST "https://api.telnyx.com/v2/email_messages" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -H "Idempotency-Key: 7e85df5e-9f71-4ce9-a57a-811dd96c031a" \  
-  -d '{  
-    "from": "sender@mail.yourcompany.com",  
-    "to": ["recipient@example.com"],  
-    "subject": "Your receipt",  
-    "text_body": "Thanks for your order."  
+curl -i -X POST "https://api.telnyx.com/v2/email_messages" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Idempotency-Key: 7e85df5e-9f71-4ce9-a57a-811dd96c031a" \
+  -d '{
+    "from": "sender@mail.yourcompany.com",
+    "to": ["recipient@example.com"],
+    "subject": "Your receipt",
+    "text_body": "Thanks for your order."
   }'
 ```
 
@@ -81,25 +81,25 @@ Only successful 2xx responses are stored for replay. If the API returns a normal
 For a batch send, the header protects the complete request. It does not assign a separate key to each item:
 
 ```
-curl -i -X POST "https://api.telnyx.com/v2/email_messages/batch" \  
-  -H "Authorization: Bearer YOUR_API_KEY" \  
-  -H "Content-Type: application/json" \  
-  -H "Idempotency-Key: 1c5c7c41-1bf0-463e-a99a-47c5620cc699" \  
-  -d '{  
-    "messages": [  
-      {  
-        "from": "sender@mail.yourcompany.com",  
-        "to": ["one@example.com"],  
-        "subject": "First message",  
-        "text_body": "Hello one"  
-      },  
-      {  
-        "from": "sender@mail.yourcompany.com",  
-        "to": ["two@example.com"],  
-        "subject": "Second message",  
-        "text_body": "Hello two"  
-      }  
-    ]  
+curl -i -X POST "https://api.telnyx.com/v2/email_messages/batch" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Idempotency-Key: 1c5c7c41-1bf0-463e-a99a-47c5620cc699" \
+  -d '{
+    "messages": [
+      {
+        "from": "sender@mail.yourcompany.com",
+        "to": ["one@example.com"],
+        "subject": "First message",
+        "text_body": "Hello one"
+      },
+      {
+        "from": "sender@mail.yourcompany.com",
+        "to": ["two@example.com"],
+        "subject": "Second message",
+        "text_body": "Hello two"
+      }
+    ]
   }'
 ```
 

@@ -9,8 +9,8 @@ content_hash: "35dfbf49cfbd86e1070d158a94f69fb081a0af0b850c2ee1c1ec4e7b0c9d5b65"
 
 # RCS API Onboarding Guide
 
-Use the Telnyx API to register, test, and launch a US RCS agent. For agents launching outside the United States, please use the RCS application form from the Mission Control Portal.  
-​  
+Use the Telnyx API to register, test, and launch a US RCS agent. For agents launching outside the United States, please use the RCS application form from the Mission Control Portal.\
+​\
 ​**Before you begin**
 
 Gather the following information before starting:
@@ -41,7 +41,7 @@ Create the brand record from the organization’s official registration details.
 - **addresses** — The registered primary business address, including street, city, state or administrative area, postal code, and country code. Use the address associated with the legal entity and EIN.
 - **contacts** — The authorized brand contact’s first name, last name, title, business email address, and phone number. Use a contact who can respond to verification questions. A personal email address must be used, group emails such as info@ or support@ are not permitted for brand verification. Freemails such as gmail are also not permitted.
 
-profile\_id is optional. If provided, it must identify a Messaging Profile owned by your Telnyx organization. Agents can inherit this profile from the brand.  
+profile\_id is optional. If provided, it must identify a Messaging Profile owned by your Telnyx organization. Agents can inherit this profile from the brand.\
 ​
 
 ## **Before submitting the brand**
@@ -76,7 +76,7 @@ profile\_id and hosting\_region are optional. If profile\_id is omitted, the age
 - **PROMOTIONAL** — Advertising, offers, product announcements, and other marketing traffic. The consent flow and sample messages must clearly cover promotional messaging.
 - **MULTI\_USE** — A combination of transactional and promotional use cases. Describe every message type, include representative samples for each, and ensure the consent flow covers promotional traffic whenever promotions are included.
 
-**N.B. Only select Mutli-Use if you will actually send promotional messages. You must show promotional samples for carrier verification and launch**  
+**N.B. Only select Mutli-Use if you will actually send promotional messages. You must show promotional samples for carrier verification and launch**\
 ​
 
 Note that the use-case is visible on the Agent information screen on iOS devices.
@@ -98,7 +98,7 @@ One of “phone number” or “email” must be provided. You may add all three
 - **website** — A public URL and a customer-facing label, such as “Website”.
 - **email** — A monitored email address and a customer-facing label, such as “Customer Care”.
 
-Each contact label can contain up to 25 characters. Use contact details that recipients can use to reach the business.  
+Each contact label can contain up to 25 characters. Use contact details that recipients can use to reach the business.\
 ​
 
 ## **Before creating the agent**
@@ -108,7 +108,7 @@ Each contact label can contain up to 25 characters. Use contact details that rec
 - Confirm that the selected use case matches every planned production message.
 - Use one stable idempotency key for this logical agent creation. If the response is uncertain, retry with the same key and identical request body.
 
-Save the returned agent ID and retrieve the agent to confirm the stored values. Agent fields can be updated while the agent status is CREATED.  
+Save the returned agent ID and retrieve the agent to confirm the stored values. Agent fields can be updated while the agent status is CREATED.\
 ​
 
 ## **Step 3: Add test devices and test the integration**
@@ -171,24 +171,24 @@ The launch request submits the campaign and testing information together, but th
 - **APPROVED** — The section passed review.
 - **REJECTED** — The section did not pass review. Telnyx will follow up by email with the rejection details and any required corrections before resubmission.
 
-**N.B. Note that the T-Mobile launch fee of $500 will be applicable once the carrier approves the agent. This review is triggered by submitting the agent for launch.**  
+**N.B. Note that the T-Mobile launch fee of $500 will be applicable once the carrier approves the agent. This review is triggered by submitting the agent for launch.**\
 ​
 
 ## **Step 8: Monitor the launch status**
 
 API endpoints: GET /v2/rcs/agents/{agent\_id}; GET /v2/rcs/agents/{agent\_id}/carrier\_approvals
 
-Retrieve the agent until its status becomes LIVE. The agent response includes section statuses, test devices, carrier approvals, and provider capabilities. If the status is REJECTED or FAILED, review the returned details before correcting or resubmitting the agent.  
+Retrieve the agent until its status becomes LIVE. The agent response includes section statuses, test devices, carrier approvals, and provider capabilities. If the status is REJECTED or FAILED, review the returned details before correcting or resubmitting the agent.\
 ​
 
-**N.B. Note that the T-Mobile launch fee of $500 will be applicable once the carrier approves the agent.**   
+**N.B. Note that the T-Mobile launch fee of $500 will be applicable once the carrier approves the agent.**\
 ​
 
 ## **Step 9: Go live**
 
 API endpoint: POST /v2/messages/rcs
 
-Once the agent is LIVE, send production traffic using the Telnyx RCS messaging endpoint. Continue to monitor message webhooks and delivery results, and keep the published business and customer-care information current.  
+Once the agent is LIVE, send production traffic using the Telnyx RCS messaging endpoint. Continue to monitor message webhooks and delivery results, and keep the published business and customer-care information current.\
 ​
 
 ## **Telnyx API documentation**
