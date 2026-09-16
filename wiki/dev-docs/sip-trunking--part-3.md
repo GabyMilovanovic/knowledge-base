@@ -104,7 +104,7 @@ Telnyx currently supports LIS and ASSIST as PIDF-LO methods. Other methods are n
 
 | Field | Required | Max Length |
 | --- | --- | --- |
-| house_number | No | 6 |
+| house_number | No | 16 |
 | house_suffix | No | 45 |
 | street_pre_directional | No | 2 |
 | street_name | Yes | 200 |
