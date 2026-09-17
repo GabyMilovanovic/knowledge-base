@@ -1,23 +1,14 @@
 ---
-source_url: https://support.telnyx.com/en/articles/5469551-international-numbers-required-documents
+source_url: "https://support.telnyx.com/en/articles/5469551-international-numbers-required-documents"
 title: "International Numbers - Required Documents"
-description: "In this article we will walk you through the required documents for ordering numbers internationally. See Telnyx guidance and requirements."
-scraped: 2026-07-08
-content_hash: 8cdad45c73abc76232839f012aff3cc6330b030877f4ac4b07a0d347ad926aa7
+description: "Review country-specific documents, registration conditions, and local dialing requirements for ordering international Telnyx numbers."
+scraped: "2026-09-17"
+modified_at: "2026-09-17T14:02:59Z"
+collection_path: "2184183-important-to-note"
+content_hash: "84198b866a1cf70e5517c7739150a70cb65d08a73a170f88c23d690dcd5ffcd8"
 ---
 
-
-
-
-
-
-
 # International Numbers - Required Documents
-
-In this article we will walk you through the required documents for ordering numbers internationally. See Telnyx guidance and requirements.
-
-
-
 
 You can find country-specific information in our [International DID Requirements](https://support.telnyx.com/en/collections/1511606-international-did-requirements) support section or in your portal [here](https://portal.telnyx.com/#/app/numbers/requirements). While you can place orders for these numbers on your account and they are purchased successfully, inbound calling will not be activated until documentation has been uploaded and verified in the [number order section](https://portal.telnyx.com/#/app/numbers/orders). The verification process can take a few working days and you will be notified as soon as possible by our numbering team ([numbering@telnyx.com](mailto:numbering@telnyx.com)).
 
@@ -50,7 +41,7 @@ You can find country-specific information in our [International DID Requirements
 | Benin | N/A | N/A | 1, 3, 7, 9, 10, 13 (f) | N/A | N/A |
 | Bermuda | N/A | N/A | N/A | 1, 2, 3 | N/A |
 | Bolivia | N/A | 1, 2, 3 | N/A | 1, 2, 3 | N/A |
-| Bosnia And Herzegovina | 1, 2, 5, 7, (b, c) | 1, 2, 3 | N/A | 1, 2, 3 | N/A |
+| Bosnia And Herzegovina | 1, 4, 7, 9, 10, 13 (c, f, h) | 1, 2, 3 | N/A | 1, 2, 3 | N/A |
 | Botswana | N/A | N/A | N/A | (m) | N/A |
 | Brazil | [Please see requirements here.](https://support.telnyx.com/en/articles/5464041-brazil-did-requirements) | 1, 4, 10, 13 (g, j, p) | [Please see requirements here.](https://support.telnyx.com/en/articles/5464041-brazil-did-requirements) | 1, 4, 10, 13 (g, j, p) | N/A |
 | British Virgin Islands | N/A | N/A | N/A | 1, 3, (h) | N/A |
@@ -63,14 +54,14 @@ You can find country-specific information in our [International DID Requirements
 | Cayman Islands | 1, 2, 3 (m) | N/A | N/A | 1, 2, 3 (h, m) | N/A |
 | Chile | 1, 3, 13 | 1, 2, 3, 10, (j) | N/A | 1, 3, 13 | 1, 2, 3, 10, (j) |
 | China | [Please see requirements here.](https://support.telnyx.com/en/articles/3506111-china-did-requirements) | N/A | N/A | N/A | [Please see requirements here.](https://support.telnyx.com/en/articles/3506111-china-did-requirements) |
-| Colombia | 1, 3 | N/A | 1, 3 | 1, 2, 3 | N/A |
+| Colombia | 1, 3 | N/A | N/A | 1, 2, 3 | N/A |
 | Costa Rica | N/A | 1, 3, 9, (f) | N/A | 1, 3, 7, 13, 17, (f, p) | N/A |
 | Croatia | 1, 5, 7, 9, 13, (f, g) | N/A | N/A | 1, 4, 9, 13, (g) | N/A |
 | Curacao | N/A | 1, 2, 3 | N/A | N/A | N/A |
 | Cyprus | 1, 2, 3, 7, (c) | 1, 2, 3, 7, (c) | N/A | 1, 2, 3, 7 | N/A |
 | Czech Republic | 1, 5, 7, (af) | N/A | N/A | 1, 2, 4, 7, (af) | N/A |
 | Democratic Republic of the Congo | N/A | N/A | 1, 3, 7, 10 | N/A | N/A |
-| Denmark | 1, 4, 7, 9, 10, 25 (f, ag) | N/A | 1, 3, 18, (d) | 1, 3 | N/A |
+| Denmark | 1, 4, 7, 9, 10, 25 (f, af, ag) | N/A | 1, 3, 18, (d) | 1, 3 | N/A |
 | Dominica | N/A | N/A | N/A | (h) | N/A |
 | Dominican Republic | 1, 2, 3 | N/A | N/A | 1, 2, 3 | N/A |
 | Ecuador | N/A | N/A | 1, 3, 7, h | 1, 3, (h) | N/A |
@@ -78,11 +69,11 @@ You can find country-specific information in our [International DID Requirements
 | El Salvador | (u) | N/A | N/A | N/A | N/A |
 | Estonia | 1, 4, 7, 9, 13, (g) | N/A | N/A | 1, 2, 3 | N/A |
 | Ethiopia | N/A | N/A | N/A | 1, 3, (h) | N/A |
-| Finland | 1, 2, 3 | 1, 2, 3 | 1, 3 (f, j) | 1, 3, 9 (f, j) | N/A |
+| Finland | 1, 4, 7, 9, 10, 16 (c) | 1, 4, 7, 9, 10, 16 (c) | 1, 4, 9, 10 (f, j) | 1, 4, 9, 10 (f, j) | N/A |
 | France | 1, 4, 7, 13 (c, af) | 1, 4, 7, 9, (af) | N/A | 1, 4, 7, 25 (f, af) | N/A |
 | French Guiana | 1, 2, 3 | N/A | N/A | 1, 2, 3 | N/A |
-| Georgia | 1, 2, 5, 7, 8, 10 | 1, 2, 3, 8 | N/A | 1, 2, 3, 7, 8, 10 | N/A |
-| Germany | 1, 2, 5, 7, 8, (b, c, af) | 1, 4, 7, 8, 13, (b, c, af) | N/A | 1, 4, 7, 13, 14, 17, 18, (d, f, g, h, p, q, af) | N/A |
+| Georgia | 1, 4, 7, 9, 10, 13 (c, f, h) | N/A | N/A | 1, 2, 3, 7, 8, 10 | N/A |
+| Germany | 1, 2, 5, 7, 8, 25 (b, c, af) | 1, 4, 7, 8, 13, 25 (b, c, af) | N/A | 1, 4, 7, 13, 14, 17, 18, 25 (d, f, g, h, p, q, af) | N/A |
 | Ghana | N/A | 1, 3, 7, h | 1, 2, 3 | N/A | N/A |
 | Greece | 1, 5, 7, 9, 13, 16, (g, af) | N/A | N/A | N/A | N/A |
 | Grenada | (p, m) | N/A | N/A | (h) | N/A |
@@ -94,13 +85,15 @@ You can find country-specific information in our [International DID Requirements
 | Hong Kong | N/A | [Please see requirements here.](https://support.telnyx.com/en/articles/3739447-hong-kong-did-requirements) | N/A | 1, 3, 7, 18, (d, f) | N/A |
 | Hungary | 1, 2, 5, 7 | 1, 2, 4, 7 | N/A | 1, 2, 4, 7 | N/A |
 | Iceland | 1, 3 | N/A | N/A | 1, 3 | N/A |
+| India | [Please see requirements here.](https://support.telnyx.com/en/articles/3739465-india-did-requirements) | N/A | [Please see requirements here.](https://support.telnyx.com/en/articles/3739465-india-did-requirements) | N/A | N/A |
 | Indonesia | [Please see requirements here.](https://support.telnyx.com/en/articles/5466641-indonesia-did-requirements) | N/A | N/A | 1, 4, 7, 13 | N/A |
-| Ireland | 1, 2, 5, 7, 10, 18 | 1, 2, 4, 7, 10, 18 | 1, 2, 4, 7, 10, 18 (f) | 1, 2, 4, 7, 10, 18 | N/A |
+| Ireland | 1, 2, 5, 7, 10, 18 | 1, 2, 4, 7, 10, 18 | 1, 4, 7, 9, 10, 18 (f) | 1, 2, 4, 7, 10, 18 | N/A |
 | Israel | 1, 3, 7, 9, 18 | 1, 3, 7, 9, 18 | 1, 3, 10 | 1, 2, 3 | N/A |
 | Italy | [Please see requirements here.](https://support.telnyx.com/en/articles/1311462-italy-did-requirements) | N/A | N/A | [Please see requirements here.](https://support.telnyx.com/en/articles/1311462-italy-did-requirements) | N/A |
 | Iraq | 1, 4, 7, 9, (c, f, ah) | N/A | N/A | N/A | N/A |
 | Ivory Coast | 1, 3, (h, m) | N/A | N/A | N/A | N/A |
 | Jamaica | 3, (h) | N/A | N/A | 1, 3,(h) | N/A |
+| Japan | N/A | [Please see requirements here](https://support.telnyx.com/en/articles/15444978-japan-did-requirements) | N/A | N/A | N/A |
 | Jordan | 1, 2, 3 | N/A | N/A | (h) | N/A |
 | Kazakhstan | 1, 3, 7, (h) | N/A | N/A | N/A | N/A |
 | Kenya | 1, 3, 7, 18 (f) | N/A | 1, 3, 7 (f) | 1, 3, 7 (f) | N/A |
@@ -111,7 +104,7 @@ You can find country-specific information in our [International DID Requirements
 | Lebanon | N/A | N/A | N/A | 1, 2, 3 | N/A |
 | Lithuania | 1, 4, 7, 9, 13, (g, m, o) | 1, 4, 7, 9, 13, (g, m, o) | 1, 2, 3 | 1, 4, 7, 9, (g) | N/A |
 | Luxembourg | 1, 4, 7, 9, 10, (f) | 1, 4, 14 | N/A | 1, 3, 17, (f) | N/A |
-| North Macedonia | N/A | N/A | N/A | 1, 2, 3 | N/A |
+| North Macedonia | 1, 4, 7, 9, 10, 13 (c, f, h) | N/A | N/A | 1, 2, 3 | N/A |
 | Madagascar | N/A | N/A | N/A | N/A | N/A |
 | Malaysia | 1, 4, 7, 13 (f) | 1, 4, 7, 9, 13 (c, f, h) | 1, 3, 7, 9, 13 (f, h) | 1, 4, 7 | N/A |
 | Malta | N/A | 1, 2, 4, 7, (af) | N/A | 1, 2, 4, 7, (af) | N/A |
@@ -121,7 +114,7 @@ You can find country-specific information in our [International DID Requirements
 | Mexico | 1, 2, 3 | N/A | 1, 3 | 1, 2, 3 | N/A |
 | Moldova | N/A | N/A | N/A | 1, 3 | N/A |
 | Monaco | N/A | N/A | N/A | 1, 2, 3 | N/A |
-| Montenegro | 1, 3, 18, (f) | N/A | N/A | N/A | N/A |
+| Montenegro | 1, 4, 7, 9, 10, 13 (c, f, h) | N/A | N/A | N/A | N/A |
 | Morocco | 1, 2, 3 | N/A | N/A | 1, 2, 3 | N/A |
 | Mozambique | N/A | N/A | 1, 2, 3, 7 (h) | N/A | N/A |
 | Myanmar | 1, 3, 7, 9 (f, m) | N/A | N/A | 1, 3, 7, (f, m) | N/A |
@@ -130,8 +123,8 @@ You can find country-specific information in our [International DID Requirements
 | New Zealand | 1, 4 | N/A | N/A | 1, 2, 3 | N/A |
 | Nicaragua | N/A | N/A | 1, 2, 4, 7, 9 (h) | N/A | N/A |
 | Nigeria | N/A | 1, 3, 7, 18 (f, h) | N/A | 1, 3, 7 | N/A |
-| Norway | 1, 4, 7, 9, 10, 13, 25 (f, ag) | N/A | N/A | 1, 2, 4, 7, (c, i, af) | N/A |
-| Oman | 9 (c, h) | N/A | N/A | 1, 4, 9, 13, 18, (d, f, g, h, u) | N/A |
+| Norway | 1, 4, 7, 9, 10, 13, 25 (f, af, ag) | N/A | N/A | 1, 2, 4, 7, (c, i, af) | N/A |
+| Oman | N/A | N/A | N/A | 1, 4, 9, 13, 18, (d, f, g, h, u) | N/A |
 | Pakistan | 1, 3, 7, (h) | N/A | N/A | (h) | N/A |
 | Panama | 1, 2, 3 | N/A | N/A | 1, 3, 8, 13, (d, f) | N/A |
 | Papa New Guinea | N/A | N/A | N/A | 1, 3, 10 | N/A |
@@ -139,7 +132,7 @@ You can find country-specific information in our [International DID Requirements
 | Peru | 1, 5, 7, 9, 13, (c, f, g) | N/A | N/A | 1, 4, 7, 9, 13, (c, f, g) | 1, 2, 3 |
 | Philippines | 1, 3, 7 | N/A | 1, 3, 7 | 1, 3, 7 | N/A |
 | Poland | 1, 5, 7, 9 or 13, 18, (d, g, af) | N/A | 1, 2, 3 | 1, 2, 4, 7, 16, (af) | N/A |
-| Portugal | 1, 6, 7, 9, 10, 25 (f, y, ag) | 1, 4 | N/A | 1, 3 | N/A |
+| Portugal | 1, 6, 7, 9, 10, 25 (f, y, af, ag) | 1, 4 | N/A | 1, 3 | N/A |
 | Puerto Rico | Not required | N/A | N/A | Not required | N/A |
 | Qatar | N/A | 1, 4, 7, 9, (c, f, ah) | N/A | (h) | N/A |
 | Reunion | 1, 2, 3 | N/A | N/A | 1, 2, 3 | N/A |
@@ -148,7 +141,7 @@ You can find country-specific information in our [International DID Requirements
 | Rwanda | 1, 3, 7, 9 (f) | N/A | N/A | N/A | N/A |
 | Saint Barthélemy | 1, 2, 3 | N/A | N/A | N/A | N/A |
 | Saint Martin | 1, 2, 3 | N/A | N/A | N/A | N/A |
-| Serbia | N/A | N/A | N/A | 1, 2, 3 | N/A |
+| Serbia | 1, 4, 7, 9, 10, 13 (c, f, h, ai) | N/A | N/A | 1, 2, 3 | N/A |
 | Seychelles | 1, 3, (f) | N/A | N/A | N/A | N/A |
 | Singapore | 1, 4, 7, 9, 10, 13, 18, (d, g) | 1, 4, 7, 9, 13, (g) | N/A | 1, 3 | N/A |
 | Slovakia | 1, 5, 7, 9, 13, (g) | N/A | N/A | 1, 3, 9, 16, (f) | N/A |
@@ -158,13 +151,12 @@ You can find country-specific information in our [International DID Requirements
 | Sri Lanka | N/A | N/A | 18, (d, f, h, m) | 18, (d, h) | N/A |
 | Sudan | N/A | N/A | N/A | N/A | N/A |
 | Svalbard and Jan Mayen | N/A | N/A | N/A | N/A | N/A |
-| Sweden | 1, 6, 7, 9, 10, 13, 25 (f, ag) | 1, 4, 7, 9, 10, 13, 25 (f, ag) | 1, 2, 4, 7, (af) | 1, 4, 7, (af) | N/A |
-| Switzerland | 1, 5, 7, 9, 10, 13, 25 (f, ag) | N/A | N/A | 1, 3, 9, (f, j) | N/A |
+| Sweden | 1, 6, 7, 9, 10, 13, 25 (f, ag) | 1, 4, 7, 9, 10, 13, 25 (f, af, ag) | 1, 2, 4, 7, (af) | 1, 4, 7, (af) | N/A |
+| Switzerland | 1, 5, 7, 9, 10, 13, 25 (f, af, ag) | N/A | N/A | 1, 3, 9, (f, j) | N/A |
 | Tanzania | N/A | N/A | N/A | 3, 7, 9, 13, (h, m, u) | N/A |
 | Thailand | 1, 3, 7, 9 (f) | 1, 3, 7, 9, 13, 18 (d, g) | 1, 3, 7, 9, 10, 13, 18 (f, h) | 1, 3, 7 (f) | N/A |
 | Trinidad And Tobago | (m, p) | N/A | N/A | (h) | N/A |
 | Tunisia | (m) | N/A | N/A | N/A | N/A |
-| Turkey | [Please see requirements here](https://support.telnyx.com/en/articles/14489375-turkey-did-requirements) | [Please see requirements here](https://support.telnyx.com/en/articles/14489375-turkey-did-requirements) | N/A | N/A | N/A |
 | Turks And Caicos Islands | N/A | N/A | N/A | (h) | N/A |
 | Uganda | 1, 3 | 1, 4, 7, 9, 13 | N/A | 1, 2, 3, 7, 10, (h) | N/A |
 | Ukraine | 1, 3, 7, 9, 13 (f, h, ae) | 1, 3, 7, 9, 13 (f, h, ae) | 1, 2, 3 | 1, 2, 3 | N/A |
@@ -173,7 +165,6 @@ You can find country-specific information in our [International DID Requirements
 | Uruguay | N/A | N/A | N/A | 1, 3, 7, (h) | N/A |
 | Us Virgin Islands | Not required | N/A | N/A | Not required | N/A |
 | Uzbekistan | 1, 3, 7, h | N/A | N/A | N/A | N/A |
-| Venezuela | 1, 2, 4, 7, 18, (b, c, d) | N/A | N/A | 1, 3, 7, 9, 18, (d) | N/A |
 | Vietnam | 1, 3, 9\*, 10, 13, (h) | N/A | N/A | 1, 3 | N/A |
 | Zambia | N/A | N/A | 1, 3, 4, 7, 10 (h) | N/A | N/A |
 | Zimbabwe | 1, 3 | N/A | N/A | N/A | N/A |
@@ -251,6 +242,7 @@ Some countries need additional documents, check the chart below to see if you ne
 | af | A local passport/ID copy or Company Registration Certificate should be provided |
 | ag | Legal Company Name |
 | ah | Service Agreement Form |
+| ai | APR Registration Document |
 
 ## **Purchasing an international toll free?**
 
@@ -338,8 +330,8 @@ Article reference for local calling: <https://support.telnyx.com/en/articles/662
 
 Related Articles
 
-[Set up Inbound Caller ID Name (incoming)](https://support.telnyx.com/en/articles/1130656-set-up-inbound-caller-id-name-incoming)[Can I call toll free with my Telnyx number?](https://support.telnyx.com/en/articles/1130703-can-i-call-toll-free-with-my-telnyx-number)[Latvia Number Porting](https://support.telnyx.com/en/articles/5188540-latvia-number-porting)[The Dominican Republic Number Porting](https://support.telnyx.com/en/articles/5190458-the-dominican-republic-number-porting)[US / CA Toll Free Number Porting](https://support.telnyx.com/en/articles/8673249-us-ca-toll-free-number-porting)
-
-Did this answer your question?
-
-😞😐😃
+- [Can I call toll free with my Telnyx number?](https://support.telnyx.com/en/articles/1130703-can-i-call-toll-free-with-my-telnyx-number)
+- [Hungary Number Porting](https://support.telnyx.com/en/articles/5188524-hungary-number-porting)
+- [Romania Number Porting](https://support.telnyx.com/en/articles/5188564-romania-number-porting)
+- [The Dominican Republic Number Porting](https://support.telnyx.com/en/articles/5190458-the-dominican-republic-number-porting)
+- [US / CA Toll Free Number Porting](https://support.telnyx.com/en/articles/8673249-us-ca-toll-free-number-porting)

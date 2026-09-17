@@ -30005,6 +30005,21 @@
         }
       ],
       "collectionPath": null
+    },
+    "3739465": {
+      "id": "3739465",
+      "sourceUrl": "https://support.telnyx.com/en/articles/3739465-india-did-requirements",
+      "headings": [
+        {
+          "text": "DID Number Requirements for India",
+          "id": "h_12b0f14665"
+        },
+        {
+          "text": "Local and Mobile Numbers in India",
+          "id": "h_84d41ab576"
+        }
+      ],
+      "collectionPath": "3662308-did-requirements"
     }
   }
 }
