@@ -28,10 +28,17 @@ test("homepage and old custom paths preserve encoded/repeated queries", async ()
   expect(result.headers.location.value).toBe("/en/articles/14327893-telnyx-pretrial-accounts?q=a%2Fb&q=c%26d");
   for (const key of Object.keys(registry).filter(k=>k.startsWith("path:"))) expect((await route(key.slice(5))).headers.location.value).toBe(registry[key]);
 });
-test("unknown URLs are 404, lookup outages are 503 and unsafe methods are rejected", async () => {
-  for (const uri of ["/garbage","/en/articles/99999999-nonexistent","/en/collections/99999999-missing"]) expect((await route(uri)).statusCode).toBe(404);
-  expect((await route("/garbage", {method:"HEAD"})).body).toBe("");
+test("unregistered pages reach the origin without losing method, query or headers", async () => {
+  for (const method of ["GET", "HEAD"]) {
+    for (const uri of ["/en/articles/3739465-india-did-requirements", "/en/collections/99999999-new-collection", "/garbage"]) {
+      const original = request(uri, {method, headers: {accept: {value: "text/html"}}, querystring: {q: {value: "a%2Fb", multiValue: [{value: "a%2Fb"}, {value: "c%26d"}]}}});
+      expect(await context.routeRequest(original, async () => undefined)).toBe(original);
+    }
+  }
+});
+test("lookup outages remain 503 and unsafe methods are rejected", async () => {
   expect((await context.routeRequest(request("/en/articles/6339152"), async () => {throw Error("unavailable");})).statusCode).toBe(503);
+  expect((await context.routeRequest(request("/en/articles/6339152", {method:"HEAD"}), async () => {throw Error("unavailable");})).body).toBe("");
   expect((await route("/",{method:"POST"})).statusCode).toBe(405);
 });
 test("body links use canonical targets while retaining suffixes and third-party URLs", () => {
