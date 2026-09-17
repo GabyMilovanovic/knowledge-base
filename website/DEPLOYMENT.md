@@ -12,33 +12,28 @@ permissions, and deployment-role policy. Routine new articles do not need an
 infra PR. A missing mapping passes through to an exact S3 object; historical URLs
 still use mappings, updated automatically from repository metadata.
 
-Infra changes in `infra-svc-aws-resources` are deliberately staged:
+## Initial rollout: one infra apply
 
-1. Review the real plan. Apply the supporting resources with
-   `support_v2_routing_enabled=false` (default). This creates the unassociated
-   function/store and additive role policy, grants this origin identity ListBucket
-   on this content bucket, and configures genuine 404s with `/404.html` and a
-   one-second error-cache TTL. Existing read grants must be preserved. Compression
-   is coordinated separately by infra; preserve their current approved settings.
-2. Set knowledge-base repository variable `CLOUDFRONT_KVS_ARN` to infra's
-   `support_v2_kvs_arn` output. Keep secret `CLOUDFRONT_DISTRIBUTION_ID` equal to
-   `E3TMOKZN8HQ7AZ` and the existing `AWS_ASSUME_ROLE` secret unchanged.
-3. After approval, merge this workflow to main. Its first automatic normal run
-   will intentionally stop at preflight, before uploads, if routing is inactive.
-   Manually run **Deploy website** on **main**, with `bootstrap=true` and no
-   rollback ID. It uploads exact-key pages, populates the store, invalidates and
-   waits, verifies every rendered page against the local build plus genuine
-   missing-object GET/HEAD responses, and only then writes `_meta:ready`.
-4. Infra reviews a separate activation plan with `support_v2_routing_enabled=true`.
-   Its read-only guard checks the store and readiness marker before association.
-   Persist this flag in infra's approved configuration so later applies do not
-   accidentally disable it. The runner needs Python 3, AWS CLI v2, and read access
-   to this KVS. Never enable it in the initial apply against an empty store.
-5. After CloudFront reports the distribution deployed, run **Deploy website** on
-   main with defaults. It verifies canonical pages, all ID mappings and old-title
-   aliases, custom paths, homepage redirects, repeated/encoded query parameters,
-   and genuine missing paths. Review the release report before considering the
-   temporary rollout complete. Production-domain launch remains a separate task.
+1. After approval, infra merges/applies the supporting PR. That **same apply**
+   creates the store, seeds the reviewed route snapshot, verifies every destination
+   directly on the temporary site, reads back the stored data and writes readiness
+   last, then attaches the routing function. A failed check stops association.
+   No second activation visit, KB bootstrap dispatch, or DNS change is required.
+   Origin ListBucket and genuine 404 handling are included; compression remains
+   infra's separate coordinated change.
+2. Set repository variable `CLOUDFRONT_KVS_ARN` to infra's `support_v2_kvs_arn`
+   output. Keep secret `CLOUDFRONT_DISTRIBUTION_ID` equal to `E3TMOKZN8HQ7AZ`
+   and existing `AWS_ASSUME_ROLE` unchanged.
+3. After approval, merge this workflow to main. The normal deployment uploads the
+   latest content, automatically updates mappings, invalidates/waits, and verifies
+   pages, historical aliases, roots, queries and genuine missing paths. Review the
+   release evidence before treating temporary-site rollout as complete. If merged
+   before infra is ready/configured, preflight intentionally fails before uploads.
+
+Infra's initial snapshot is a one-time seed of currently served URLs. Later
+Terraform applies do not reset it over KB-owned updates. If the store is recreated,
+its bundled seed must be refreshed/reviewed first. The workflow owns all subsequent
+article and redirect updates; routine changes need no infra PR.
 
 ## Deployment-role permissions
 
@@ -93,7 +88,7 @@ attention. GitHub reports a failed run rather than silently declaring success.
 
 To restore a prior release after approval, dispatch the current main workflow with
 `rollback_run_id` set to a **successful main deployment from this workflow** whose
-artifact has `release-verified` evidence. Leave bootstrap false. Current approved
+artifact has `release-verified` evidence. Current approved
 scripts restore only generated content/routes from that artifact, then invalidate
 and verify. Before the first verified release, recovery needs the saved pre-rollout
 content/configuration and infra's function-disable procedure; old pre-automation

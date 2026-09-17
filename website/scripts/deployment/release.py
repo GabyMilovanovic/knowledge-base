@@ -213,7 +213,7 @@ def preflight(call, arn, routes, dist, bootstrap, rollback):
     if bootstrap and active:
         raise ValueError('Bootstrap is only permitted before routing activation')
     if not bootstrap and not active:
-        raise ValueError('Routing not activated; use the explicit one-time bootstrap process')
+        raise ValueError('Routing not activated; complete the bundled infra bootstrap and activation first')
     description = call('cloudfront-keyvaluestore', 'describe-key-value-store', kvs_arn=arn)
     if description.get('KvsARN') != arn or description.get('Status') != 'READY':
         raise ValueError('Wrong store or store not ready')

@@ -57,8 +57,8 @@ filtering progressively enhance the static HTML.
 
 ## AWS rollout procedure (requires infrastructure access)
 
-See [Deployment and recovery](../DEPLOYMENT.md) for the staged bootstrap,
-activation, automated route synchronization, validation, and rollback procedure.
+See [Deployment and recovery](../DEPLOYMENT.md) for the bundled initial bootstrap and activation,
+automated route synchronization, validation, and rollback procedure.
 The workflow owns route **data**. Infrastructure owns the function, store,
 association, origin policy, and narrowly scoped deployment-role permissions.
 It never installs or changes infrastructure during an article deployment.
