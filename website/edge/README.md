@@ -57,42 +57,12 @@ filtering progressively enhance the static HTML.
 
 ## AWS rollout procedure (requires infrastructure access)
 
-1. Resolve the distribution by **exact** domain name above. Save its current
-   configuration, ETag, origins, ordered cache behaviors, function associations,
-   cache policies, compression settings, and custom error responses.
-2. Confirm which cache behaviors handle content URLs. Integrate with any existing
-   CloudFront/Lambda@Edge viewer-request logic; never overwrite an association
-   blindly. Leave DNS, aliases, certificates, origins, and public-domain settings
-   unchanged.
-3. Populate and verify the KeyValueStore before activating the function with
-   `cloudfront-js-2.0`. Preserve existing retired-ID and historical mappings.
-   Normal new canonical pages do not require a store entry; mapping updates
-   are still needed for renamed/retired IDs and ID-based aliases. Do not clear
-   the live store during updates. Automating those updates remains separate work.
-4. Test the generated function in CloudFront's development stage: homepage roots,
-   existing canonical pages, arbitrary title variants, both consolidations,
-   unknown IDs, HEAD, and repeated/encoded query parameters. Test that lookup
-   failures do not masquerade as permanently missing pages.
-5. Upload the approved release's `dist/` to the temporary distribution's existing
-   origin through the existing GitHub deployment workflow. Assets first; HTML last. Preserve
-   prior hashed assets for cached pages and rollback. Extensionless article and
-   collection objects need `Content-Type: text/html; charset=utf-8`.
-6. Publish the function; attach its LIVE ARN to the relevant viewer-request
-   behaviors using a fresh ETag while preserving the rest of the configuration.
-   Ensure the default root object is `index.html`. Apply the origin prerequisites
-   below: real missing-object 404s use `/404.html`, never a 200 SPA fallback or
-   a blanket conversion of permission failures.
-7. Wait for deployment, invalidate stale HTML/errors, then run the same route and
-   URL-export checks against the temporary HTTPS host. Confirm Content-Type,
-   gzip/Brotli compression, initial HTML, noindex, canonical origin, and statuses.
-8. Save the deployment/version/verification record. No public-domain cutover.
+See [Deployment and recovery](../DEPLOYMENT.md) for the staged bootstrap,
+activation, automated route synchronization, validation, and rollback procedure.
+The workflow owns route **data**. Infrastructure owns the function, store,
+association, origin policy, and narrowly scoped deployment-role permissions.
+It never installs or changes infrastructure during an article deployment.
 
-Rollback: restore prior function association with a fresh ETag and redeploy the
-previous content build. Keep the previous store/function and hashed assets until
-rollback is no longer needed. Do not delete the bucket.
-
-The current push-to-main workflow uploads website files; it **does not install
-this function/store**. A successful build is not evidence of a deployed redirect.
 Before any future approved public launch, rebuild with the production origin and
 explicit indexability setting; that is deliberately outside this branch rollout.
 
@@ -120,8 +90,8 @@ failures before this function is activated:
 - Use a short documented error-cache TTL and invalidate stale cached errors
   on deployment, including errors cached before a newly published page existed.
 - Publish and associate the generated function; uploading website files alone
-  does not activate its revised behavior. Integrate with infra PR #250 rather
-  than deploying its earlier registry-gated handler.
+  does not activate its revised behavior. The earlier registry-gated handler from closed infra PR #250 is superseded;
+  use the generated origin-fallback handler in the dedicated routing change.
 
 Local regression verification must include an uploaded article deliberately
 absent from the lookup store (GET 200 / HEAD 200), unknown article/collection/

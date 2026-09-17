@@ -5,6 +5,7 @@ on:
       - 'website/**'
       - 'support-docs/**'
       - '.github/workflows/verify-website.yml'
+      - '.github/workflows/deploy-website.yml'
 permissions:
   contents: read
 jobs:
@@ -16,6 +17,8 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/utils/setup-runner
+      - name: Test deployment logic without AWS
+        run: python3 -m unittest discover -s website/scripts/deployment -p 'test_*.py'
       - name: Check source inventory
         run: python3 scripts/regenerate_support_docs_manifest.py --check
       - name: Build, test, and audit preview

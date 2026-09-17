@@ -2,6 +2,16 @@
 name: Deploy website
 
 on:
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: 'One-time store population before infra activates routing (no alias checks)'
+        type: boolean
+        default: false
+      rollback_run_id:
+        description: 'Optional prior successful main deployment run ID to restore generated content/routes'
+        type: string
+        default: ''
   push:
     branches:
       - main
@@ -11,34 +21,50 @@ on:
       - ".github/workflows/deploy-website.yml"
       - ".github/utils/setup-runner/**"
 
-# Two overlapping `s3 sync --delete` runs against the same bucket can
-# interleave deletes and uploads into a mixed-version deployment; queue
-# deploys instead (never cancel a sync mid-flight).
+# Serialize content upload, route writes, invalidation, verification and rollback.
+# Never cancel an in-flight release.
 concurrency:
   group: deploy-production
   cancel-in-progress: false
 
 env:
   AWS_REGION: "us-east-1"
-  # Optional: set this secret to invalidate the CloudFront cache after deploys.
   CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+  CLOUDFRONT_KVS_ARN: ${{ vars.CLOUDFRONT_KVS_ARN }}
+  AWS_STS_REGIONAL_ENDPOINTS: regional
+  BOOTSTRAP: ${{ inputs.bootstrap || false }}
+  ROLLBACK_RUN_ID: ${{ inputs.rollback_run_id || '' }}
 
 permissions:
   id-token: write
   contents: read
+  actions: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
 
     steps:
+      - name: Require approved main and consistent release mode
+        env:
+          RELEASE_REF: ${{ github.ref }}
+        run: |
+          test "$RELEASE_REF" = refs/heads/main
+          if [ "$BOOTSTRAP" = true ] && [ -n "$ROLLBACK_RUN_ID" ]; then
+            echo "Bootstrap and rollback cannot be combined" >&2
+            exit 1
+          fi
+
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           fetch-depth: 0
 
       - name: Setup runner
         uses: ./.github/utils/setup-runner
+
+      - name: Test deployment logic without AWS
+        run: python3 -m unittest discover -s website/scripts/deployment -p 'test_*.py'
 
       - name: Generate content manifest
         working-directory: website
@@ -62,7 +88,13 @@ jobs:
 
       - name: Verify rendered pages and links
         working-directory: website
-        run: bun run verify
+        run: bun run verify:strict
+
+      - name: Select a previous verified release for rollback
+        if: inputs.rollback_run_id != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 website/scripts/deployment/select-rollback.py
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@e6de054238d6b7531b4efff3b6587d9aade6a06c # v6.2.3
@@ -70,6 +102,13 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ASSUME_ROLE }}
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ${{ env.AWS_REGION }}
+
+      - name: Validate AWS target and snapshot prior routes
+        run: |
+          flags=()
+          if [ "$BOOTSTRAP" = true ]; then flags+=(--bootstrap); fi
+          if [ -n "$ROLLBACK_RUN_ID" ]; then flags+=(--rollback); fi
+          python3 website/scripts/deployment/release.py prepare "${flags[@]}"
 
       - name: Deploy files to bucket
         run: |
@@ -84,12 +123,11 @@ jobs:
           done
 
           # 2) Article bodies — mutable JSON, revalidated on every request.
-          aws s3 sync ./website/dist/content/ $BUCKET/content/ \
-            --delete \
+          aws s3 cp --recursive ./website/dist/content/ $BUCKET/content/ \
             --cache-control 'public, no-cache'
 
           # 3) Theme fonts (stable names, rarely change) get a day of cache.
-          aws s3 sync ./website/dist/ $BUCKET/ \
+          aws s3 cp --recursive ./website/dist/ $BUCKET/ \
             --exclude '*' \
             --include '*.woff' \
             --include '*.woff2' \
@@ -97,8 +135,7 @@ jobs:
 
           # 4) Remaining root files (index.html, 404.html) — no-cache so a
           #    deploy takes effect immediately.
-          aws s3 sync ./website/dist/ $BUCKET/ \
-            --delete \
+          aws s3 cp --recursive ./website/dist/ $BUCKET/ \
             --exclude 'assets/*' \
             --exclude '_images/*' \
             --exclude 'content/*' \
@@ -111,27 +148,28 @@ jobs:
           #    Upload separately because sync would guess
           #    application/octet-stream for files without extensions.
           for prefix in en; do
-            aws s3 sync ./website/dist/$prefix/ $BUCKET/$prefix/ \
-              --delete \
+            aws s3 cp --recursive ./website/dist/$prefix/ $BUCKET/$prefix/ \
               --content-type 'text/html; charset=utf-8' \
               --cache-control 'public, no-cache'
           done
 
-      - name: Configure SPA fallback (S3 website error document)
-        # Only applies when the site is served via the S3 website endpoint;
-        # a CloudFront REST-origin setup needs a custom error response
-        # (404 -> /404.html) configured on the distribution instead.
-        # continue-on-error because the deploy role may lack
-        # s3:PutBucketWebsite.
-        continue-on-error: true
+      # Retain superseded objects for redirects and rollback; never delete their
+      # targets during a routing transition. Cleanup is a separate reviewed task.
+      - name: Synchronize routes, invalidate, and verify release
         run: |
-          aws s3 website s3://support.telnyx.com/ \
-            --index-document index.html \
-            --error-document 404.html
+          flags=()
+          if [ "$BOOTSTRAP" = true ]; then flags+=(--bootstrap); fi
+          if [ -n "$ROLLBACK_RUN_ID" ]; then flags+=(--rollback); fi
+          python3 website/scripts/deployment/release.py publish "${flags[@]}"
 
-      - name: Invalidate CloudFront cache
-        if: env.CLOUDFRONT_DISTRIBUTION_ID != ''
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" \
-            --paths '/*'
+      - name: Retain generated release and recovery evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: support-site-release-${{ github.run_id }}
+          path: |
+            website/dist/
+            website/dist-edge/
+            website/release-report/
+          retention-days: 90
+          if-no-files-found: error

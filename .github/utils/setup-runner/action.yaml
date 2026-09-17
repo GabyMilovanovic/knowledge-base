@@ -1,4 +1,5 @@
 name: Setup runner for building the project
+description: Install pinned Bun and restore or install the website dependencies
 
 runs:
   using: "composite"
