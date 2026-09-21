@@ -158,6 +158,7 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: support-site-release-${{ github.run_id }}
+          overwrite: true # A retry replaces this run's incomplete release artifact.
           path: |
             website/dist/
             website/dist-edge/
