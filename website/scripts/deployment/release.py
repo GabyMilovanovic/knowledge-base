@@ -10,6 +10,7 @@ import subprocess
 import time
 import urllib.error
 import urllib.request
+import uuid
 
 ACCOUNT = '144076755730'
 DISTRIBUTION = 'E3TMOKZN8HQ7AZ'
@@ -199,7 +200,12 @@ def verify_download(file, dist):
 
 
 def invalidate(call):
-    result = call('cloudfront', 'create-invalidation', distribution_id=DISTRIBUTION, paths=['/*'])
+    # Use the service's structured batch: CLI --paths is a custom argument
+    # that treats a JSON list as a literal path, producing InvalidArgument.
+    result = call('cloudfront', 'create-invalidation', distribution_id=DISTRIBUTION, invalidation_batch={
+        'Paths': {'Quantity': 1, 'Items': ['/*']},
+        'CallerReference': 'knowledge-base-' + uuid.uuid4().hex,
+    })
     identity = result['Invalidation']['Id']
     for _ in range(90):
         if call('cloudfront', 'get-invalidation', distribution_id=DISTRIBUTION, id=identity)['Invalidation']['Status'] == 'Completed':

@@ -147,6 +147,24 @@ class ReleaseTests(unittest.TestCase):
             self.assertEqual(release.invalidate(call), 'test')
         self.assertEqual(calls, ['create-invalidation', 'get-invalidation', 'get-invalidation'])
 
+    def test_invalidation_cli_uses_structured_api_batch(self):
+        import subprocess
+        responses = [
+            {'Invalidation': {'Id': 'test'}},
+            {'Invalidation': {'Status': 'Completed'}},
+        ]
+        commands = []
+        def run(args, **kwargs):
+            commands.append(args)
+            return subprocess.CompletedProcess(args, 0, json.dumps(responses.pop(0)), '')
+        with patch('release.subprocess.run', side_effect=run):
+            release.invalidate(release.aws)
+        command = commands[0]
+        self.assertNotIn('--paths', command)
+        batch = json.loads(command[command.index('--invalidation-batch') + 1])
+        self.assertEqual(batch['Paths'], {'Quantity': 1, 'Items': ['/*']})
+        self.assertTrue(batch['CallerReference'].startswith('knowledge-base-'))
+
     def test_invalidation_timeout_fails(self):
         with patch('release.time.sleep'), self.assertRaises(TimeoutError):
             release.invalidate(lambda *a, **k: {'Invalidation': {'Id': 'test', 'Status': 'InProgress'}})
