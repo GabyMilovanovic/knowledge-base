@@ -135,7 +135,7 @@ In this section, you will create a [SIP trunk](https://telnyx.com/products/sip-t
    2. #### **"Select Provider in your Country": Telnyx LLC**
    3. ### **"Main Trunk No": <Enter the number which you have purchased on your Telnyx Mission Control Portal>**
 
-      [![SIP Trunk/VoIP Provider interface. ](_images/2e0700ca6ed799ee.png)](https://downloads.intercomcdn.com/i/o/135579193/a8b2e2765d9bda80062168c4/image.png)
+      [![SIP Trunk/VoIP Provider interface. ](_images/2e0700ca6ed799ee.png)](/downloads/2e0700ca6ed799ee-image.png)
 4. ### **After entering the details, Click on "OK".**
 5. ### **This will open the trunk configuration window.**
 6. ### **Click on the "General" tab and start at the "Trunk Details" section. Provide the following information:**
@@ -145,21 +145,21 @@ In this section, you will create a [SIP trunk](https://telnyx.com/products/sip-t
    3. #### **"Outbound Proxy":** *sip.telnyx.com*
    4. #### **"Number of SIM Calls":** <set your preferred amount of simultaneous calls>
 
-      [![3CX Dashboard. ](_images/f97c44de921a899b.jpg)](https://downloads.intercomcdn.com/i/o/116804887/1ccdf298a762d01836e22412/change.jpg)
+      [![3CX Dashboard. ](_images/f97c44de921a899b.jpg)](/downloads/f97c44de921a899b-change.jpg)
 7. ### **Find the "Authentication" section and provide the following information:**
 
    1. #### **"Type of Authentication":** *Register/Account based*
    2. #### **"Authentication ID (aka SIP user ID)":** Your Telnyx account username
    3. #### **"Authentication Password":** Your Telnyx account password
 
-      [![Authentication dashboard on 3CX. ](_images/57b141d2cd35fc13.png)](https://downloads.intercomcdn.com/i/o/37739545/266e21680c7755f64d1f0a59/File1509107718169)
+      [![Authentication dashboard on 3CX. ](_images/57b141d2cd35fc13.png)](/downloads/57b141d2cd35fc13-File1509107718169.png)
 8. ### **Now find the "Route calls to" section and provide the following information:**
 
    1. #### **"Main Trunk number":** By default number will be shown. You need cross-verify with the number which you have purchased on telnyx portal
    2. #### **"Destination for calls during the office hours":** Based on your requirement
    3. #### **"Destination for calls outside the office hours":** Based on your requirement
 
-      [!["Route calls to" section on 3CX. ](_images/c7052e225eea6d5a.png)](https://downloads.intercomcdn.com/i/o/37739546/c3223abe1f08d0257ad372cb/File1509107718207)
+      [!["Route calls to" section on 3CX. ](_images/c7052e225eea6d5a.png)](/downloads/c7052e225eea6d5a-File1509107718207.png)
 9. ### **Click on the "Options" tab and provide the following information:**
 
    1. #### **"Require registration for":** *Do not require*
@@ -175,7 +175,7 @@ In this section, you will create a [SIP trunk](https://telnyx.com/products/sip-t
 14. ### **Click "OK" at the top of the page.**
 15. ### **If all the fields are entered correctly the IP trunk will now be live. We can now proceed to our inbound and outbound rules.**
 
-    [![SIP Trunks section. ](_images/520d4eff9d33c299.png)](https://downloads.intercomcdn.com/i/o/37739547/f13058c7b96adaacca2b1e57/File1509107718250)
+    [![SIP Trunks section. ](_images/520d4eff9d33c299.png)](/downloads/520d4eff9d33c299-File1509107718250.png)
 
 [Back to Top](#h_ddd07169a1)
 
@@ -190,14 +190,14 @@ In this section, we'll create inbound rules to manage your incoming calls.
    1. #### **"Name":** give your outbound rule a name that makes sense for your inbound rule.
    2. #### **"DID/DDI":** One of the DIDs you provisioned from Telnyx as part of your [pre-requisite activities](#h_566f57a59c)
 
-      [![Inbound rules section. ](_images/798d2c7d44d9c5ce.png)](https://downloads.intercomcdn.com/i/o/37739548/7381896e4939a87623dd3dd8/File1509107718295)
+      [![Inbound rules section. ](_images/798d2c7d44d9c5ce.png)](/downloads/798d2c7d44d9c5ce-File1509107718295.png)
 4. #### In the "**Route calls to"** section, provide the following information:
 
    1. #### **"Main Trunk number":** By default number will be shown. You need cross-verify with the number which you have purchased on telnyx portal
    2. #### **"Destination for calls during the office hours":** Based on your requirement
    3. #### **"Destination for calls outside the office hours":** Based on your requirement
 
-      [!["Route calls to" section. ](_images/c7052e225eea6d5a.png)](https://downloads.intercomcdn.com/i/o/37739549/5de00fbdcfb9009e4dbec6c8/File1509107718333)
+      [!["Route calls to" section. ](_images/c7052e225eea6d5a.png)](/downloads/c7052e225eea6d5a-File1509107718207.png)
 
 [Back to Top](#h_ddd07169a1)
 
@@ -211,14 +211,14 @@ In this section, we'll create outbound rules to manage your outgoing calls.
 
    1. #### **Rule Name:** Enter anything that makes sense for your rule
 
-      [!["Add outbound rule" section. ](_images/5121e05b9b086dbc.png)](https://downloads.intercomcdn.com/i/o/37739550/140544231b9f3347b9215c22/File1509107718366)
+      [!["Add outbound rule" section. ](_images/5121e05b9b086dbc.png)](/downloads/5121e05b9b086dbc-File1509107718366.png)
 4. ### **In the "Apply this rule to these calls" section, provide the following information:**
 
    1. #### **"Calls to numbers starting with prefix":** Leave empty
    2. #### **"Calls from extension(s)":** Provide your extension numbers. We used *000* as an example here.
    3. #### **"Calls to numbers with a length of":** Leave empty
 
-      [!["Apply this rule to these calls" section. ](_images/ecdf9290b2733687.png)](https://downloads.intercomcdn.com/i/o/37739551/2db181344b002a5942bee926/File1509107718409)
+      [!["Apply this rule to these calls" section. ](_images/ecdf9290b2733687.png)](/downloads/ecdf9290b2733687-File1509107718409.png)
 5. ### **In the "Make outbound calls on" section, we will be configuring routes for your calls. We can configure up to 3. The first will be your primary call route and the second and third will be used as backup.For each route, digits can be stripped or added. Strip Digits 0 on Route 1 and Strip Digits 1 digit for remaining 2 routes. This is also one of the many ways an "outbound caller ID" can be applied within 3CX. If you choose to apply an outbound caller ID on your Outbound Route, it will be applied to all calls that proceed through this route.**
 
    !["Make outbound calls on" section. ](_images/4bdab2a0eca89da6.png)

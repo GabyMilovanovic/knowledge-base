@@ -1,4 +1,4 @@
-"""Publish/verify routing for the dedicated temporary support site. No AWS calls on import."""
+"""Publish/verify routing for the production support site. No AWS calls on import."""
 import argparse
 import concurrent.futures
 import hashlib
@@ -13,7 +13,8 @@ import urllib.request
 
 ACCOUNT = '144076755730'
 DISTRIBUTION = 'E3TMOKZN8HQ7AZ'
-ORIGIN = 'https://d27az1l5lty0u1.cloudfront.net'
+ORIGIN = 'https://support.telnyx.com'
+DISTRIBUTION_DOMAIN = 'd27az1l5lty0u1.cloudfront.net'
 BUCKET = 'support.telnyx.com'
 READY = '_meta:ready'
 PROTOCOL = 'support-v2-origin-fallback-v1'
@@ -150,8 +151,8 @@ def check_http(path, status, location=None, method='GET', expected_hash=None):
                 raise ValueError(f'Expected {status} {location}, got {code} {actual_location}')
             if method == 'HEAD' and body:
                 raise ValueError('HEAD response contained a body')
-            if method == 'GET' and status == 200 and (b'<h1' not in body or b'noindex' not in body):
-                raise ValueError('Missing rendered content or preview noindex')
+            if method == 'GET' and status == 200 and (b'<h1' not in body or b'<meta name="robots"' not in body):
+                raise ValueError('Missing rendered content or robots metadata')
             if expected_hash and hashlib.sha256(body).hexdigest() != expected_hash:
                 raise ValueError('Live HTML does not match the uploaded release')
             if method == 'GET' and status == 404 and b'Page not found' not in body:
@@ -184,7 +185,17 @@ def verify(routes, canonical, bootstrap, dist):
         if code != 200:
             raise ValueError('Approved external redirect target is not direct HTTP 200')
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
-        return list(pool.map(lambda args: check_http(*args), tasks))
+        checks = list(pool.map(lambda args: check_http(*args), tasks))
+        checks.extend(pool.map(lambda file: verify_download(file, dist), sorted((Path(dist) / 'downloads').glob('*'))))
+        return checks
+
+
+def verify_download(file, dist):
+    url = ORIGIN + '/' + str(file.relative_to(dist))
+    code, _, body = request(url)
+    if code != 200 or hashlib.sha256(body).digest() != hashlib.sha256(file.read_bytes()).digest():
+        raise ValueError('Live download does not match release: ' + url)
+    return {'url': url, 'method': 'GET', 'status': code, 'sha256': hashlib.sha256(body).hexdigest()}
 
 
 def invalidate(call):
@@ -202,9 +213,11 @@ def preflight(call, arn, routes, dist, bootstrap, rollback):
     if call('sts', 'get-caller-identity')['Account'] != ACCOUNT:
         raise ValueError('Unexpected AWS account')
     distribution = call('cloudfront', 'get-distribution', id=DISTRIBUTION)['Distribution']
-    if distribution['DomainName'] != ORIGIN.removeprefix('https://'):
+    if distribution['DomainName'] != DISTRIBUTION_DOMAIN:
         raise ValueError('Unexpected CloudFront domain')
     config = distribution['DistributionConfig']
+    if 'support.telnyx.com' not in config.get('Aliases', {}).get('Items', []):
+        raise ValueError('Production hostname is not attached to the expected distribution')
     origins = config['Origins']['Items']
     if len(origins) != 1 or not origins[0]['DomainName'].startswith(BUCKET + '.s3.'):
         raise ValueError('Unexpected S3 origin')

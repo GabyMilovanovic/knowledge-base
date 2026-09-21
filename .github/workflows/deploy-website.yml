@@ -39,6 +39,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    env:
+      SITE_ORIGIN: "https://support.telnyx.com"
+      SITE_INDEXABLE: "true"
 
     steps:
       - name: Require approved main
@@ -73,8 +76,6 @@ jobs:
         working-directory: website
         env:
           BASE_PATH: "/"
-          SITE_ORIGIN: "https://d27az1l5lty0u1.cloudfront.net"
-          SITE_INDEXABLE: "false"
         run: bun run build
 
       - name: Verify rendered pages and links
@@ -107,7 +108,7 @@ jobs:
           # 1) Content-hashed files first (long-lived, immutable), so the
           #    HTML uploaded later never references assets missing from the
           #    bucket.
-          for prefix in assets _images; do
+          for prefix in assets _images downloads; do
             aws s3 sync ./website/dist/$prefix/ $BUCKET/$prefix/ \
               --cache-control 'public, max-age=31536000, immutable'
           done
@@ -128,6 +129,7 @@ jobs:
           aws s3 cp --recursive ./website/dist/ $BUCKET/ \
             --exclude 'assets/*' \
             --exclude '_images/*' \
+            --exclude 'downloads/*' \
             --exclude 'content/*' \
             --exclude 'en/*' \
             --exclude '*.woff' \

@@ -221,7 +221,7 @@ Cisco's default settings (SIP T1 = 0.5 sec, RTP packet size 0.030 on most Sipura
 
 |  |
 | --- |
-| ***Note:*** *During secure calls, you will year a couple of beeps now and then. If you want to disable this notification, you can do so from **Voice > Regional** and find the **Call Progress Tones** section. From here, you can clear the **Secure Call Indication Tone** field. To re-enable it, repopulate this field with 397@-19,507@-19;15(0/2/0,.2/.1/1,.1/2.1/2)*  [Call progress tones portal.](https://downloads.intercomcdn.com/i/o/417526166/4fa5b1d256d1a00ecb04e6dc/800px-SPA_Regional_Tone.png?expires=1783506600&signature=0a376b9fe30ecebb144e3991eb72aed82c8da8e625dd47b057339d014fb9d302&req=cCEgE8t4nIdZFb4f3HP0gLLeH44odxS5VpX3kQINwEki3uDxLrwrZIJxi2WA%0AgBI%3D%0A) |
+| ***Note:*** *During secure calls, you will year a couple of beeps now and then. If you want to disable this notification, you can do so from **Voice > Regional** and find the **Call Progress Tones** section. From here, you can clear the **Secure Call Indication Tone** field. To re-enable it, repopulate this field with 397@-19,507@-19;15(0/2/0,.2/.1/1,.1/2.1/2)*  [Call progress tones portal.](/downloads/313a63528d13c096-800px-SPA-Regional-Tone.png) |
 
 ---
 

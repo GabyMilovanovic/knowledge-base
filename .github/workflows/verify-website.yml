@@ -29,3 +29,11 @@ jobs:
           bun test
           bun run build
           bun run verify
+      - name: Build and audit production indexing
+        working-directory: website
+        env:
+          SITE_ORIGIN: "https://support.telnyx.com"
+          SITE_INDEXABLE: "true"
+        run: |
+          bun run build
+          bun run verify:strict

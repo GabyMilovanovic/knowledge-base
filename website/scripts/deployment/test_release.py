@@ -105,7 +105,8 @@ class ReleaseTests(unittest.TestCase):
                 if service == 'sts':
                     return {'Account': release.ACCOUNT}
                 if operation == 'get-distribution':
-                    return {'Distribution': {'DomainName': release.ORIGIN.removeprefix('https://'), 'DistributionConfig': {
+                    return {'Distribution': {'DomainName': release.DISTRIBUTION_DOMAIN, 'DistributionConfig': {
+                        'Aliases': {'Items': ['support.telnyx.com']},
                         'Origins': {'Items': [{'DomainName': release.BUCKET + '.s3.us-east-1.amazonaws.com'}]},
                         'DefaultCacheBehavior': {'FunctionAssociations': {'Items': [{'EventType': 'viewer-request', 'FunctionARN': 'arn/function/support-v2-kb-routing'}] if active else []}}
                     }}}
