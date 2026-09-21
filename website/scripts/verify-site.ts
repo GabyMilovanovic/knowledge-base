@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import {createHash} from "node:crypto";
 import {gzipSync} from "node:zlib";
 import {articles, collections} from "../src/content/manifest";
 import {collectionArticleCounts} from "../src/utils/collection-articles";
@@ -29,8 +30,16 @@ for(const route of routes){
  if(route.startsWith("/en/articles/")&&bodyText.trim().length<20)failures.push(`Missing initial article body: ${route}`);
  pages.set(route,{ids,text:html.replace(/<[^>]*>/g," ")});
 }
+const downloadManifest=JSON.parse(fs.readFileSync(path.resolve(import.meta.dir,"../downloads-manifest.json"),"utf8")) as {files:{path:string;sha256:string;size:number}[]};
+for(const file of downloadManifest.files){
+ const target=path.join(dist,file.path.slice(1));
+ if(!fs.existsSync(target)){failures.push(`Missing archived download ${file.path}`);continue;}
+ const data=fs.readFileSync(target);
+ if(data.length!==file.size||createHash("sha256").update(data).digest("hex")!==file.sha256)failures.push(`Corrupted archived download ${file.path}`);
+}
 for(const {from,href} of links){
  const target=new URL(href,"https://preview.invalid"+from), dest=pages.get(target.pathname);
+ if(target.pathname.startsWith("/downloads/")&&!fs.existsSync(path.join(dist,target.pathname.slice(1))))failures.push(`Missing download ${from} -> ${href}`);
  if(!dest){
   if(target.pathname.startsWith("/en/")){
    const id=target.pathname.match(/\/articles\/(\d+)/)?.[1];

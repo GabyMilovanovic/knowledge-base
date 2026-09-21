@@ -205,7 +205,7 @@ Inbound marketing campaigns are concentrated efforts that align all of your mark
 
 |  |
 | --- |
-| ***Note:*** *Be sure to advise your agent to select always the ingroup on the **INBOUND CAMPAIGN** once they log in.*  [Ingroup selection portal for inbound campaigns.](https://downloads.intercomcdn.com/i/o/441361768/695af9b9562cacf4ce3e0dbc/Icampaign6.png?expires=1783506600&signature=ca8cc7c8aeacb19b0f81ce66f22fbd86ac8c72d81d383e95841bdc85a3236615&req=cCQmFc9%2FmodXFb4f3HP0gHzCv%2FiZ32pnXfBp%2FJeS81MRozDKHN1w9pfXLcus%0A47E%3D%0A)  [Ingroup selection portal for inbound campaigns 2.](https://downloads.intercomcdn.com/i/o/441361947/1af926bf52418dcdd4ec8fcc/Icampaign7.png?expires=1783506600&signature=d84022b26bf62da59378cd16553bda2e820f2577a55908633e34d6ac6e11b4b9&req=cCQmFc9%2FlIVYFb4f3HP0gOMDJQ4pMltC2jzfZSNJ5wJnqA6xyQuk29YWopn6%0A6zI%3D%0A) |
+| ***Note:*** *Be sure to advise your agent to select always the ingroup on the **INBOUND CAMPAIGN** once they log in.*  [Ingroup selection portal for inbound campaigns.](/downloads/8a103259caab819c-Icampaign6.png)  [Ingroup selection portal for inbound campaigns 2.](/downloads/412eee04d380148a-Icampaign7.png) |
 
 [Back to Top](#h_c2acc2872a)
 

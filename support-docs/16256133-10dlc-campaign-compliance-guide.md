@@ -49,7 +49,7 @@ You'll need the following information ready:
 1. Log in to the Telnyx Mission Control Portal and navigate to Messaging → 10DLC.
 2. Click "Create a brand" to open the brand registration form.
 
-[![](_images/6b8d205c198b5c921e554476529f343b7dd471652dd61f9fca786c5d5ffddfc4.jpg)](https://downloads.intercomcdn.com/i/o/ltcafuzd/2593696278/bcb824194939b05cf55b7e1ed2b8/b293277e-413a-4478-80f2-2226fca5a4a3?expires=1789491600&signature=0e573ded9139a77189c8cda56ba11f3250d262c26bf1cf77b350963cc44f81f4&req=diUuFc93m4NYUfMW1HO4zcnbw9WuxiU7CURz798WAehPXz1tLV4r23DPD5YG%0AJ8x%2Baos0G%2BFk6ce3QQ8%3D%0A)
+[![](_images/6b8d205c198b5c921e554476529f343b7dd471652dd61f9fca786c5d5ffddfc4.jpg)](/downloads/6b8d205c198b5c92-b293277e-413a-4478-80f2-2226fca5a4a3.jpg)
 
 *The brand registration form in the Telnyx Mission Control Portal.*
 
@@ -266,14 +266,14 @@ Once your brand is registered and your compliance mechanisms (opt-in form, priva
 1. In the Telnyx Mission Control Portal, navigate to Messaging → 10DLC and click "Create a campaign".
 2. Select your campaign use case from the dropdown. This determines the category of messaging you'll be sending (e.g., Marketing, 2FA, Customer Care, Alerts, etc.). Click Next.
 
-[![](_images/50f7e19107a3143abeac1d44b355d29a4ac625511db19fa68610e187cc01386b.jpg)](https://downloads.intercomcdn.com/i/o/ltcafuzd/2593696276/5dad32e7a236c1dbe0644e1d5f0b/2e024068-9208-463d-854a-05beb3b0f5eb?expires=1789491600&signature=08115b67dc97cea822deb526df05b19efcd6c733217e3a335f6bf5759ba9b066&req=diUuFc93m4NYX%2FMW1HO4zbU2WLIPAr8KeWv0XkHdjEKlWrcfdz2vZEyKMeJ3%0A9EzJrv8OpVUR8lKhw4s%3D%0A)
+[![](_images/50f7e19107a3143abeac1d44b355d29a4ac625511db19fa68610e187cc01386b.jpg)](/downloads/50f7e19107a3143a-2e024068-9208-463d-854a-05beb3b0f5eb.jpg)
 
 *Step 1: Select your campaign use case. The 4-step progress tracker is shown on the right.*
 
 1. Review the carrier terms and conditions, then click Next to proceed to the Campaign Details form.
 2. Fill in the Campaign Details form. This is the most important step — all compliance fields are here:
 
-[![](_images/3d48c889112d9d735c4f608c087b0ef814ccdf039de5a3e668df88fed8f19293.jpg)](https://downloads.intercomcdn.com/i/o/ltcafuzd/2593696277/c99aff13ea7aefe28d5d17fdbcc7/47d25db0-2e00-4c98-a42c-e5aa14fea6e8?expires=1789491600&signature=32a4af5874983870143f42637a5d5a3eae1ee34335cb9bbbeaee92730c41f72b&req=diUuFc93m4NYXvMW1HO4zXYgZqHJz66vth%2BzMLIiNgIYCVEq9dL3nXjFn43t%0AL6DpIpWNCT8r3vz%2FQbY%3D%0A)
+[![](_images/3d48c889112d9d735c4f608c087b0ef814ccdf039de5a3e668df88fed8f19293.jpg)](/downloads/3d48c889112d9d73-47d25db0-2e00-4c98-a42c-e5aa14fea6e8.jpg)
 
 *Step 3: The Campaign Details form with all compliance fields.*
 
