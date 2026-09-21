@@ -1,110 +1,76 @@
-# Temporary support-site deployment and recovery
+# Production support deployment and recovery
 
-This change is prepared for review. Do not merge, deploy, or apply before owner approval.
-Only `https://d27az1l5lty0u1.cloudfront.net` / `support-v2.telnyx.com` is in scope.
-There is no DNS or public `support.telnyx.com` cutover.
+Target: `https://support.telnyx.com`, served by distribution `E3TMOKZN8HQ7AZ`
+(`d27az1l5lty0u1.cloudfront.net`), bucket `support.telnyx.com`, account
+`144076755730`. Production builds set SITE_ORIGIN to the public host and
+SITE_INDEXABLE=true; explicit article exclusions and 404 noindex remain intact.
 
-## Ownership and one-time setup
+## Ownership and configuration
 
-The knowledge-base workflow uploads content and synchronizes redirect **data**.
-Infra manages the CloudFront function, KeyValueStore, association, private origin
-permissions, and deployment-role policy. Routine new articles do not need an
-infra PR. A missing mapping passes through to an exact S3 object; historical URLs
-still use mappings, updated automatically from repository metadata.
+Infra PR #251 creates and bootstraps the dedicated routing store/function and
+adds scoped permissions to the existing publishing role. Set repository variable
+CLOUDFRONT_KVS_ARN to its support_v2_kvs_arn output; retain the existing
+AWS_ASSUME_ROLE and CLOUDFRONT_DISTRIBUTION_ID secrets. The public hostname must
+be attached to this distribution. The workflow verifies those targets before uploads.
 
-## Initial rollout: one infra apply
+GitHub Actions assumes the existing role using main-only OIDC. Its scoped policy
+allows KVS DescribeKeyValueStore/ListKeys/GetKey/UpdateKeys and distribution
+GetDistribution/GetInvalidation. Existing S3 publishing and CreateInvalidation
+permissions are retained. The workflow cannot change IAM, DNS or CloudFront
+configuration. Infra owns infrastructure and the routing algorithm; KB owns route data.
 
-1. After approval, infra merges/applies the supporting PR. That **same apply**
-   creates the store, seeds the reviewed route snapshot, verifies every destination
-   directly on the temporary site, reads back the stored data and writes readiness
-   last, then attaches the routing function. A failed check stops association.
-   No second activation visit, KB bootstrap dispatch, or DNS change is required.
-   Origin ListBucket and genuine 404 handling are included; compression remains
-   infra's separate coordinated change.
-2. Set repository variable `CLOUDFRONT_KVS_ARN` to infra's `support_v2_kvs_arn`
-   output. Keep secret `CLOUDFRONT_DISTRIBUTION_ID` equal to `E3TMOKZN8HQ7AZ`
-   and existing `AWS_ASSUME_ROLE` unchanged.
-3. After approval, merge this workflow to main. The normal deployment uploads the
-   latest content, automatically updates mappings, invalidates/waits, and verifies
-   pages, historical aliases, roots, queries and genuine missing paths. Review the
-   release evidence before treating temporary-site rollout as complete. If merged
-   before infra is ready/configured, preflight intentionally fails before uploads.
-
-Infra's initial snapshot is a one-time seed of currently served URLs. Later
-Terraform applies do not reset it over KB-owned updates. If the store is recreated,
-its bundled seed must be refreshed/reviewed first. The workflow owns all subsequent
-article and redirect updates; routine changes need no infra PR.
-
-## Deployment-role permissions
-
-Continue assuming `INFRA-462-team-telnyx-knowledge-base-publish-s3-bucket` using
-existing GitHub OIDC. The trust remains restricted to this repository's main.
-Infra adds a separate inline policy to that existing role (its role and original
-policy are managed in `infra-svc-aws-generic-iam-resources`):
-
-- On the dedicated KVS ARN only: `cloudfront-keyvaluestore:DescribeKeyValueStore`,
-  `ListKeys`, `GetKey`, `UpdateKeys`.
-- On distribution `E3TMOKZN8HQ7AZ` only: `cloudfront:GetDistribution` and
-  `cloudfront:GetInvalidation`.
-
-Existing S3 upload/list/delete and `cloudfront:CreateInvalidation` permissions
-remain as they are. The workflow does not grant itself permissions or get
-`UpdateDistribution`, IAM administration, DNS changes, or another bucket's access.
-The AWS CLI uses regional STS credentials for KVS signing.
+A new exact-key page works without a mapping. Historical URLs still require the
+registry, now synchronized automatically on deployment. Missing lookup entries
+reach the origin; KVS service failures remain 503. No manual infra update is needed
+for ordinary article publishing, renaming or retained retired-ID redirects.
 
 ## Normal releases
 
-The main workflow serializes releases without cancelling an in-flight deployment:
+The workflow serializes releases without cancelling an in-flight run:
 
-1. Build and check the entire site, tests, metadata, links, and route targets.
-2. Validate exact AWS account, distribution, origin, store ARN and readiness;
-   snapshot the previous routes. Reject disappearance of a previously published
-   identity: retain that ID with a direct redirect in repository metadata.
-3. Upload immutable assets first, then mutable content and exact extensionless
-   HTML keys with `text/html; charset=utf-8`. Mutable objects are copied regardless
-   of timestamp/size so rollback can restore older content correctly.
-4. Update only changed routes in batches of at most 50 using conditional ETags.
-   Do not clear/import over the live store. A detected concurrent writer stops
-   publication without overwriting its data.
-5. Invalidate `/*`, wait for completion (up to 15 minutes), then verify live
-   responses against the uploaded release. Preview HTML must remain noindex.
-6. Retain generated content, routes, before-state and HTTP evidence as the Actions
-   artifact `support-site-release-<run ID>` for up to 90 days (subject to repository
-   retention limits). Artifacts contain no credentials and no archived code is run.
+1. Build, test, type-check and audit the site and archived download hashes.
+2. Check the exact AWS account, distribution, public alias, S3 origin, store and
+   bootstrap readiness; snapshot the prior routes. Reject disappeared IDs unless
+   explicitly rolling back. Normal retirements must retain an ID-to-target redirect.
+3. Upload hashed assets/images/downloads first with immutable caching, then mutable
+   content and extensionless HTML keys with the correct HTML Content-Type. Mutable
+   objects are copied regardless of timestamps or size so rollback restores bytes.
+4. Update changed routes with conditional ETags in batches of at most 50. Never
+   clear/import over the live store. Concurrent changes stop publication.
+5. Invalidate `/*` and wait up to 15 minutes, then verify all canonical HTML against
+   the build, ID/old-title/custom redirects, roots, query strings, GET/HEAD missing
+   paths, and every hosted download's SHA-256 on the production hostname.
+6. Retain generated content/routes, prior state and HTTP evidence as Actions artifact
+   `support-site-release-<run ID>` for up to 90 days, subject to repository limits.
 
-A new page works without a pre-existing ID entry when the store is available.
-A KVS outage still returns 503 for looked-up routes: this preserves established
-redirect behavior rather than treating an outage as a genuinely absent mapping.
-This is not a fully lookup-free architecture. Changes to the routing algorithm
-itself require infra review; routine article/collection data changes do not.
+HTML is compared to the exact approved build: ordinary pages stay indexable and
+explicitly excluded articles retain their exclusions. Downloads are fetched from
+production and compared byte-for-byte by hash. Missing objects must be real 404s.
 
-## Failure and rollback
+## Failure and recovery
 
-Route-update/verification failures attempt to restore the prior route snapshot and
-invalidate again, unless a concurrent writer is detected. This is **not** an atomic
-content rollback: partial uploads or changed HTML may already be visible. See the
-failure report and rerun recovery; a failed recovery or invalidation needs operator
-attention. GitHub reports a failed run rather than silently declaring success.
+A route-update/verification failure attempts to restore the route snapshot and
+invalidate again unless another writer is detected. This is not atomic content
+rollback: uploads may already have changed pages. A failure report records whether
+recovery succeeded. Upload failures, failed recovery or invalidation need operator
+attention; the run fails rather than declaring success.
 
-To restore a prior release after approval, dispatch the current main workflow with
-`rollback_run_id` set to a **successful main deployment from this workflow** whose
-artifact has `release-verified` evidence. Current approved
-scripts restore only generated content/routes from that artifact, then invalidate
-and verify. Before the first verified release, recovery needs the saved pre-rollout
-content/configuration and infra's function-disable procedure; old pre-automation
-workflow artifacts are not accepted automatically.
+To restore after approval, dispatch the current main workflow with rollback_run_id
+set to a successful main deployment from this workflow whose retained artifact has
+`release-verified` evidence. Current approved scripts restore only generated data,
+never archived executable code, then invalidate and verify. Runs before this
+artifact/verification scheme are not eligible; before the first verified release,
+retain the preceding Git revision/content for a separately reviewed recovery.
 
-Uploads deliberately retain superseded objects and hashed assets. This keeps old
-redirect destinations available during propagation and enables rollback. A rollback
-restores overwritten objects and routes but does not unpublish new objects added
-later: an unmapped exact URL can still serve them. Removal of sensitive/withdrawn
-content and eventual storage cleanup require a separately reviewed deletion and
-invalidation; do not add blanket `sync --delete` to this workflow.
+Old objects/assets/downloads are deliberately retained for propagation and rollback.
+Rollback restores overwritten files/routes but does not remove new files introduced
+later; an unmapped exact URL can still serve them. Withdrawal of content and eventual
+cleanup require reviewed deletion and invalidation. Do not add blanket sync --delete.
 
-## Local validation
+## Local checks
 
 Run `python3 -m unittest discover -s website/scripts/deployment -p 'test_*.py'`
-without AWS credentials. Then run the website's build, Bun tests, type check and
-`bun run verify:strict`. See [edge behavior](edge/README.md) for the local preview.
-The infra PR's authenticated plan and live temporary-host checks remain necessary;
-local validation cannot prove deployed AWS permissions or global propagation.
+without AWS credentials, then the website build, Bun tests, type check and
+verify:strict with production environment settings. Default local builds remain
+preview/noindex. See edge/README.md for routing details. Live deployment verification
+is necessary; local checks cannot establish deployed permissions or global cache state.

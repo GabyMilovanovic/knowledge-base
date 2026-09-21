@@ -1,8 +1,8 @@
-# Temporary-site routing and rollout
+# Support-site routing and rollout
 
-**Architecture change prepared locally; not deployed.** Activate only after the
-origin prerequisites below are complete. Public-domain cutover is out of scope.
-Target only `d27az1l5lty0u1.cloudfront.net` and its existing origin.
+Production is served at `https://support.telnyx.com` by distribution
+`E3TMOKZN8HQ7AZ`. Local builds default to a non-indexable preview; the deployment
+workflow builds/verifies the public production origin. See ../DEPLOYMENT.md.
 
 ## Generated artifacts
 

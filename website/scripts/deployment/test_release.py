@@ -151,6 +151,26 @@ class ReleaseTests(unittest.TestCase):
         with patch('release.time.sleep'), self.assertRaises(TimeoutError):
             release.invalidate(lambda *a, **k: {'Invalidation': {'Id': 'test', 'Status': 'InProgress'}})
 
+    def test_live_download_must_match_archived_bytes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            file = Path(temp) / 'downloads/example.docx'
+            file.parent.mkdir()
+            file.write_bytes(b'archived-document')
+            with patch('release.request', return_value=(200, {}, b'archived-document')):
+                self.assertEqual(release.verify_download(file, temp)['status'], 200)
+            for response in [(200, {}, b'wrong-document'), (404, {}, b'archived-document')]:
+                with patch('release.request', return_value=response), self.assertRaises(ValueError):
+                    release.verify_download(file, temp)
+
+    def test_production_checks_allow_indexed_and_explicitly_excluded_pages(self):
+        import hashlib
+        for directive in ['index,follow', 'noindex,nofollow']:
+            body = ('<h1>Article</h1><meta name="robots" content="' + directive + '">').encode()
+            with patch('release.request', return_value=(200, {}, body)):
+                release.check_http('/article', 200, expected_hash=hashlib.sha256(body).hexdigest())
+            with patch('release.request', return_value=(200, {}, body)), patch('release.time.sleep'), self.assertRaises(RuntimeError):
+                release.check_http('/article', 200, expected_hash='stale-build')
+
     def test_http_requires_exact_redirect_without_following_chain(self):
         with patch('release.request', return_value=(301, {'Location': '/expected'}, b'')):
             self.assertEqual(release.check_http('/old', 301, '/expected')['status'], 301)
