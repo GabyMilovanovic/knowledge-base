@@ -1,0 +1,461 @@
+{
+  "description": "Intercom attachments archived 2026-09-21. Source query strings omitted; SHA-256 identifies archived bytes.",
+  "files": [
+    {
+      "path": "/downloads/f97c44de921a899b-change.jpg",
+      "size": 135664,
+      "sha256": "f97c44de921a899bf8bad9962041f6ff7605e9d6b905315299fed4d188a77063",
+      "content_type": "image/jpeg",
+      "original_name": "change.jpg",
+      "source": "https://downloads.intercomcdn.com/i/o/116804887/1ccdf298a762d01836e22412/change.jpg"
+    },
+    {
+      "path": "/downloads/2e0700ca6ed799ee-image.png",
+      "size": 8905,
+      "sha256": "2e0700ca6ed799ee884b9659a72f09d71aae7f82e7881daabb595927d52dfb56",
+      "content_type": "image/png",
+      "original_name": "image.png",
+      "source": "https://downloads.intercomcdn.com/i/o/135579193/a8b2e2765d9bda80062168c4/image.png"
+    },
+    {
+      "path": "/downloads/57b141d2cd35fc13-File1509107718169.png",
+      "size": 11396,
+      "sha256": "57b141d2cd35fc131679b5a2949df63bcb461a13e7a67dce52587093e3c40228",
+      "content_type": "image/png",
+      "original_name": "File1509107718169",
+      "source": "https://downloads.intercomcdn.com/i/o/37739545/266e21680c7755f64d1f0a59/File1509107718169"
+    },
+    {
+      "path": "/downloads/c7052e225eea6d5a-File1509107718207.png",
+      "size": 17282,
+      "sha256": "c7052e225eea6d5aaf4c7ba523cfc87ef78078e846a2d58587739cedac8049b4",
+      "content_type": "image/png",
+      "original_name": "File1509107718207",
+      "source": "https://downloads.intercomcdn.com/i/o/37739546/c3223abe1f08d0257ad372cb/File1509107718207"
+    },
+    {
+      "path": "/downloads/520d4eff9d33c299-File1509107718250.png",
+      "size": 46943,
+      "sha256": "520d4eff9d33c299a6e2843de1482c38ca5744182efd05b66a61eeb06821246f",
+      "content_type": "image/png",
+      "original_name": "File1509107718250",
+      "source": "https://downloads.intercomcdn.com/i/o/37739547/f13058c7b96adaacca2b1e57/File1509107718250"
+    },
+    {
+      "path": "/downloads/798d2c7d44d9c5ce-File1509107718295.png",
+      "size": 9057,
+      "sha256": "798d2c7d44d9c5cefdf56c692571c66383c84364e398362d014382ac0f66c078",
+      "content_type": "image/png",
+      "original_name": "File1509107718295",
+      "source": "https://downloads.intercomcdn.com/i/o/37739548/7381896e4939a87623dd3dd8/File1509107718295"
+    },
+    {
+      "path": "/downloads/c7052e225eea6d5a-File1509107718207.png",
+      "size": 17282,
+      "sha256": "c7052e225eea6d5aaf4c7ba523cfc87ef78078e846a2d58587739cedac8049b4",
+      "content_type": "image/png",
+      "original_name": "File1509107718333",
+      "source": "https://downloads.intercomcdn.com/i/o/37739549/5de00fbdcfb9009e4dbec6c8/File1509107718333"
+    },
+    {
+      "path": "/downloads/5121e05b9b086dbc-File1509107718366.png",
+      "size": 9113,
+      "sha256": "5121e05b9b086dbc8bf80855834fcd546d5c6f2ae65b49c592b9a8b9972cf0fb",
+      "content_type": "image/png",
+      "original_name": "File1509107718366",
+      "source": "https://downloads.intercomcdn.com/i/o/37739550/140544231b9f3347b9215c22/File1509107718366"
+    },
+    {
+      "path": "/downloads/ecdf9290b2733687-File1509107718409.png",
+      "size": 14811,
+      "sha256": "ecdf9290b273368791225e3981df41fd16d0d9fe12fa126eb0f10023ca95ac8e",
+      "content_type": "image/png",
+      "original_name": "File1509107718409",
+      "source": "https://downloads.intercomcdn.com/i/o/37739551/2db181344b002a5942bee926/File1509107718409"
+    },
+    {
+      "path": "/downloads/313a63528d13c096-800px-SPA-Regional-Tone.png",
+      "size": 480574,
+      "sha256": "313a63528d13c09656080bf78b3dcce5671cc860cbe5b566cd4827b30f63fc32",
+      "content_type": "image/png",
+      "original_name": "800px-SPA_Regional_Tone.png",
+      "source": "https://downloads.intercomcdn.com/i/o/417526166/4fa5b1d256d1a00ecb04e6dc/800px-SPA_Regional_Tone.png"
+    },
+    {
+      "path": "/downloads/8a103259caab819c-Icampaign6.png",
+      "size": 47865,
+      "sha256": "8a103259caab819c2b876e819dbbd5cdc0bdbe05b0dfa4d8548fa2a7ffc9ebd9",
+      "content_type": "image/png",
+      "original_name": "Icampaign6.png",
+      "source": "https://downloads.intercomcdn.com/i/o/441361768/695af9b9562cacf4ce3e0dbc/Icampaign6.png"
+    },
+    {
+      "path": "/downloads/412eee04d380148a-Icampaign7.png",
+      "size": 40282,
+      "sha256": "412eee04d380148a6f3a703f898a22cb5e67e7a7d44898694aa38f590c67234a",
+      "content_type": "image/png",
+      "original_name": "Icampaign7.png",
+      "source": "https://downloads.intercomcdn.com/i/o/441361947/1af926bf52418dcdd4ec8fcc/Icampaign7.png"
+    },
+    {
+      "path": "/downloads/32d6f475463ea47a-LOI-Template.docx",
+      "size": 16485,
+      "sha256": "32d6f475463ea47a9095523b9aad7946158db4a99bb2509436c0e5b991227931",
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "original_name": "LOI Template.docx",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/1974079146/f3eb9460203bfedda610a97379a8/LOI+Template.docx"
+    },
+    {
+      "path": "/downloads/6003676eb9658db4-d8fb560b-3b7c-4038-aa04-3b34adee46ab.png",
+      "size": 167267,
+      "sha256": "6003676eb9658db4b4fad9f5e6ca9eddbf4a464dd9dc8e3d9e5710af3e21bf0d",
+      "content_type": "image/png",
+      "original_name": "d8fb560b-3b7c-4038-aa04-3b34adee46ab",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2527236600/04764b0cb13e43e724fc937fc893/d8fb560b-3b7c-4038-aa04-3b34adee46ab"
+    },
+    {
+      "path": "/downloads/50f7e19107a3143a-2e024068-9208-463d-854a-05beb3b0f5eb.jpg",
+      "size": 22706,
+      "sha256": "50f7e19107a3143abeac1d44b355d29a4ac625511db19fa68610e187cc01386b",
+      "content_type": "image/jpeg",
+      "original_name": "2e024068-9208-463d-854a-05beb3b0f5eb",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2593696276/5dad32e7a236c1dbe0644e1d5f0b/2e024068-9208-463d-854a-05beb3b0f5eb"
+    },
+    {
+      "path": "/downloads/3d48c889112d9d73-47d25db0-2e00-4c98-a42c-e5aa14fea6e8.jpg",
+      "size": 68653,
+      "sha256": "3d48c889112d9d735c4f608c087b0ef814ccdf039de5a3e668df88fed8f19293",
+      "content_type": "image/jpeg",
+      "original_name": "47d25db0-2e00-4c98-a42c-e5aa14fea6e8",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2593696277/c99aff13ea7aefe28d5d17fdbcc7/47d25db0-2e00-4c98-a42c-e5aa14fea6e8"
+    },
+    {
+      "path": "/downloads/6b8d205c198b5c92-b293277e-413a-4478-80f2-2226fca5a4a3.jpg",
+      "size": 52855,
+      "sha256": "6b8d205c198b5c921e554476529f343b7dd471652dd61f9fca786c5d5ffddfc4",
+      "content_type": "image/jpeg",
+      "original_name": "b293277e-413a-4478-80f2-2226fca5a4a3",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2593696278/bcb824194939b05cf55b7e1ed2b8/b293277e-413a-4478-80f2-2226fca5a4a3"
+    },
+    {
+      "path": "/downloads/eaa7c10d54c9d2f0-38fef54b-0cd5-4826-83d4-79a4a788222a.png",
+      "size": 7191,
+      "sha256": "eaa7c10d54c9d2f00e164c4f0aafa0dc1b487e166b311d987376b8e99ff1b70a",
+      "content_type": "image/png",
+      "original_name": "38fef54b-0cd5-4826-83d4-79a4a788222a",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860928/a415e28ad39f88baa6a42f2dfbaf/38fef54b-0cd5-4826-83d4-79a4a788222a"
+    },
+    {
+      "path": "/downloads/a624206219d1a1dc-b874a892-8137-4aca-a941-ae38617bf160.png",
+      "size": 146221,
+      "sha256": "a624206219d1a1dcbc3e44c5aa577d50dfe123f4b2c4f93d0164cb97646610fd",
+      "content_type": "image/png",
+      "original_name": "b874a892-8137-4aca-a941-ae38617bf160",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860929/82e1b97323e4bbe34e0226b4a021/b874a892-8137-4aca-a941-ae38617bf160"
+    },
+    {
+      "path": "/downloads/79aeedab2d85af91-6c4f31e4-f9d9-4101-9352-352ce0e7a632.png",
+      "size": 194831,
+      "sha256": "79aeedab2d85af916a25b880b45dc81087190c357ea43d4d2dca8ca8880cde4a",
+      "content_type": "image/png",
+      "original_name": "6c4f31e4-f9d9-4101-9352-352ce0e7a632",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860930/a613e25c89d1706261d8b19b2b9f/6c4f31e4-f9d9-4101-9352-352ce0e7a632"
+    },
+    {
+      "path": "/downloads/b46b5c169e172c71-3c008a15-7694-43ea-a513-38d3c906d456.png",
+      "size": 173060,
+      "sha256": "b46b5c169e172c717a3074bb283be727794d7a96656c02ca711bd07073570aeb",
+      "content_type": "image/png",
+      "original_name": "3c008a15-7694-43ea-a513-38d3c906d456",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860931/5b28f9501646b89ac2c4cf8fff03/3c008a15-7694-43ea-a513-38d3c906d456"
+    },
+    {
+      "path": "/downloads/8d5e2bf13df73e3f-3806bdb6-dac1-4172-b2c9-b4beb14b00ce.png",
+      "size": 25948,
+      "sha256": "8d5e2bf13df73e3fbddf9e7bcaa08da2971b4d97f6ad251b302acc5cd9147493",
+      "content_type": "image/png",
+      "original_name": "3806bdb6-dac1-4172-b2c9-b4beb14b00ce",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860933/ee0a0c7ee8c260cec08cc7758e1d/3806bdb6-dac1-4172-b2c9-b4beb14b00ce"
+    },
+    {
+      "path": "/downloads/345d9bc2a31f7845-6da141f9-977d-4fdc-9fda-81425cd144d7.png",
+      "size": 53121,
+      "sha256": "345d9bc2a31f7845181c4103c93dcd427087b727b45e9a3fe5a930ede9363192",
+      "content_type": "image/png",
+      "original_name": "6da141f9-977d-4fdc-9fda-81425cd144d7",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860934/38c2b78e71295eea0dc36ba6008e/6da141f9-977d-4fdc-9fda-81425cd144d7"
+    },
+    {
+      "path": "/downloads/9251b4162b4b158d-6cacf949-487d-4421-b19b-88954d5b4146.png",
+      "size": 67811,
+      "sha256": "9251b4162b4b158d84fdf410d12c0efac3f4968beae5a9af258bbb87af778447",
+      "content_type": "image/png",
+      "original_name": "6cacf949-487d-4421-b19b-88954d5b4146",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860935/a2ac538f36545b0fd28642931fad/6cacf949-487d-4421-b19b-88954d5b4146"
+    },
+    {
+      "path": "/downloads/6f0204613b00fa28-422d12cc-8495-43e9-a4c6-00b993f8d1d9.png",
+      "size": 40310,
+      "sha256": "6f0204613b00fa286f9d424c7ea40b61844e1c3a6df3e1748e49a74c2b36b4e4",
+      "content_type": "image/png",
+      "original_name": "422d12cc-8495-43e9-a4c6-00b993f8d1d9",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860936/2f64e5e4fbd32800ae1efd7647b4/422d12cc-8495-43e9-a4c6-00b993f8d1d9"
+    },
+    {
+      "path": "/downloads/d0ec33fb1caa219c-3e8315a7-ebe0-4028-94c5-8dfb6304e4b8.png",
+      "size": 171026,
+      "sha256": "d0ec33fb1caa219cc9ee85cd359a9160b47e9785ec02f7ff57ce5b22b443b0f6",
+      "content_type": "image/png",
+      "original_name": "3e8315a7-ebe0-4028-94c5-8dfb6304e4b8",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860937/69d652a5c1cc75fce0c21c89c5ac/3e8315a7-ebe0-4028-94c5-8dfb6304e4b8"
+    },
+    {
+      "path": "/downloads/4c6827d9bbd70e71-cc258166-44ba-4aea-875d-2af39b2a7092.png",
+      "size": 97941,
+      "sha256": "4c6827d9bbd70e71aaf3df9b357006062ca90ed3b5b2bb1be1ae4de4d4387d67",
+      "content_type": "image/png",
+      "original_name": "cc258166-44ba-4aea-875d-2af39b2a7092",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860938/1d432eee7067374017c505e14556/cc258166-44ba-4aea-875d-2af39b2a7092"
+    },
+    {
+      "path": "/downloads/e2dafaeed836d83e-f05c83aa-41b1-4323-8dee-36a76df4dbeb.png",
+      "size": 9613,
+      "sha256": "e2dafaeed836d83e8d9e21037e5bed8af2999932ef917fe7ebea892e6211dba6",
+      "content_type": "image/png",
+      "original_name": "f05c83aa-41b1-4323-8dee-36a76df4dbeb",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860939/2b8b0a61e3ca9be57bdd0747dcea/f05c83aa-41b1-4323-8dee-36a76df4dbeb"
+    },
+    {
+      "path": "/downloads/0d958b627f4774e3-e7d80e35-00c7-4650-8a4a-f06bdcf782af.png",
+      "size": 67580,
+      "sha256": "0d958b627f4774e35e6b08bef0cfe1362d59654697d84c9a9508b024b73eb80b",
+      "content_type": "image/png",
+      "original_name": "e7d80e35-00c7-4650-8a4a-f06bdcf782af",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860940/ded547afe02634e77204de5aca1e/e7d80e35-00c7-4650-8a4a-f06bdcf782af"
+    },
+    {
+      "path": "/downloads/38b0f1417ccc7fe1-6adbaf9b-81a8-42fc-877b-d95d638d6f26.png",
+      "size": 22509,
+      "sha256": "38b0f1417ccc7fe1490ed5214daa25a79a97d5cd28246c4a1944e807b2833c1d",
+      "content_type": "image/png",
+      "original_name": "6adbaf9b-81a8-42fc-877b-d95d638d6f26",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860941/5c0e981a27655d967e4a5874f2e2/6adbaf9b-81a8-42fc-877b-d95d638d6f26"
+    },
+    {
+      "path": "/downloads/d5a2a7d6f4527831-a823bbf6-3449-4344-a495-69c3459fccad.png",
+      "size": 54708,
+      "sha256": "d5a2a7d6f45278318ef563278ff66b26420df31698a51aa76ef1650e4b810e21",
+      "content_type": "image/png",
+      "original_name": "a823bbf6-3449-4344-a495-69c3459fccad",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860942/b3a4ee3668725a77f4b09a0ec9b0/a823bbf6-3449-4344-a495-69c3459fccad"
+    },
+    {
+      "path": "/downloads/1c1bd1dc0ec55520-989901da-1eb1-4095-9288-f7aaa940a5e8.png",
+      "size": 15108,
+      "sha256": "1c1bd1dc0ec5552005a65b85fe19756074093169182df08e4bb3a3c4849dddf2",
+      "content_type": "image/png",
+      "original_name": "989901da-1eb1-4095-9288-f7aaa940a5e8",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860943/46418ca2bef8cbdd3d6ef5b8640e/989901da-1eb1-4095-9288-f7aaa940a5e8"
+    },
+    {
+      "path": "/downloads/d220c529f43fd982-e79cd8ee-cf4e-441f-bd4f-1e70182eda9c.png",
+      "size": 12116,
+      "sha256": "d220c529f43fd98244fe9a2c4ce7fb9aab489666f02979e21bdb5c3287e0ab00",
+      "content_type": "image/png",
+      "original_name": "e79cd8ee-cf4e-441f-bd4f-1e70182eda9c",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860944/54e702e46a131029a22804bed0ca/e79cd8ee-cf4e-441f-bd4f-1e70182eda9c"
+    },
+    {
+      "path": "/downloads/57ca9cb91ea9e716-e28539cb-be9b-4026-95e1-caddfebd324b.png",
+      "size": 6550,
+      "sha256": "57ca9cb91ea9e716afaecb6c22207b9060d9a533b6a7e93c5de91537904007a7",
+      "content_type": "image/png",
+      "original_name": "e28539cb-be9b-4026-95e1-caddfebd324b",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860945/f2c935cee54e856f3cf232a474bc/e28539cb-be9b-4026-95e1-caddfebd324b"
+    },
+    {
+      "path": "/downloads/db6e241a83da8a9a-6a840609-50a6-43e5-bf7e-fae43778826b.png",
+      "size": 31403,
+      "sha256": "db6e241a83da8a9a2c863febcb4e7578fb4cfe32a25d1d9073b261d8055fea92",
+      "content_type": "image/png",
+      "original_name": "6a840609-50a6-43e5-bf7e-fae43778826b",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860946/d09b47077a52a5a459bf1f731e67/6a840609-50a6-43e5-bf7e-fae43778826b"
+    },
+    {
+      "path": "/downloads/2981c31056239052-8b12f43c-7f6b-48d2-a081-943ae83841b4.png",
+      "size": 18267,
+      "sha256": "2981c31056239052547e3ca6d7eab87993aee145d8bbd5caca44aef594fed27d",
+      "content_type": "image/png",
+      "original_name": "8b12f43c-7f6b-48d2-a081-943ae83841b4",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860947/ce00e33769ebe7f1216979717f1d/8b12f43c-7f6b-48d2-a081-943ae83841b4"
+    },
+    {
+      "path": "/downloads/593c163a9ceb7b7a-cad5918a-994b-4507-859a-ba16d8952f58.png",
+      "size": 22152,
+      "sha256": "593c163a9ceb7b7a291565bf1322be232ef29cf68dd51e3a1a351c0a4664766a",
+      "content_type": "image/png",
+      "original_name": "cad5918a-994b-4507-859a-ba16d8952f58",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860948/a7d40d9a9306d99af3658d713086/cad5918a-994b-4507-859a-ba16d8952f58"
+    },
+    {
+      "path": "/downloads/430a089141e1a49d-8371749f-8f95-46f0-a000-3d386bdbaa79.png",
+      "size": 21755,
+      "sha256": "430a089141e1a49de89a36a79b890445d856ff2610e9e970a24639459c6c1bb1",
+      "content_type": "image/png",
+      "original_name": "8371749f-8f95-46f0-a000-3d386bdbaa79",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860949/1ba8b6610e931b3a049f6bbfde53/8371749f-8f95-46f0-a000-3d386bdbaa79"
+    },
+    {
+      "path": "/downloads/3e271d0cdf377a75-b4deefd8-6bb7-43d1-a48e-be7b33f14cd2.png",
+      "size": 67369,
+      "sha256": "3e271d0cdf377a75daaf29c42d60474465e1d6d820a21555d244120c23c80da2",
+      "content_type": "image/png",
+      "original_name": "b4deefd8-6bb7-43d1-a48e-be7b33f14cd2",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860950/bddd8b23feb95d1fe252b488d844/b4deefd8-6bb7-43d1-a48e-be7b33f14cd2"
+    },
+    {
+      "path": "/downloads/3823aee555f59d9f-e3b7afec-80e1-4d9b-adea-c544bfe063d1.png",
+      "size": 7666,
+      "sha256": "3823aee555f59d9fcd70e5ba77b9d5734bc5dd6c4a1e72fa8d6ee710a0f6e830",
+      "content_type": "image/png",
+      "original_name": "e3b7afec-80e1-4d9b-adea-c544bfe063d1",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860951/79b392665180a67b8583daabb50c/e3b7afec-80e1-4d9b-adea-c544bfe063d1"
+    },
+    {
+      "path": "/downloads/8ce8bc90509a86b7-39c0d528-fd1c-40ca-8433-47070794e3ea.png",
+      "size": 47065,
+      "sha256": "8ce8bc90509a86b788b9793f1028fc2268b0ae14b1d46ba73e0056b02959470c",
+      "content_type": "image/png",
+      "original_name": "39c0d528-fd1c-40ca-8433-47070794e3ea",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860952/9c0ebf83f1d138ff28672cd4a800/39c0d528-fd1c-40ca-8433-47070794e3ea"
+    },
+    {
+      "path": "/downloads/6caaaaa248f2f93b-f756605a-9128-4763-ad09-2b6faa586959.png",
+      "size": 11670,
+      "sha256": "6caaaaa248f2f93b20466c216b7155647ea3302a4b64fd3b4f36c7919987785e",
+      "content_type": "image/png",
+      "original_name": "f756605a-9128-4763-ad09-2b6faa586959",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860953/d3724678f414d76187de33941171/f756605a-9128-4763-ad09-2b6faa586959"
+    },
+    {
+      "path": "/downloads/953ca1cfde488b57-56bb89cb-8c14-4e4c-91b4-823bf2de0e3b.png",
+      "size": 7753,
+      "sha256": "953ca1cfde488b575c16fe9c72bb7281d93b548f100de645db24983603aefc46",
+      "content_type": "image/png",
+      "original_name": "56bb89cb-8c14-4e4c-91b4-823bf2de0e3b",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860954/17f2320ab39938dd407f8c2cc2f8/56bb89cb-8c14-4e4c-91b4-823bf2de0e3b"
+    },
+    {
+      "path": "/downloads/ce848941bb9667cd-6f53c380-1b3a-4c8b-b816-05bb96cfc906.png",
+      "size": 52376,
+      "sha256": "ce848941bb9667cd239a61f0afdaea77b5cc5319862232310eb897fbaa328468",
+      "content_type": "image/png",
+      "original_name": "6f53c380-1b3a-4c8b-b816-05bb96cfc906",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860955/829eb4694115e516d573b4f6dd92/6f53c380-1b3a-4c8b-b816-05bb96cfc906"
+    },
+    {
+      "path": "/downloads/9f966afe9aade9e5-bb10668b-a030-4e48-b714-f40181c4dc10.png",
+      "size": 74968,
+      "sha256": "9f966afe9aade9e5c8dc381d32dda4d054f43712fa8b661c7536da2ccb8d0a2f",
+      "content_type": "image/png",
+      "original_name": "bb10668b-a030-4e48-b714-f40181c4dc10",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611860956/b2ec73d8c83eaec846d054c32951/bb10668b-a030-4e48-b714-f40181c4dc10"
+    },
+    {
+      "path": "/downloads/ef183c1d2182a4eb-57a6cb0c-0e2e-4d04-96d8-49b5a4f1efd8.png",
+      "size": 102939,
+      "sha256": "ef183c1d2182a4ebe8886eb5b8c45a8649dcdd6e5cc06db6f466f06801fee8fa",
+      "content_type": "image/png",
+      "original_name": "57a6cb0c-0e2e-4d04-96d8-49b5a4f1efd8",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611894563/fa82e28fd973242ced90c8e5163c/57a6cb0c-0e2e-4d04-96d8-49b5a4f1efd8"
+    },
+    {
+      "path": "/downloads/afa2a6069d4ddc0b-8830ee00-bbe8-4eea-bd03-4e7ad5fca8f1.png",
+      "size": 168192,
+      "sha256": "afa2a6069d4ddc0b76d7c0997354823fb19ba5421e62b01d34168b182d4411f8",
+      "content_type": "image/png",
+      "original_name": "8830ee00-bbe8-4eea-bd03-4e7ad5fca8f1",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611894564/d3fcba99c8699a9d3cf77cb7cace/8830ee00-bbe8-4eea-bd03-4e7ad5fca8f1"
+    },
+    {
+      "path": "/downloads/54017ffd45890e22-0f2dfae3-184c-4bbb-bcea-ebb508c67fdc.png",
+      "size": 107688,
+      "sha256": "54017ffd45890e22b6aaf8f68bea379da58cd2c076e232b3231134cce8f40a35",
+      "content_type": "image/png",
+      "original_name": "0f2dfae3-184c-4bbb-bcea-ebb508c67fdc",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611894566/6854cffa1d4fc1e36a01e3829c00/0f2dfae3-184c-4bbb-bcea-ebb508c67fdc"
+    },
+    {
+      "path": "/downloads/af1f22d0952d0aef-e4ad2b19-42b2-4826-883c-5b51f85ba922.png",
+      "size": 38860,
+      "sha256": "af1f22d0952d0aefa2833746c1bedbf8849c68759de27918fe270f40e78dd80f",
+      "content_type": "image/png",
+      "original_name": "e4ad2b19-42b2-4826-883c-5b51f85ba922",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611894567/ea511ed27a8c0a7dee8e688c2522/e4ad2b19-42b2-4826-883c-5b51f85ba922"
+    },
+    {
+      "path": "/downloads/c417280df8d78d00-a4cd9b7c-8a12-4ec4-951b-92f17d4df1a7.png",
+      "size": 34896,
+      "sha256": "c417280df8d78d000c193f509b1a6498c09e11f910804c080e85837c7824d538",
+      "content_type": "image/png",
+      "original_name": "a4cd9b7c-8a12-4ec4-951b-92f17d4df1a7",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611894569/68c5707f266414778a605233b6b4/a4cd9b7c-8a12-4ec4-951b-92f17d4df1a7"
+    },
+    {
+      "path": "/downloads/149b2bd6e4d97b8b-af2d564b-69e9-4770-877a-e1057c384a51.png",
+      "size": 157984,
+      "sha256": "149b2bd6e4d97b8b26ec559c5a4ac25c86a557e2de00ce7b38df0b517ef74a09",
+      "content_type": "image/png",
+      "original_name": "af2d564b-69e9-4770-877a-e1057c384a51",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611894570/ee23c5c4a79755d1b3cf69172372/af2d564b-69e9-4770-877a-e1057c384a51"
+    },
+    {
+      "path": "/downloads/0cfc1d5de1a6f9d4-f5decee5-2aff-4ee8-8a9e-447795a06a4d.png",
+      "size": 6491,
+      "sha256": "0cfc1d5de1a6f9d483ef8112d10e257ded1776c14b8111d9a317b2854920c16c",
+      "content_type": "image/png",
+      "original_name": "f5decee5-2aff-4ee8-8a9e-447795a06a4d",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611926192/a782864845d887206cb28de31ed4/f5decee5-2aff-4ee8-8a9e-447795a06a4d"
+    },
+    {
+      "path": "/downloads/0e5e74f83cd90486-image.png",
+      "size": 7901,
+      "sha256": "0e5e74f83cd90486ecdc268911d44da5c7e3136601737f42d9a0c5adc0b98b55",
+      "content_type": "image/png",
+      "original_name": "image.png",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611940419/2957fa17f929371086b82b296e41/image.png"
+    },
+    {
+      "path": "/downloads/6ce4c0b962cee784-6ff687b3-46ab-46e8-b3e9-025a223bde08.png",
+      "size": 12068,
+      "sha256": "6ce4c0b962cee784419215986967c77331506b847f5a7ed2e04d4a01d6ae47dc",
+      "content_type": "image/png",
+      "original_name": "6ff687b3-46ab-46e8-b3e9-025a223bde08",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611960994/ae530066978eeb62c55fa8aee1ea/6ff687b3-46ab-46e8-b3e9-025a223bde08"
+    },
+    {
+      "path": "/downloads/62e9f154d4e29c1a-98916fca-8b75-4aea-a33c-71d493353417.png",
+      "size": 10970,
+      "sha256": "62e9f154d4e29c1aced1946f30ef3b52df56fede6e820fd5ab67ad05da490160",
+      "content_type": "image/png",
+      "original_name": "98916fca-8b75-4aea-a33c-71d493353417",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611960995/0015024b2e9ddbabadf22c6a305c/98916fca-8b75-4aea-a33c-71d493353417"
+    },
+    {
+      "path": "/downloads/66128a751b20d374-34f21c73-9789-463f-9f01-c4fadc4d748e.png",
+      "size": 11301,
+      "sha256": "66128a751b20d3741a937cefcb560f24f63d1da8eec8f47d074352257b9b7e11",
+      "content_type": "image/png",
+      "original_name": "34f21c73-9789-463f-9f01-c4fadc4d748e",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2611960996/077314279809b24b6e92f7155f62/34f21c73-9789-463f-9f01-c4fadc4d748e"
+    },
+    {
+      "path": "/downloads/089eba451717c9ef-3783b7e2-fcdd-44b9-8219-8107df772a06.png",
+      "size": 52482,
+      "sha256": "089eba451717c9ef05a422543748f8203106a336d8b14df39aa7bf4afda14fe1",
+      "content_type": "image/png",
+      "original_name": "3783b7e2-fcdd-44b9-8219-8107df772a06",
+      "source": "https://downloads.intercomcdn.com/i/o/ltcafuzd/2612284261/3f77828144ae81b48906b8eb4037/3783b7e2-fcdd-44b9-8219-8107df772a06"
+    }
+  ]
+}

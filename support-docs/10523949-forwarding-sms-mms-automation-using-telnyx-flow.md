@@ -25,7 +25,6 @@ For this tutorial, you will need to have these settings and resources in your Te
 - The said Phone Number must be assigned to an approved 10DLC Campaign. (Article: [Register for 10DLC](https://intercom.help/telnyx/en/articles/6325731-register-for-10dlc-messaging))
 - Create a dedicated Messaging Profile and assign the Telnyx numbers to the profile ( Article: [Messaging First Steps at Telnyx](https://intercom.help/telnyx/en/articles/3562059-setting-up-a-messaging-profile))
 
-We also suggest you read the [Getting Started with Telnyx Flow](https://intercom.help/telnyx/en/articles/9413928-getting-started-with-telnyx-flow) article for a deeper understanding of how Telnyx Flow can improve your workflows, including powerful AI tools.
 
 ## **Creation and Set up of the Workflow**
 

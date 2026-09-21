@@ -48,7 +48,7 @@ A custom TTS greeting lets you write your own message and have it rendered with 
 
 ## **Through the Mission Control Portal**
 
-[![](_images/6003676eb9658db4b4fad9f5e6ca9eddbf4a464dd9dc8e3d9e5710af3e21bf0d.png)](https://downloads.intercomcdn.com/i/o/ltcafuzd/2527236600/04764b0cb13e43e724fc937fc893/d8fb560b-3b7c-4038-aa04-3b34adee46ab?expires=1789491600&signature=77945733a3530a4b214c1dc36b0c09faf1f90f4a67e3953093e0acddc3ceb55b&req=diUlEct9m4dfWfMW1HO4zXCpY7%2B4ZqvmkkgPj%2FbyB%2FqcmiaFJA%2Frwjq%2BlB74%0A2XoNPTxomtAT4%2FTLHqY%3D%0A)
+[![](_images/6003676eb9658db4b4fad9f5e6ca9eddbf4a464dd9dc8e3d9e5710af3e21bf0d.png)](/downloads/6003676eb9658db4-d8fb560b-3b7c-4038-aa04-3b34adee46ab.png)
 
 1. Sign in to the [Mission Control Portal](https://portal.telnyx.com/).
 2. Navigate to **Phone Numbers** and select the number you want to configure.

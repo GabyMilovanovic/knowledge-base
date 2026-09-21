@@ -33,7 +33,7 @@ For **personal identity** verification:
 
 \* Passport or ID copy
 
-\* LOI (Provided by Telnyx - [LOI Template.docx](https://downloads.intercomcdn.com/i/o/ltcafuzd/1974079146/f3eb9460203bfedda610a97379a8/LOI+Template.docx?expires=1783620000&signature=0b544bb852da8623438435d14120359b0ef430e9687979de5b4d105093d434a4&req=dSkgEsl5lIBbX%2FMW3Hu4gYkDxCMSxfjzLWMNiC1aPckVjhW10sWibl32Wapw%0A%2Fg%3D%3D%0A))
+\* LOI (Provided by Telnyx - [LOI Template.docx](/downloads/32d6f475463ea47a-LOI-Template.docx))
 ​
 
 For **business identity** verification:
@@ -46,7 +46,7 @@ For **business identity** verification:
 
 \* Company registration certificate
 
-\* LOI (Provided by Telnyx - [LOI Template.docx](https://downloads.intercomcdn.com/i/o/ltcafuzd/1974079146/f3eb9460203bfedda610a97379a8/LOI+Template.docx?expires=1783620000&signature=0b544bb852da8623438435d14120359b0ef430e9687979de5b4d105093d434a4&req=dSkgEsl5lIBbX%2FMW3Hu4gYkDxCMSxfjzLWMNiC1aPckVjhW10sWibl32Wapw%0A%2Fg%3D%3D%0A))
+\* LOI (Provided by Telnyx - [LOI Template.docx](/downloads/32d6f475463ea47a-LOI-Template.docx))
 
 For **address** verification:
 

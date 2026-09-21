@@ -79,7 +79,7 @@ jobs:
           # 1) Content-hashed files first (long-lived, immutable), so the
           #    HTML uploaded later never references assets missing from the
           #    bucket.
-          for prefix in assets _images; do
+          for prefix in assets _images downloads; do
             aws s3 sync ./website/dist/$prefix/ $BUCKET/$prefix/ \
               --cache-control 'public, max-age=31536000, immutable'
           done
@@ -102,6 +102,7 @@ jobs:
             --delete \
             --exclude 'assets/*' \
             --exclude '_images/*' \
+            --exclude 'downloads/*' \
             --exclude 'content/*' \
             --exclude 'en/*' \
             --exclude '*.woff' \
