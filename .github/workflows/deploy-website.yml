@@ -31,6 +31,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      SITE_ORIGIN: "https://support.telnyx.com"
+      SITE_INDEXABLE: "true"
 
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
@@ -56,8 +59,6 @@ jobs:
         working-directory: website
         env:
           BASE_PATH: "/"
-          SITE_ORIGIN: "https://d27az1l5lty0u1.cloudfront.net"
-          SITE_INDEXABLE: "false"
         run: bun run build
 
       - name: Verify rendered pages and links
