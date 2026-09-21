@@ -27,7 +27,7 @@ Growth's actual traffic/backlink export, and deployed performance checks remain.
 | Missing structured data | Article JSON-LD and full collection ancestry in BreadcrumbList, plus Open Graph title/description/URL/type. No invented authors or dates. |
 | Sitemap/robots missing | Generate sitemap, robots.txt and llms.txt. Article lastmod uses explicit source modification dates or Git file history, never scrape/build time. Omit unavailable dates. |
 | Preview indexing risk | Temporary origin is default; HTML contains `noindex,follow`. robots allows crawling so crawlers can read noindex. Indexability requires an explicit production-only setting. |
-| Unknown URLs look like origin errors | Content paths unknown to the edge registry return real HTTP 404; lookup outages return 503, not false permanent 404s. |
+| Unknown URLs look like origin errors | Unmapped paths pass through to storage; origin configuration must supply real missing-object 404s. Lookup outages remain 503. See edge/README.md. |
 | Broken heading links | Recovered source heading IDs, readable heading aliases and 69 reviewed aliases to equivalent headings/paragraph sections; fixed an encoded stray backslash. Checked internal anchor targets now resolve. |
 | Lost videos | Recovered 142 video references across 120 articles as labelled links to the original video providers. Includes Vimeo, YouTube, Wistia and Loom; no heavyweight autoplay embeds. |
 | Performance | Approximately 4 KB of browser JS; search index fetched only when used. Images use known intrinsic dimensions, lazy loading and asynchronous decoding. Full content no longer waits for JS/body fetches. |

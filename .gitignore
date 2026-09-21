@@ -10,3 +10,6 @@ website/dist/
 website/.vite/
 *.log
 .DS_Store
+
+website/release-report/
+**/__pycache__/

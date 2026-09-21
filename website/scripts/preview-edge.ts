@@ -39,7 +39,10 @@ const server = Bun.serve({
     const filename = path.resolve(dist, "." + (pathname === "/" ? "/index.html" : pathname));
     if (!filename.startsWith(dist + path.sep)) return new Response("Not found", { status: 404 });
     const stat = fs.statSync(filename, { throwIfNoEntry: false });
-    if (!stat?.isFile()) return new Response("Not found", { status: 404 });
+    if (!stat?.isFile()) return new Response(request.method === "HEAD" ? null : Bun.file(path.join(dist, "404.html")), {
+      status: 404,
+      headers: { "content-type": "text/html; charset=utf-8", "x-robots-tag": "noindex" },
+    });
     const file = Bun.file(filename);
     const isHtml = !path.extname(filename) || filename.endsWith(".html");
     return new Response(request.method === "HEAD" ? null : file, {
