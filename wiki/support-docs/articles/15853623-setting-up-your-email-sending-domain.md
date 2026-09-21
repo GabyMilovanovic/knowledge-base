@@ -1,13 +1,15 @@
 ---
-source_url: "https://support.telnyx.com/en/articles/15853623-setting-up-your-email-sending-domain"
 title: "Setting up your email sending domain"
-description: "Add a sending domain to Telnyx, publish its DNS records at your registrar, and verify it. Includes plain-language explanations of ownership, SPF, DKIM, DMARC, and MX records."
-scraped: "2026-09-15"
-modified_at: "2026-09-21T00:00:00Z"
-collection_path: "19683795-telnyx-email"
-content_hash: "c2a51aa4523f1d09b06f14f748a936fdc6560f9e0982e24007055f32e2f1cb2f"
-updated_at: "2026-09-21T00:00:00Z"
+summary: "Before Telnyx can send email for you, you need to prove you own the domain you send from and configure it so inbox providers trust your mail. You do that by adding a few DNS records."
+sources:
+- url: "https://support.telnyx.com/en/articles/15853623-setting-up-your-email-sending-domain"
+  content_hash: 93af3ab47b059aaef88900d2f026efb62bf5bd422ededc4ff5e5dd1ba59babcc
+updated_at: 2026-09-21T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/15853623-setting-up-your-email-sending-domain.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/15853623-setting-up-your-email-sending-domain.md -->
 
 # Setting up your email sending domain
 
@@ -17,7 +19,7 @@ Before Telnyx can send email for you, you need to prove you own the domain you s
 
 ---
 
-# Step 1: Add your domain
+## Step 1: Add your domain
 
 Most senders use a subdomain such as `mail.yourcompany.com` rather than the root domain. A subdomain keeps your sending reputation separate from your regular corporate mail and is the recommended approach. Add it:
 
@@ -32,7 +34,7 @@ The response contains the domain `id` and a `status` of `pending`. Note the `id`
 
 ---
 
-# Step 2: Fetch your DNS records
+## Step 2: Fetch your DNS records
 
 Ask Telnyx for the records to publish:
 
@@ -51,7 +53,7 @@ You will receive several record types. For a send-only domain, ownership and DKI
 
 ---
 
-# Step 3: Add the records at your DNS provider
+## Step 3: Add the records at your DNS provider
 
 Sign in to wherever your domain's DNS is managed and add each record exactly as Telnyx provided it. The general process is the same everywhere:
 
@@ -75,7 +77,7 @@ Sign in to wherever your domain's DNS is managed and add each record exactly as 
 
 ---
 
-# Step 4: Verify your domain
+## Step 4: Verify your domain
 
 Once the records are saved, ask Telnyx to check them:
 
@@ -88,7 +90,7 @@ If everything matches, the domain `status` becomes `verified` and you can send. 
 
 ---
 
-# What each record does
+## What each record does
 
 You do not need to be a DNS expert, but a little context helps you set things up correctly and troubleshoot later.
 
@@ -105,7 +107,7 @@ Together, SPF, DKIM, and DMARC are how modern inbox providers decide whether to 
 
 ---
 
-# Rotate your DKIM key
+## Rotate your DKIM key
 
 Rotate an account-owned custom domain with:
 
@@ -124,7 +126,7 @@ DKIM signing failures are fail-closed for shared and custom domains over both HT
 
 ---
 
-# Keep your records in place
+## Keep your records in place
 
 Verification is not a one-time event. Telnyx periodically checks required DNS records. If ownership or DKIM later stops matching — or MX stops matching while inbound email is enabled — the domain can become degraded, and sending is rejected until the required records are restored. SPF or DMARC drift does not degrade the domain or block sending, although incorrect optional records can hurt deliverability. If a domain that used to work suddenly stops, check its required records first.
 

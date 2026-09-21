@@ -1,12 +1,15 @@
 ---
-source_url: "https://support.telnyx.com/en/articles/16099894-scheduling-and-cancelling-an-email-send"
 title: "Scheduling and cancelling an email send"
-scraped: "2026-09-15"
-modified_at: "2026-09-21T00:00:00Z"
-collection_path: "19683795-telnyx-email"
-content_hash: "c89daf95b7dcbc78c1674ff34e1abb3c9a24fffa07748c9469dbf418ed1abc04"
-updated_at: "2026-09-21T00:00:00Z"
+summary: "Add scheduledat when Telnyx should accept an email now and queue it for a future time. This guide shows you how to schedule, confirm, reschedule, and cancel a send, and interpret terminal failures."
+sources:
+- url: "https://support.telnyx.com/en/articles/16099894-scheduling-and-cancelling-an-email-send"
+  content_hash: 573cfab2962a81a57ec0b2cb51cfb7cc26875e3951ba31b30385443ada24ee9e
+updated_at: 2026-09-21T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/16099894-scheduling-and-cancelling-an-email-send.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/16099894-scheduling-and-cancelling-an-email-send.md -->
 
 # Scheduling and cancelling an email send
 
@@ -14,7 +17,7 @@ Add `scheduled_at` when Telnyx should accept an email now and queue it for a fut
 
 ---
 
-# **Step 1: Schedule with a future timestamp**
+## **Step 1: Schedule with a future timestamp**
 
 Use the canonical `scheduled_at` field with a valid ISO 8601 timestamp in the future:
 
@@ -37,7 +40,7 @@ A successful request returns `202 Accepted` with `status: "scheduled"` and the s
 
 ---
 
-# **Avoid accidental immediate sends**
+## **Avoid accidental immediate sends**
 
 The timestamp must parse as ISO 8601 and be later than the current time. An invalid, non-ISO, or past `scheduled_at` returns `422` with field detail; it does not create an immediate send. Omitting the schedule on a normal send request still requests an immediate send.
 
@@ -48,7 +51,7 @@ Always check both response fields before assuming the schedule was saved:
 
 ---
 
-# **Step 2: Confirm the schedule**
+## **Step 2: Confirm the schedule**
 
 Retrieve the message by ID:
 
@@ -61,7 +64,7 @@ Before the send fires, the message should remain `scheduled`. The `scheduled_at`
 
 ---
 
-# **Step 3: Cancel before it is queued**
+## **Step 3: Cancel before it is queued**
 
 Cancel the schedule with the message ID:
 
@@ -74,7 +77,7 @@ A successful cancellation returns `200` with `status: "cancelled"`. Cancelling a
 
 ---
 
-# **Change the scheduled time**
+## **Change the scheduled time**
 
 Reschedule a still-scheduled message in place:
 
@@ -89,7 +92,7 @@ Success returns `200` with updated message data and preserves the message ID. A 
 
 ---
 
-# **Check fire-time failures**
+## **Check fire-time failures**
 
 Scheduled sends are accepted before they enter the delivery queue and are exempt from the submission-time recipient quota. Telnyx rechecks account eligibility and enforces the daily recipient limit when the schedule fires. Fire-time rejections and queue-publication exhaustion have different status outcomes.
 
@@ -104,7 +107,7 @@ A `daily_limit_exceeded` event means the recipient quota was unavailable at fire
 
 ---
 
-# **When scheduled queue publication exhausts its retries**
+## **When scheduled queue publication exhausts its retries**
 
 If publication to the delivery queue (Kafka) keeps failing, the scheduled worker makes three attempts over roughly 15 minutes: the retries wait five minutes and then ten minutes. This is retry timing, not a delivery-time guarantee.
 
@@ -112,7 +115,7 @@ After the last failed attempt, still-nonterminal recipients become non-billable 
 
 ---
 
-# **Troubleshooting summary**
+## **Troubleshooting summary**
 
 |  |  |
 | --- | --- |

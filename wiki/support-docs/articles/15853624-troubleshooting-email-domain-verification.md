@@ -1,13 +1,15 @@
 ---
-source_url: "https://support.telnyx.com/en/articles/15853624-troubleshooting-email-domain-verification"
 title: "Troubleshooting email domain verification"
-description: "Domain verification not passing? Work through the real causes: missing or mistyped records, propagation delay, truncated DKIM values, wrong hosts, SPF conflicts, and degraded domains."
-scraped: "2026-09-15"
-modified_at: "2026-09-21T00:00:00Z"
-collection_path: "19683795-telnyx-email"
-content_hash: "da7fc93611764e7927a4ce194edd4cbdaaed1bec3809c3d6ddab7c9f811e4a9d"
-updated_at: "2026-09-21T00:00:00Z"
+summary: "If POST /v2/emaildomains/{domainid}/verify is not returning a verified status, the cause is almost always in the DNS records — either they have not finished propagating, or one of them does not exactly match what Telnyx expects."
+sources:
+- url: "https://support.telnyx.com/en/articles/15853624-troubleshooting-email-domain-verification"
+  content_hash: 1cddc5037a3fd6533b55f6e1c1c92e2cde800e191faa361f8bf1ebe867cfc9f7
+updated_at: 2026-09-21T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/15853624-troubleshooting-email-domain-verification.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/15853624-troubleshooting-email-domain-verification.md -->
 
 # Troubleshooting email domain verification
 
@@ -22,7 +24,7 @@ curl -X POST https://api.telnyx.com/v2/email_domains/{domain_id}/verify \
 
 ---
 
-# 1. A record was not added, or was added with a typo
+## 1. A record was not added, or was added with a typo
 
 The most common cause. A required ownership or DKIM record is missing, or its host or value contains a small mistake — an extra space, a missing character, or a transposed value. MX is also required when inbound email is enabled, but not for a send-only domain.
 
@@ -34,7 +36,7 @@ Even a single wrong character in a DKIM or ownership value will cause verificati
 
 ---
 
-# 2. DNS has not propagated yet
+## 2. DNS has not propagated yet
 
 DNS changes are not instant. After you add or edit a record, it can take anywhere from a few minutes to a few hours (occasionally up to 24–48 hours, depending on your provider's TTL settings) before Telnyx can see it.
 
@@ -46,7 +48,7 @@ If a record looks correct and simply is not being seen yet, propagation delay is
 
 ---
 
-# 3. The DKIM value was truncated or split
+## 3. The DKIM value was truncated or split
 
 DKIM values are long — often longer than a single DNS TXT string allows. Some registrar interfaces silently cut off a long value, or split it into multiple quoted chunks and then reassemble it incorrectly.
 
@@ -58,7 +60,7 @@ A DKIM record that is even slightly truncated will not validate, so this is the 
 
 ---
 
-# 4. The host is wrong (double-domain concatenation)
+## 4. The host is wrong (double-domain concatenation)
 
 Different DNS providers expect the host field in different formats, and mixing them up produces an invalid host. The classic mistake is the domain appearing twice:
 
@@ -75,7 +77,7 @@ This happens when a provider automatically appends your domain to whatever you t
 
 ---
 
-# 5. SPF include conflicts
+## 5. SPF include conflicts
 
 SPF is designed so a domain has **one** SPF record. If you already send mail through another provider, you may already have an SPF record — and adding a second one, or leaving two in place, breaks SPF entirely.
 
@@ -88,7 +90,7 @@ For example, an existing Google Workspace SPF record could become `v=spf1 includ
 
 ---
 
-# 6. A previously-verified domain stopped working (drift)
+## 6. A previously-verified domain stopped working (drift)
 
 Verification is not permanent. If a previously verified domain has required DNS drift, Telnyx can mark it degraded. Sends then fail with public error code `10007` and the detail `Domain is in a degraded state.` The service uses `domain_degraded` internally, but that is not the public error code. Telnyx periodically re-checks verified domains.
 
@@ -102,7 +104,7 @@ To recover, re-fetch the expected records with `GET /v2/email_domains/{domain_id
 
 ---
 
-# Quick checklist
+## Quick checklist
 
 - Run verify and read the per-record status first.
 - Re-fetch expected records and compare host and value exactly.
@@ -114,7 +116,7 @@ To recover, re-fetch the expected records with `GET /v2/email_domains/{domain_id
 
 ---
 
-# After a DKIM rotation
+## After a DKIM rotation
 
 Rotation replaces the TXT value at the existing fixed-selector host and immediately switches the signing key. Compare the new DKIM record returned by the rotation endpoint (or `GET /v2/email_domains/{domain_id}/dns_records`) with live DNS. Replace the old TXT value rather than adding a second selector.
 

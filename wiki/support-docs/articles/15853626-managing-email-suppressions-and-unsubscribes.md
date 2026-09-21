@@ -1,13 +1,15 @@
 ---
-source_url: "https://support.telnyx.com/en/articles/15853626-managing-email-suppressions-and-unsubscribes"
 title: "Managing email suppressions and unsubscribes"
-description: "Understand suppression reasons, profile- and group-scoped unsubscribe, paginated listing and deletion, and auto-detected CSV import/export limits."
-scraped: "2026-09-15"
-modified_at: "2026-09-21T00:00:00Z"
-collection_path: "19683795-telnyx-email"
-content_hash: "c0a11d70e7c5d5098163e0a4f2c12a060c71df3f05cbc8c75a3606e2b82dc8ef"
-updated_at: "2026-09-21T00:00:00Z"
+summary: "Suppressions protect your sender reputation by preventing delivery attempts to addresses that should not receive a message."
+sources:
+- url: "https://support.telnyx.com/en/articles/15853626-managing-email-suppressions-and-unsubscribes"
+  content_hash: 9e569e98d82a7cee9418ebf4a1457d3d09c9e43f1f7dd84b1d2ba3bb8b9f70a6
+updated_at: 2026-09-21T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/15853626-managing-email-suppressions-and-unsubscribes.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/15853626-managing-email-suppressions-and-unsubscribes.md -->
 
 # Managing email suppressions and unsubscribes
 
@@ -17,7 +19,7 @@ Suppressions protect your sender reputation by preventing delivery attempts to a
 
 ---
 
-# **Why suppressions matter**
+## **Why suppressions matter**
 
 Mailbox providers such as Gmail and Yahoo watch how recipients react to your mail. Repeatedly sending to nonexistent addresses or to people who mark messages as spam damages your sender reputation and can reduce inbox placement for other recipients.
 
@@ -25,7 +27,7 @@ Suppressions break that cycle by making the send path skip matching recipients. 
 
 ---
 
-# **How suppressions are created**
+## **How suppressions are created**
 
 Each suppression records a `reason`:
 
@@ -42,7 +44,7 @@ The public create endpoint always stores `manual_block` with a manual source. A 
 
 ---
 
-# **One-click unsubscribe is profile-scoped**
+## **One-click unsubscribe is profile-scoped**
 
 Telnyx adds standards-based one-click unsubscribe headers (RFC 8058) when `unsubscribe_tracking` is enabled. It is enabled by default. The setting is stored on the sending profile associated with the domain; it is not a per-message switch. A profile-level change affects sends that use that profile.
 
@@ -52,7 +54,7 @@ Keep one-click unsubscribe enabled for eligible mail. Gmail and Yahoo require it
 
 ---
 
-# **View and page through suppressions**
+## **View and page through suppressions**
 
 List the first page of suppression records:
 
@@ -74,7 +76,7 @@ Repeat until `meta.has_next` is false. Each record includes fields such as `to`,
 
 ---
 
-# **Add, remove, and override suppressions**
+## **Add, remove, and override suppressions**
 
 Create a manual block:
 
@@ -100,7 +102,7 @@ Remove a record only when you have a lawful and verified reason to resume sendin
 
 ---
 
-# **Import suppressions from another provider**
+## **Import suppressions from another provider**
 
 Telnyx auto-detects supported CSV formats from their header row. Dedicated detectors are available for:
 
@@ -129,7 +131,7 @@ Imports support files up to 25 MB or 250,000 rows. Check `error_count` when insp
 
 ---
 
-# **Export and restore native Telnyx suppressions**
+## **Export and restore native Telnyx suppressions**
 
 Export the account's suppression records for reporting or audit:
 
@@ -142,13 +144,13 @@ Native Telnyx exports are recognized by their header and restore exported lifecy
 
 ---
 
-# **Distinguish suppression failures from domain failures**
+## **Distinguish suppression failures from domain failures**
 
 A suppression rejection returns `422` with `recipient_suppressed` when every recipient is blocked. A sending-domain policy failure is different: a degraded domain returns `403 Forbidden` with public error code `10007`. Do not treat an internal domain-state name as a public error code.
 
 ---
 
-# **Key takeaways**
+## **Key takeaways**
 
 - `hard_bounce` can represent eligible permanent failures, queue expiry, or soft-bounce escalation.
 - One-click unsubscribe is profile-scoped; a message's `group_id` is retained for group-scoped opt-outs.

@@ -1,6 +1,6 @@
 ---
 title: Telnyx Knowledge Base
-updated_at: 2026-08-31T15:55:54Z
+updated_at: 2026-09-21T22:50:25Z
 ---
 
 # Telnyx Knowledge Base
@@ -310,3 +310,25 @@ updated_at: 2026-08-31T15:55:54Z
 - [WhatsApp Business Platform \(part 5\)](support-docs/whatsapp-business-platform--part-5.md) — WhatsApp Business Platform is Meta's API-based solution for sending and receiving WhatsApp messages at scale. Telnyx integrates as an official Business Solution Provider (BSP), offering API infrastructure for messaging, template management, phone number registration, webhook delivery, and WhatsApp Business Calling — all through the Telnyx Portal and API.
 
 - [Workspaces](support-docs/articles/16762076-workspaces.md) — Access multiple Telnyx organizations from a single login — switch between organizations, accept invitations, and migrate legacy sub-users.
+
+- [Getting started with Telnyx Email](support-docs/articles/15853622-getting-started-with-telnyx-email.md) — Telnyx Email lets you send transactional and application email over a simple HTTP API, on the same platform you already use for voice and messaging.
+
+- [Setting up your email sending domain](support-docs/articles/15853623-setting-up-your-email-sending-domain.md) — Before Telnyx can send email for you, you need to prove you own the domain you send from and configure it so inbox providers trust your mail. You do that by adding a few DNS records.
+
+- [Troubleshooting email domain verification](support-docs/articles/15853624-troubleshooting-email-domain-verification.md) — If POST /v2/emaildomains/{domainid}/verify is not returning a verified status, the cause is almost always in the DNS records — either they have not finished propagating, or one of them does not exactly match what Telnyx expects.
+
+- [Why didn't my email arrive?](support-docs/articles/15853625-why-didn-t-my-email-arrive.md) — An email that did not arrive almost always leaves a trail. Telnyx records request progress separately from each recipient's delivery outcome, so the fastest way to troubleshoot is to inspect both the message and its events.
+
+- [Managing email suppressions and unsubscribes](support-docs/articles/15853626-managing-email-suppressions-and-unsubscribes.md) — Suppressions protect your sender reputation by preventing delivery attempts to addresses that should not receive a message.
+
+- [Setting up and troubleshooting Telnyx Email webhooks](support-docs/articles/16099889-setting-up-and-troubleshooting-telnyx-email-webhooks.md) — Use an Email webhook when your application needs delivery, engagement, inbound, or sending-domain updates without polling. This guide shows you how to create a focused event subscription, test it with a new message, and interpret the payload correctly.
+
+- [Understanding Telnyx Email errors and message size limits](support-docs/articles/16099890-understanding-telnyx-email-errors-and-message-size-limits.md) — Telnyx Email has two different kinds of errors: request errors returned immediately by the API and delivery errors produced after a message is accepted. Use this guide to tell them apart, read the right fields, and decide whether a retry is safe.
+
+- [Creating and sending email templates](support-docs/articles/16099893-creating-and-sending-email-templates.md) — Email templates let you store reusable Liquid subject and body content, then provide customer-specific values at send time. This guide shows you how to create, preview, update, and send a template without the most common rendering mistakes.
+
+- [Scheduling and cancelling an email send](support-docs/articles/16099894-scheduling-and-cancelling-an-email-send.md) — Add scheduledat when Telnyx should accept an email now and queue it for a future time. This guide shows you how to schedule, confirm, reschedule, and cancel a send, and interpret terminal failures.
+
+- [Sending email in batches: limits, results, and safe retries](support-docs/articles/16823821-sending-email-in-batches-limits-results-and-safe-retries.md) — Send multiple messages with POST /v2/emailmessages/batch. Each item in the messages array is validated independently. Read the result of every item before deciding whether to retry.
+
+- [Testing Telnyx Email safely with sandbox recipients](support-docs/articles/16823822-testing-telnyx-email-safely-with-sandbox-recipients.md) — Use sandboxmode: true to test your integration without delivering real mail through the MTA. Sandbox sends are non-billable, consume no sending quota, and their outcomes are excluded from production deliverability statistics and reputation scoring.

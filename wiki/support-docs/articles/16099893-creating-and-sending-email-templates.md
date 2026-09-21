@@ -1,12 +1,15 @@
 ---
-source_url: "https://support.telnyx.com/en/articles/16099893-creating-and-sending-email-templates"
 title: "Creating and sending email templates"
-scraped: "2026-09-15"
-modified_at: "2026-09-21T00:00:00Z"
-collection_path: "19683795-telnyx-email"
-content_hash: "de93804825376c996b7bbafbaf4986567ea4422060920d7eb02fcb33d8cae3c8"
-updated_at: "2026-09-21T00:00:00Z"
+summary: "Email templates let you store reusable Liquid subject and body content, then provide customer-specific values at send time. This guide shows you how to create, preview, update, and send a template without the most common rendering mistakes."
+sources:
+- url: "https://support.telnyx.com/en/articles/16099893-creating-and-sending-email-templates"
+  content_hash: f387f5933e4b3025e95a3f936ea60a9730641f0f6fea340967cb5c9949ff4b93
+updated_at: 2026-09-21T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/16099893-creating-and-sending-email-templates.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/16099893-creating-and-sending-email-templates.md -->
 
 # Creating and sending email templates
 
@@ -14,7 +17,7 @@ Email templates let you store reusable Liquid subject and body content, then pro
 
 ---
 
-# **Step 1: Create a template**
+## **Step 1: Create a template**
 
 Create the template with a unique name and Liquid variables in double braces:
 
@@ -38,7 +41,7 @@ Template names may contain letters, numbers, spaces, hyphens, and underscores. I
 
 ---
 
-# **Require variables and escape HTML output**
+## **Require variables and escape HTML output**
 
 Create and update accept these persisted per-template controls:
 
@@ -73,7 +76,7 @@ With `autoescape: false`, that expression produces the unescaped `<script>` mark
 
 ---
 
-# **Step 2: Render before sending**
+## **Step 2: Render before sending**
 
 Render the template with representative variables before using it in production:
 
@@ -94,7 +97,7 @@ The response returns the rendered `subject`, `html_body`, and `text_body`. With 
 
 ---
 
-# **Step 3: Send with the template**
+## **Step 3: Send with the template**
 
 Pass the saved `template_id` and a JSON object of `template_variables`:
 
@@ -118,7 +121,7 @@ The rendered subject must be non-empty. A template with no subject, or one whose
 
 ---
 
-# **Update only the fields that changed**
+## **Update only the fields that changed**
 
 `PUT` behaves as a partial update for `name`, `subject`, `html_body`, `text_body`, `strict_variables`, `autoescape`, and `variable_schema`: omitted fields are preserved rather than cleared. The `variables` field is the exception. If you omit `variables`, Telnyx regenerates it from the resulting template content. Include `variables` explicitly in the update to preserve a custom list:
 
@@ -135,7 +138,7 @@ Render again after every template change. Updating the stored template does not 
 
 ---
 
-# **Troubleshoot template errors**
+## **Troubleshoot template errors**
 
 |  |  |
 | --- | --- |
@@ -149,7 +152,7 @@ Render again after every template change. Updating the stored template does not 
 
 ---
 
-# **Recommended workflow**
+## **Recommended workflow**
 
 1. Create or update the template.
 2. Render it with complete representative data.
