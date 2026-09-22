@@ -1,10 +1,15 @@
 ---
-source_url: https://support.telnyx.com/en/articles/6545140-spain-sms-guidelines
 title: "Spain: SMS Guidelines"
-description: "Sending SMS to Spain? Check out our comprehensive guidelines to ensure compliance in Spain."
-scraped: 2026-07-08
-content_hash: 7da540e266c0ce8a6d509f82c5212c6d074f39e88b1402952b3940fc4c1c316e
+summary: "Sending SMS to Spain? Check out our comprehensive guidelines to ensure compliance in Spain."
+sources:
+- url: "https://support.telnyx.com/en/articles/6545140-spain-sms-guidelines"
+  content_hash: 7da540e266c0ce8a6d509f82c5212c6d074f39e88b1402952b3940fc4c1c316e
+updated_at: 2026-07-08T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/en--articles--6545140-spain-sms-guidelines.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/en--articles--6545140-spain-sms-guidelines.md -->
 
 # Spain: SMS Guidelines
 

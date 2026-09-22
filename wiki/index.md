@@ -1,6 +1,6 @@
 ---
 title: Telnyx Knowledge Base
-updated_at: 2026-08-31T15:55:54Z
+updated_at: 2026-09-22T12:00:54Z
 ---
 
 # Telnyx Knowledge Base
@@ -310,3 +310,9 @@ updated_at: 2026-08-31T15:55:54Z
 - [WhatsApp Business Platform \(part 5\)](support-docs/whatsapp-business-platform--part-5.md) — WhatsApp Business Platform is Meta's API-based solution for sending and receiving WhatsApp messages at scale. Telnyx integrates as an official Business Solution Provider (BSP), offering API infrastructure for messaging, template management, phone number registration, webhook delivery, and WhatsApp Business Calling — all through the Telnyx Portal and API.
 
 - [Workspaces](support-docs/articles/16762076-workspaces.md) — Access multiple Telnyx organizations from a single login — switch between organizations, accept invitations, and migrate legacy sub-users.
+
+- [Austria: SMS Guidelines](support-docs/articles/6560660-austria-sms-guidelines.md) — SMS Guidelines for Austria including MCC and Dial Code. Get more messaging details here.
+
+- [Spain: SMS Guidelines](support-docs/articles/6545140-spain-sms-guidelines.md) — Sending SMS to Spain? Check out our comprehensive guidelines to ensure compliance in Spain.
+
+- [Alphanumeric Sender ID](support-docs/articles/6354449-alphanumeric-sender-id.md) — Depending on the location, Alphanumeric Sender IDs can change. See Telnyx guidance and requirements.

@@ -1,10 +1,15 @@
 ---
-source_url: https://support.telnyx.com/en/articles/6560660-austria-sms-guidelines
 title: "Austria: SMS Guidelines"
-description: "SMS Guidelines for Austria including MCC and Dial Code. Get more messaging details here."
-scraped: 2026-07-08
-content_hash: 49222e896891f38e9e3bb9897d51fd0227a73a18d4f663508d02010c472bd892
+summary: "SMS Guidelines for Austria including MCC and Dial Code. Get more messaging details here."
+sources:
+- url: "https://support.telnyx.com/en/articles/6560660-austria-sms-guidelines"
+  content_hash: 49222e896891f38e9e3bb9897d51fd0227a73a18d4f663508d02010c472bd892
+updated_at: 2026-07-08T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/en--articles--6560660-austria-sms-guidelines.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/en--articles--6560660-austria-sms-guidelines.md -->
 
 # Austria: SMS Guidelines
 
