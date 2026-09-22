@@ -21,10 +21,11 @@ Requirement Groups allow you to view, manage, and fulfill regulatory requirement
 
 Requirement Groups allow you to view, manage, and fulfill regulatory requirements in advance for a particular order type. By creating a Requirement Group, you can pre-fill all necessary information and documentation just once, and then reuse this group across multiple orders. This eliminates the need to re-upload the same requirements for each order, saving you time and ensuring accuracy.
 
-Requirement Groups are optional in most countries. However, starting September 16, 2024, they will be required to order phone numbers in the following countries:
+Requirement Groups are optional in most countries. However, they are required to order phone numbers in the following countries:
 
 * CH (Switzerland)
 * DK (Denmark)
+* IE (Ireland)
 * IT (Italy)
 * NO (Norway)
 * PT (Portugal)
