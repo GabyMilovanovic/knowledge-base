@@ -5,7 +5,7 @@ description: "Use eight deterministic sandbox recipients to test delivery outcom
 modified_at: "2026-09-21T00:00:00Z"
 updated_at: "2026-09-21T00:00:00Z"
 collection_path: "19683795-telnyx-email"
-content_hash: "a2efc78c30b27b96e58904c2d9b040da4aaae294bbea71e85afd8407c27f1cd6"
+content_hash: "f7cb50c306fe867517f902d42660d03ff07900bf1fd5267aceecb627a61d32ab"
 ---
 
 # Testing Telnyx Email safely with sandbox recipients
@@ -40,15 +40,17 @@ Use these exact eight addresses at `test.telnyx.com`:
 | Recipient | Simulated outcome |
 | --- | --- |
 | `delivered@test.telnyx.com` | Successful delivery (`email.delivered`). |
-| `hard-bounce@test.telnyx.com` | Permanent bounce (`email.bounced`, simulated SMTP `550`, enhanced code `5.1.1`). |
+| `hard-bounce@test.telnyx.com` | Permanent bounce (`email.bounced`, recipient status `bounced`, simulated SMTP `550`, enhanced code `5.1.1`) and a queued `hard_bounce` suppression. |
 | `soft-bounce@test.telnyx.com` | Soft bounce (`email.bounced`, simulated SMTP `450`, enhanced code `4.2.0`). This is a synthetic soft-bounce outcome, not queue expiry. |
-| `complaint@test.telnyx.com` | Complaint (`email.complained`). |
+| `complaint@test.telnyx.com` | Complaint event (`email.complained`); the recipient status remains `sent`, and a `spam_complaint` suppression is queued. |
 | `suppressed@test.telnyx.com` | Suppression (`email.suppressed`, reason `suppressed_recipient`). |
 | `invalid@test.telnyx.com` | Failure (`email.failed`, reason `invalid_recipient`). |
 | `dkim-fail@test.telnyx.com` | Failure (`email.failed`, reason `dkim_unavailable`). |
 | `rate-limit@test.telnyx.com` | Failure (`email.failed`, reason `rate_limit_exceeded`). This simulates an outcome, not an actual quota or request-rate rejection. |
 
 These are simulated recipient events on an accepted sandbox message, not real delivery attempts or promises about production failure timing. The parent remains a sandbox message; inspect recipient events for the selected outcome.
+
+The hard-bounce and complaint simulations enqueue real auto-suppression work that creates `hard_bounce` or `spam_complaint` records. In sandbox mode, the eight recognized test addresses receive an admission-only exemption from an existing suppression so repeated tests remain deterministic. Other recipients, and every non-sandbox send, keep the normal suppression checks.
 
 ## Check polling and webhooks
 
@@ -60,11 +62,23 @@ curl --get "https://api.telnyx.com/v2/email_events" \
   --data-urlencode 'filter[message_id]={message_id}'
 ```
 
-Simulated events are stored and pollable. They are also delivered to the message's configured webhooks when the subscription includes the matching event classes, such as `email.delivered`, `email.bounced`, `email.complained`, `email.suppressed`, or `email.failed`. Subscribe to `email.sandbox` if you also want the sandbox acceptance event. `email.sending` is not published as a webhook.
+Simulated events are stored and pollable. Supported event classes are also delivered to the message's configured webhooks when the subscription includes the matching value, such as `email.delivered`, `email.bounced`, `email.complained`, or `email.failed`. The simulated `email.suppressed` outcome is available through event polling but is not a webhook subscription value. Subscribe to `email.sandbox` if you also want the sandbox acceptance event. `email.sending` is not published as a webhook.
 
-Create or update your subscription before sending a new test message. Webhook settings are snapshotted when a message is accepted. The event and recipient IDs stay stable across account event polling and webhook delivery; use the event envelope ID for deduplication and the payload message/recipient IDs for correlation. Webhooks are at-least-once, so your handler must tolerate duplicate deliveries.
+Create or update your subscription before sending a new test message. Webhook settings are snapshotted when a message is accepted. For events delivered on both surfaces, the event and recipient IDs stay stable across account event polling and webhook delivery; use the event envelope ID for deduplication and the payload message/recipient IDs for correlation. Webhooks are at-least-once, so your handler must tolerate duplicate deliveries.
 
-For several outcomes in one request, use [batch sending](https://support.telnyx.com/en/articles/16823821-sending-email-in-batches-limits-results-and-safe-retries) and set `sandbox_mode: true` on each message item. A processed batch returns `207` with per-item results, including sandbox statuses for accepted sandbox items.
+For several outcomes in one request, use [batch sending](https://support.telnyx.com/en/articles/16823821-sending-email-in-batches-limits-results-and-safe-retries) and set `sandbox_mode: true` on the **batch envelope**, not on each item:
+
+```json
+{
+  "sandbox_mode": true,
+  "messages": [
+    { "from": "sender@mail.yourcompany.com", "to": ["delivered@test.telnyx.com"], "subject": "Delivered test", "text_body": "Test" },
+    { "from": "sender@mail.yourcompany.com", "to": ["complaint@test.telnyx.com"], "subject": "Complaint test", "text_body": "Test" }
+  ]
+}
+```
+
+The top-level value is applied to every item and overwrites any item-level value. One batch therefore cannot mix sandbox and production messages. A processed sandbox batch returns `207` with per-item results, including sandbox statuses for accepted items.
 
 ## Related articles
 
