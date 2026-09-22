@@ -3,7 +3,7 @@ source_url: https://support.telnyx.com/en/articles/6354449-alphanumeric-sender-i
 title: "Alphanumeric Sender ID"
 description: "Depending on the location, Alphanumeric Sender IDs can change. See Telnyx guidance and requirements."
 scraped: 2026-07-08
-content_hash: 9580616b989bac4b9d9413e1c6bd12db6da8c1231be2b7b276fd24d176a3d335
+content_hash: c8f125df80c7d80c747d1fe622728c052135b7de1ba7111eb78018f6f7905f0d
 ---
 
 
@@ -44,7 +44,7 @@ Below you can find a compilation of guidelines and restrictions by country that 
 | AM | [Armenia](https://support.telnyx.com/en/articles/6592510-armenia-sms-guidelines) | 374 | 283 | Yes, with registration |
 | AW | [Aruba](https://support.telnyx.com/en/articles/6592538-aruba-sms-guidelines) | 297 | 363 | Yes |
 | AU | [Australia](https://support.telnyx.com/en/articles/6531656-australia-sms-guidelines) | 61 | 505 | Yes, with registration |
-| AT | [Austria](https://support.telnyx.com/en/articles/6560660-austria-sms-guidelines) | 43 | 232 | Yes |
+| AT | [Austria](https://support.telnyx.com/en/articles/6560660-austria-sms-guidelines) | 43 | 232 | Incoming registration (01/10/2026) |
 | AZ | [Azerbaijan](https://support.telnyx.com/en/articles/6596144-azerbaijan-sms-guidelines) | 994 | 400 | Yes, with registration |
 | BS | [Bahamas](https://support.telnyx.com/en/articles/6596149-bahamas-sms-guidelines) | 1242 | 364 | No |
 | BH | [Bahrain](https://support.telnyx.com/en/articles/6596158-bahrain-sms-guidelines) | 973 | 426 | Yes |
@@ -217,7 +217,7 @@ Below you can find a compilation of guidelines and restrictions by country that 
 | SO | [Somalia](https://support.telnyx.com/en/articles/6680135-somalia-sms-guidelines) | 252 | 637 | Yes |
 | ZA | [South Africa](https://support.telnyx.com/en/articles/6545173-south-africa-sms-guidelines) | 27 | 655 | No, Sender ID will be changed to ensure delivery |
 | SS | [South Sudan](https://support.telnyx.com/en/articles/6680141-south-sudan-sms-guidelines) | 211 | 659 | Yes, with registration for Network MTN (65902) |
-| ES | [Spain](https://support.telnyx.com/en/articles/6545140-spain-sms-guidelines) | 34 | 214 | Incoming registration (07/07/2026) |
+| ES | [Spain](https://support.telnyx.com/en/articles/6545140-spain-sms-guidelines) | 34 | 214 | Registration possible since 15/09/2026 |
 | LK | [Sri Lanka](https://support.telnyx.com/en/articles/6680171-sri-lanka-sms-guidelines) | 94 | 413 | Yes, with registration |
 | SD | [Sudan](https://support.telnyx.com/en/articles/6680225-sudan-sms-guidelines) | 249 | 634 | Yes, with registration for Network MTN (63402) |
 | SR | [Suriname](https://support.telnyx.com/en/articles/6589563-suriname-sms-guidelines) | 597 | 746 | Yes |
@@ -241,7 +241,7 @@ Below you can find a compilation of guidelines and restrictions by country that 
 | TV | [Tuvalu](https://support.telnyx.com/en/articles/6683429-tuvalu-sms-guidelines) | 688 | 553 | Yes |
 | UG | [Uganda](https://support.telnyx.com/en/articles/6683433-uganda-sms-guidelines) | 256 | 641 | Yes, with registration for Network MTN (64110) |
 | UA | [Ukraine](https://support.telnyx.com/en/articles/6563904-ukraine-sms-guidelines) | 380 | 255 | Yes |
-| AE | [United Arab Emirates](https://support.telnyx.com/en/articles/6683438-united-arab-emirates-sms-guidelines) | 971 | 424 | Yes, with registration |
+| AE | [United Arab Emirates](https://support.telnyx.com/en/articles/6683438-united-arab-emirates-sms-guidelines) | 971 | 424 | Yes, with registration (Registrations are currently on HOLD) |
 | GB | [United Kingdom](https://support.telnyx.com/en/articles/6531704-united-kingdom-sms-guidelines) | 44 | 234 - 235 | Yes |
 | UY | [Uruguay](https://support.telnyx.com/en/articles/6570309-uruguay-sms-guidelines) | 598 | 748 | No, Sender ID will be changed to ensure delivery |
 | UZ | [Uzbekistan](https://support.telnyx.com/en/articles/6683454-uzbekistan-sms-guidelines) | 998 | 434 | Yes, with registration |
