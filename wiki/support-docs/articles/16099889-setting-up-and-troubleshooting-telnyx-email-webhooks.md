@@ -3,7 +3,7 @@ title: "Setting up and troubleshooting Telnyx Email webhooks"
 summary: "Use an Email webhook when your application needs delivery, engagement, inbound, or sending-domain updates without polling. This guide shows you how to create a focused event subscription, test it with a new message, and interpret the payload correctly."
 sources:
 - url: "https://support.telnyx.com/en/articles/16099889-setting-up-and-troubleshooting-telnyx-email-webhooks"
-  content_hash: 8a646141c3b75c674789cd502dd68132d420096724c9874e371eb4a5a5d9971d
+  content_hash: d6dbd09b19809e50739f98e61ecfad977c627f2fc0388e6bbc758c8b9e326125
 updated_at: 2026-09-21T00:00:00Z
 tags: [support-docs]
 source_path: "support-docs/16099889-setting-up-and-troubleshooting-telnyx-email-webhooks.md"
@@ -44,13 +44,16 @@ curl -X POST "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks" \
       "email.failed",
       "email.complained",
       "email.cancelled",
-      "email.daily_limit_exceeded",
-      "email.injection_timeout"
+      "email.daily_limit_exceeded"
     ]
   }'
 ```
 
 A successful request returns `201 Created`. Save the webhook `id` from the response.
+
+`email.injection_timeout` is not accepted by the current webhook subscription
+allowlist. Observe that ambiguous outcome through `GET /v2/email_events` or the
+per-message events endpoint instead.
 
 ---
 
@@ -116,12 +119,15 @@ Use a new send for every subscription test. Updating a webhook and then waiting 
 | `email.deferred` | Delivery was temporarily delayed and remains retryable. |
 | `email.bounced` | Delivery ended without success. Read `canonical_event_type` and `error_evidence` to distinguish a hard bounce from queue expiry. |
 | `email.failed` | A terminal system or pre-queue failure prevented delivery. Publication follows the stored event commit. |
-| `email.injection_timeout` | Injection had an ambiguous timeout; inspect the evidence before retrying. |
 | `email.cancelled` | A scheduled send was cancelled. |
 | `email.daily_limit_exceeded` | A scheduled send was rejected by the daily recipient limit at fire time. |
 | `email_domain.dkim_rotated` | A sending domain's DKIM key was rotated; update the returned DNS record. |
 | `email.opened` / `email.clicked` | Engagement was detected when the corresponding tracking feature was enabled. |
 | Other `email_domain.*` events | Domain creation, verification, degradation, suspension, or deletion. Subscribe to the specific event names you need. |
+
+`email.injection_timeout` is a polling-only ambiguous outcome and is not a
+webhook subscription value. Observe it through the Events API before deciding
+whether a retry is safe.
 
 **Do not subscribe to `email.sending` for application logic.** The value is accepted by the subscription API for compatibility, but it is not currently published as a webhook.
 
@@ -134,7 +140,7 @@ Normal outbound delivery webhooks are recipient-scoped: one recipient produces o
 |  |  |
 | --- | --- |
 | **Field** | **How to use it** |
-| Event envelope `id` | Stable event ID for deduplication, also available from account event polling. |
+| Event envelope `id` | Stable deduplication ID for this webhook delivery. For normal recipient-scoped events that also appear in account polling, the same event ID is available there. Scheduled webhooks are an exception: each recipient callback has a derived ID while polling retains one message-scoped stored ID. Domain lifecycle events do not appear in account event polling. |
 | Payload `id` | The parent email message ID. |
 | `event_type` / `canonical_event_type` | Compatibility event name and the more specific canonical outcome. |
 | `recipient_id` | The durable recipient ID. Store it with the event for correlation. |
@@ -161,9 +167,25 @@ For example, queue expiry is terminal `expired`, with compatibility webhook `ema
 
 ## **Deduplicate and reconcile events**
 
-Webhook delivery is at-least-once. Store the event envelope ID and deduplicate by that ID before applying an event again. A replay preserves the event identity rather than creating a new event. Keep the payload's message ID and recipient ID separately for correlation.
+Webhook delivery is at-least-once. Store the event envelope ID and deduplicate
+that webhook by its ID before applying it again. A replay of the same callback
+preserves its identity. Keep the payload's message ID, recipient ID, event type,
+and occurrence time separately for correlation.
 
-Publication into Telnyx's event dispatcher is separate from successful delivery to your HTTPS URL. A downstream endpoint failure does not change the stored event identity. Use `GET /v2/email_events` to reconcile stored events if your endpoint was unavailable, and preserve the event ID when contacting support.
+For normal recipient-scoped outcomes that overlap account polling, the webhook
+and polling event IDs match. **Scheduled events are different:** polling keeps
+one stored message-scoped `scheduled` row, while webhook publication derives one
+recipient-scoped ID per callback. Reconcile scheduled events by payload message
+ID, event type, recipient, and occurrence time rather than requiring ID equality.
+Domain lifecycle events are webhook-only and are not returned by
+`GET /v2/email_events`.
+
+Publication into Telnyx's event dispatcher is separate from successful delivery
+to your HTTPS URL. A downstream endpoint failure does not erase the stored
+outbound event. Use `GET /v2/email_events` to reconcile the overlapping stored
+recipient events if your endpoint was unavailable; use your webhook record for
+domain lifecycle events, and preserve all correlation fields when contacting
+support.
 
 ---
 
