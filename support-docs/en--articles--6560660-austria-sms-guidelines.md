@@ -1,7 +1,7 @@
 ---
 source_url: https://support.telnyx.com/en/articles/6560660-austria-sms-guidelines
 title: "Austria: SMS Guidelines"
-description: "SMS Guidelines for Austria including MCC and Dial Code. Get more messaging details here."
+description: "Learn about SMS guidelines for Austria, including RTR Sender ID registration, format requirements, deadlines and registration forms."
 scraped: 2026-07-08
 content_hash: 49222e896891f38e9e3bb9897d51fd0227a73a18d4f663508d02010c472bd892
 ---

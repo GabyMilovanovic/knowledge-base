@@ -1,7 +1,7 @@
 ---
 source_url: https://support.telnyx.com/en/articles/6545140-spain-sms-guidelines
 title: "Spain: SMS Guidelines"
-description: "Sending SMS to Spain? Check out our comprehensive guidelines to ensure compliance in Spain."
+description: "Learn about SMS guidelines for Spain, including CNMC Sender ID registration requirements, long-code overwrite and required documents."
 scraped: 2026-07-08
 content_hash: 7da540e266c0ce8a6d509f82c5212c6d074f39e88b1402952b3940fc4c1c316e
 ---
