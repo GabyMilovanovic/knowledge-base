@@ -1,16 +1,14 @@
 ---
-source_url: https://support.telnyx.com/en/articles/14805261-how-to-configure-sip-attach-using-a-uac-connection
 title: "How to Configure SIP Attach using a UAC Connection"
-description: "SIP Attach lets Telnyx register as a SIP endpoint on your existing PBX or voice system. See Telnyx guidance and requirements."
-scraped: 2026-07-08
-content_hash: dcc0f0daf8be389cae807ac09dbc9918872f09ebd601eb406d4264b133097b7f
+summary: "SIP Attach lets Telnyx register as a SIP endpoint on your existing PBX or voice system. See Telnyx guidance and requirements."
+sources:
+- url: "https://support.telnyx.com/en/articles/14805261-how-to-configure-sip-attach-using-a-uac-connection"
+updated_at: 2026-07-08T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/en--articles--14805261-how-to-configure-sip-attach-using-a-uac-connection.md"
+generated_by: incremental-support-docs-wiki
 ---
-
-
-
-
-
-
+<!-- generated_from=support-docs/en--articles--14805261-how-to-configure-sip-attach-using-a-uac-connection.md -->
 
 # How to Configure SIP Attach using a UAC Connection
 
