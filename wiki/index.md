@@ -1,6 +1,6 @@
 ---
 title: Telnyx Knowledge Base
-updated_at: 2026-09-23T18:18:41Z
+updated_at: 2026-09-23T21:43:28Z
 ---
 
 # Telnyx Knowledge Base
@@ -334,3 +334,5 @@ updated_at: 2026-09-23T18:18:41Z
 - [Testing Telnyx Email safely with sandbox recipients](support-docs/articles/16823822-testing-telnyx-email-safely-with-sandbox-recipients.md) — Use sandboxmode: true to test your integration without delivering real mail through the MTA. Sandbox sends are non-billable, consume no sending quota, and their outcomes are excluded from production deliverability statistics and reputation scoring.
 
 - [How to Configure SIP Attach using a UAC Connection](support-docs/articles/14805261-how-to-configure-sip-attach-using-a-uac-connection.md) — SIP Attach lets Telnyx register as a SIP endpoint on your existing PBX or voice system. See Telnyx guidance and requirements.
+
+- [Identify Your Connection in the First SIP INVITE \(X-Telnyx-Username\)](support-docs/articles/2026092301-identify-your-connection-in-the-first-sip-invite.md) — For credential-based SIP connections, we recommend including your connection's username in the first INVITE that your PBX or SBC sends to Telnyx.
