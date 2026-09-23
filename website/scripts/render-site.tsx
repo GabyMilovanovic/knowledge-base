@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import {normalizeSearch, type SearchEntry} from "../src/utils/search";
 import { parse, parseFragment, serializeOuter, type DefaultTreeAdapterMap } from "parse5";
 import path from "node:path";
 import { renderToString } from "react-dom/server";
@@ -67,6 +68,7 @@ export function renderSite(dist: string) {
     page(route,c.title,descriptionFor(c.description),undefined,{"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:trail(c.path).map((b,i)=>({"@type":"ListItem",position:i+1,...b}))});
     sitemap.push({route});
   }
+  const searchIndex: SearchEntry[] = [];
   for (const a of articles) {
     const route = "/en/articles/"+a.slug;
     const body = JSON.parse(fs.readFileSync(path.join(dist,"content/articles/"+a.slug+".json"),"utf8")).body as string;
@@ -77,6 +79,21 @@ export function renderSite(dist: string) {
       {"@type":"Article",headline:a.title,description,url:base+route,mainEntityOfPage:base+route,...(modified?{dateModified:modified}:{}),publisher:{"@type":"Organization",name:"Telnyx"}},
       {"@type":"BreadcrumbList",itemListElement:breadcrumbs.map((b,i)=>({"@type":"ListItem",position:i+1,...b}))}
     ]},false,a.robots);
+    // Index the rendered article only, excluding navigation and related articles.
+    const html = parse(fs.readFileSync(path.join(dist, route.slice(1)), "utf8"));
+    let content = "", headings: string[] = [];
+    function collect(node: HtmlNode, inArticle = false) {
+      if ("tagName" in node) {
+        inArticle ||= node.attrs.some(attr => attr.name === "class" && attr.value.split(/\s+/).includes("article-content"));
+        if (["script", "style"].includes(node.tagName)) return;
+        if (inArticle && /^h[1-6]$/.test(node.tagName)) headings.push(textOf(node));
+      }
+      if (inArticle && "value" in node) content += node.value + " ";
+      if ("childNodes" in node) node.childNodes.forEach(child => collect(child, inArticle));
+    }
+    collect(html);
+    searchIndex.push({slug:a.slug,title:a.title,description:a.description,headings:headings.join(" "),
+      terms:[...new Set(normalizeSearch(content).split(/\s+/))].join(" ")});
     if (!a.robots?.includes("noindex")) sitemap.push({route,lastmod:modified});
   }
   page("/404.html","Page not found","This page could not be found. Browse Telnyx support topics from the homepage.",undefined,undefined,true);
@@ -85,7 +102,7 @@ export function renderSite(dist: string) {
   fs.writeFileSync(path.join(dist,"sitemap.xml"),'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+sitemap.map(s=>`<url><loc>${esc(base+s.route)}</loc>${s.lastmod?`<lastmod>${s.lastmod}</lastmod>`:""}</url>`).join("")+'</urlset>');
   // Let crawlers see the preview's noindex directives.
   fs.writeFileSync(path.join(dist,"robots.txt"),`User-agent: *\nAllow: /\nSitemap: ${base}/sitemap.xml\n`);
-  fs.writeFileSync(path.join(dist,"content/search-index.json"),JSON.stringify(articles.map(a=>({slug:a.slug,title:a.title,description:a.description}))));
+  fs.writeFileSync(path.join(dist,"content/search-index.json"),JSON.stringify(searchIndex));
   fs.writeFileSync(path.join(dist,"llms.txt"), "# Telnyx Help Center\n\n" + articles.map(a => `- [${a.title}](${base}/en/articles/${a.slug}): ${descriptionFor(a.description)}`).join("\n") + "\n");
   const edgeDir = path.resolve(dist,"../dist-edge"); fs.mkdirSync(edgeDir,{recursive:true});
   const registry = routeRegistry(articles,collections);
