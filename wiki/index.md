@@ -1,6 +1,6 @@
 ---
 title: Telnyx Knowledge Base
-updated_at: 2026-09-21T22:50:25Z
+updated_at: 2026-09-23T18:18:41Z
 ---
 
 # Telnyx Knowledge Base
@@ -332,3 +332,5 @@ updated_at: 2026-09-21T22:50:25Z
 - [Sending email in batches: limits, results, and safe retries](support-docs/articles/16823821-sending-email-in-batches-limits-results-and-safe-retries.md) — Send multiple messages with POST /v2/emailmessages/batch. Each item in the messages array is validated independently. Read the result of every item before deciding whether to retry.
 
 - [Testing Telnyx Email safely with sandbox recipients](support-docs/articles/16823822-testing-telnyx-email-safely-with-sandbox-recipients.md) — Use sandboxmode: true to test your integration without delivering real mail through the MTA. Sandbox sends are non-billable, consume no sending quota, and their outcomes are excluded from production deliverability statistics and reputation scoring.
+
+- [How to Configure SIP Attach using a UAC Connection](support-docs/articles/14805261-how-to-configure-sip-attach-using-a-uac-connection.md) — SIP Attach lets Telnyx register as a SIP endpoint on your existing PBX or voice system. See Telnyx guidance and requirements.
