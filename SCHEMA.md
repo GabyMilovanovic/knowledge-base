@@ -37,7 +37,9 @@ A `Source` is an object:
 | Key | Type | Description |
 |---|---|---|
 | `url` | `str` | Fully-qualified HTTPS URL to the raw source (e.g. `https://developers.telnyx.com/docs/...`). |
-| `content_hash` | `str` | SHA-256 (hex) of the source content at the time of synthesis. Enables drift detection. |
+| `last_modified` | `str` (ISO 8601), optional | Best-effort timestamp of when the source last changed, e.g. from the source's `Last-Modified` HTTP header. Omit when unknown. Lightweight drift hint only. |
+
+Sources do not carry content hashes. Hash-based drift detection is a pipeline concern and, if needed, lives outside `wiki/` where retrieval agents do not read it.
 
 Optional keys:
 

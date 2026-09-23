@@ -16,7 +16,6 @@ land under wiki/support-docs/articles/ so the operation is small and reviewable.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import html
 import json
 import os
@@ -45,7 +44,6 @@ class SourceArticle:
     title: str
     summary: str
     source_url: str
-    content_hash: str
     body: str
     updated_at: datetime
 
@@ -171,7 +169,6 @@ def load_source_article(path: Path, source_root: Path, wiki_root: Path, output_s
     title = extract_title(cleaned, path.stem)
     slug = article_slug(source_url, title)
     source_rel = path.relative_to(source_root).as_posix()
-    content_hash = hashlib.sha256(cleaned.encode("utf-8")).hexdigest()
     wiki_rel = (output_subdir / f"{slug}.md").as_posix()
     return SourceArticle(
         source_path=path,
@@ -180,7 +177,6 @@ def load_source_article(path: Path, source_root: Path, wiki_root: Path, output_s
         title=title,
         summary=summarize(cleaned, title),
         source_url=source_url,
-        content_hash=content_hash,
         body=cleaned,
         updated_at=parse_updated_at(meta, path, now),
     )
@@ -197,7 +193,6 @@ def render_article(article: SourceArticle) -> str:
             f"summary: {escape_yaml_scalar(article.summary)}",
             "sources:",
             f"- url: {escape_yaml_scalar(article.source_url)}",
-            f"  content_hash: {article.content_hash}",
             f"updated_at: {iso_z(article.updated_at)}",
             "tags: [support-docs]",
             f"source_path: {escape_yaml_scalar('support-docs/' + article.source_rel)}",
