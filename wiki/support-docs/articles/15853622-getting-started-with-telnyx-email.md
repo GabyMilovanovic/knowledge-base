@@ -1,13 +1,15 @@
 ---
-source_url: "https://support.telnyx.com/en/articles/15853622-getting-started-with-telnyx-email"
 title: "Getting started with Telnyx Email"
-description: "Send your first email with Telnyx in a few steps: get an API key, add and verify a sending domain, send a message, and confirm delivery."
-scraped: "2026-09-15"
-modified_at: "2026-09-21T00:00:00Z"
-collection_path: "19683795-telnyx-email"
-content_hash: "d3e52abf59215b40f1f162a115b48d1cca4a0f5a24834ad88b7b21c42d930bba"
-updated_at: "2026-09-21T00:00:00Z"
+summary: "Telnyx Email lets you send transactional and application email over a simple HTTP API, on the same platform you already use for voice and messaging."
+sources:
+- url: "https://support.telnyx.com/en/articles/15853622-getting-started-with-telnyx-email"
+  content_hash: ad38a6432569576f465bddcec699846a160f0b9cfbf329cc70843300f86ea2ca
+updated_at: 2026-09-21T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/15853622-getting-started-with-telnyx-email.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/15853622-getting-started-with-telnyx-email.md -->
 
 # Getting started with Telnyx Email
 
@@ -17,7 +19,7 @@ Telnyx Email lets you send transactional and application email over a simple HTT
 
 ---
 
-# Step 1: Create your account and get an API key
+## Step 1: Create your account and get an API key
 
 If you do not already have one, sign up for a free account at [telnyx.com/sign-up](https://telnyx.com/sign-up). Once you are signed in:
 
@@ -34,7 +36,7 @@ Authorization: Bearer YOUR_API_KEY
 
 ---
 
-# Step 2: Add a sending domain
+## Step 2: Add a sending domain
 
 Telnyx sends your email using a domain you control, such as `mail.yourcompany.com`. This is what recipients and inbox providers use to confirm the mail really came from you. Add your domain with a single request:
 
@@ -51,7 +53,7 @@ For a full walkthrough of DNS setup, see **Setting up your email sending domain*
 
 ---
 
-# Step 3: Verify your domain
+## Step 3: Verify your domain
 
 Fetch the DNS records Telnyx generated for your domain:
 
@@ -71,7 +73,7 @@ When your DNS has propagated and the records match, the domain `status` becomes 
 
 ---
 
-# Step 4: Send your first email
+## Step 4: Send your first email
 
 With a verified domain, send a message. The `from` address must use your verified domain:
 
@@ -93,7 +95,7 @@ A successful request returns `202 Accepted` with a message `id` and a `status` o
 
 ---
 
-# Step 5: Check delivery
+## Step 5: Check delivery
 
 Look up the message resource at any time. Its parent `status` tracks message-wide processing, not delivery success. A parent status of `completed` means all recipients reached a terminal state; it does not mean every recipient was delivered. To confirm delivery, inspect the response's recipient-scoped `recipient_statuses` counts and the recipient events below:
 
@@ -125,7 +127,7 @@ You can also receive these events in real time by configuring a webhook, or poll
 
 ---
 
-# Organize and find sent messages
+## Organize and find sent messages
 
 Add `tags` and a `metadata` object when sending to retain application labels and reference values. Both are returned by `GET /v2/email_messages/{message_id}` and `GET /v2/email_messages`.
 
@@ -142,7 +144,7 @@ The equivalent pair form is `filter[metadata]=order_id="12345"`. You can combine
 
 ---
 
-# Next steps
+## Next steps
 
 - **Setting up your email sending domain** — a deeper walkthrough of DNS records and what each one does.
 - **Troubleshooting email domain verification** — what to do if verification does not pass.

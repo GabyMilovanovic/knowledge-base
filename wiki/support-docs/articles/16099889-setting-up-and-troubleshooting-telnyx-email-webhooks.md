@@ -1,12 +1,15 @@
 ---
-source_url: "https://support.telnyx.com/en/articles/16099889-setting-up-and-troubleshooting-telnyx-email-webhooks"
 title: "Setting up and troubleshooting Telnyx Email webhooks"
-scraped: "2026-09-15"
-modified_at: "2026-09-21T00:00:00Z"
-collection_path: "19683795-telnyx-email"
-content_hash: "0160f98a9c44d1b5495c05b741a1c9bb050120138cf673141230ef0314672ed5"
-updated_at: "2026-09-21T00:00:00Z"
+summary: "Use an Email webhook when your application needs delivery, engagement, inbound, or sending-domain updates without polling. This guide shows you how to create a focused event subscription, test it with a new message, and interpret the payload correctly."
+sources:
+- url: "https://support.telnyx.com/en/articles/16099889-setting-up-and-troubleshooting-telnyx-email-webhooks"
+  content_hash: d6dbd09b19809e50739f98e61ecfad977c627f2fc0388e6bbc758c8b9e326125
+updated_at: 2026-09-21T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/16099889-setting-up-and-troubleshooting-telnyx-email-webhooks.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/16099889-setting-up-and-troubleshooting-telnyx-email-webhooks.md -->
 
 # Setting up and troubleshooting Telnyx Email webhooks
 
@@ -14,7 +17,7 @@ Use an Email webhook when your application needs delivery, engagement, inbound, 
 
 ---
 
-# **Before you start**
+## **Before you start**
 
 You need a Telnyx API key, the ID of your sending domain, and a publicly reachable HTTPS endpoint. Your endpoint must accept JSON POST requests.
 
@@ -22,7 +25,7 @@ Choose only the events your application handles. A webhook subscription is an ex
 
 ---
 
-# **Step 1: Create the webhook**
+## **Step 1: Create the webhook**
 
 Create the webhook under the sending domain. This example covers the most useful outbound lifecycle events:
 
@@ -54,7 +57,7 @@ per-message events endpoint instead.
 
 ---
 
-# **Step 2: Confirm the saved subscription**
+## **Step 2: Confirm the saved subscription**
 
 List the webhooks attached to the domain and confirm that the URL and event allowlist are correct:
 
@@ -85,7 +88,7 @@ curl -X PATCH "https://api.telnyx.com/v2/email_domains/{domain_id}/webhooks/{web
 
 ---
 
-# **Step 3: Trigger a new event**
+## **Step 3: Trigger a new event**
 
 Send a new message from the domain after the webhook is saved or updated:
 
@@ -105,7 +108,7 @@ Use a new send for every subscription test. Updating a webhook and then waiting 
 
 ---
 
-# **Choose the right event**
+## **Choose the right event**
 
 |  |  |
 | --- | --- |
@@ -130,7 +133,7 @@ whether a retry is safe.
 
 ---
 
-# **Interpret outbound payloads correctly**
+## **Interpret outbound payloads correctly**
 
 Normal outbound delivery webhooks are recipient-scoped: one recipient produces one event. Do not expect message-level arrays of every `to`, `cc`, or `bcc` address.
 
@@ -162,7 +165,7 @@ For example, queue expiry is terminal `expired`, with compatibility webhook `ema
 
 ---
 
-# **Deduplicate and reconcile events**
+## **Deduplicate and reconcile events**
 
 Webhook delivery is at-least-once. Store the event envelope ID and deduplicate
 that webhook by its ID before applying it again. A replay of the same callback
@@ -186,7 +189,7 @@ support.
 
 ---
 
-# **If your webhook appears silent**
+## **If your webhook appears silent**
 
 - List the webhook and confirm its URL and explicit event allowlist.
 - Send a new message after the webhook was created or updated.

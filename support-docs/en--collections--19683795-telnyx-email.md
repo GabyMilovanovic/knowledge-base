@@ -1,13 +1,13 @@
 ---
 source_url: "https://support.telnyx.com/en/collections/19683795-telnyx-email"
 title: "Telnyx Email"
-description: "Guides for setting up and troubleshooting the Telnyx Email API \u2014 sending domains, DNS, suppressions, and deliverability."
+description: "Guides for setting up and troubleshooting the Telnyx Email API \u2014 sending domains, DNS, suppressions, deliverability, batch sending, and sandbox testing."
 scraped: 2026-09-15
 ---
 
 # Telnyx Email
 
-Guides for setting up and troubleshooting the Telnyx Email API — sending domains, DNS, suppressions, and deliverability.
+Guides for setting up and troubleshooting the Telnyx Email API — sending domains, DNS, suppressions, deliverability, batch sending, and sandbox testing.
 
 [Getting started with Telnyx Email Send your first email with Telnyx in a few steps: get an API key, add and verify a sending domain, send a message, and confirm delivery.](https://support.telnyx.com/en/articles/15853622-getting-started-with-telnyx-email)
 
@@ -28,3 +28,7 @@ Guides for setting up and troubleshooting the Telnyx Email API — sending domai
 [Creating and sending email templates](https://support.telnyx.com/en/articles/16099893-creating-and-sending-email-templates)
 
 [Scheduling and cancelling an email send](https://support.telnyx.com/en/articles/16099894-scheduling-and-cancelling-an-email-send)
+
+[Sending email in batches: limits, results, and safe retries](https://support.telnyx.com/en/articles/16823821-sending-email-in-batches-limits-results-and-safe-retries)
+
+[Testing Telnyx Email safely with sandbox recipients](https://support.telnyx.com/en/articles/16823822-testing-telnyx-email-safely-with-sandbox-recipients)

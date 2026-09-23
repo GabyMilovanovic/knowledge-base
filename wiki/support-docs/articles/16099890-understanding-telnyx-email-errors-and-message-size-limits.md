@@ -1,12 +1,15 @@
 ---
-source_url: "https://support.telnyx.com/en/articles/16099890-understanding-telnyx-email-errors-and-message-size-limits"
 title: "Understanding Telnyx Email errors and message size limits"
-scraped: "2026-09-15"
-modified_at: "2026-09-21T00:00:00Z"
-collection_path: "19683795-telnyx-email"
-content_hash: "2e6179eefd3f3864230432235f17f5bb064c850b58232d8278302fe07521e1fb"
-updated_at: "2026-09-21T00:00:00Z"
+summary: "Telnyx Email has two different kinds of errors: request errors returned immediately by the API and delivery errors produced after a message is accepted. Use this guide to tell them apart, read the right fields, and decide whether a retry is safe."
+sources:
+- url: "https://support.telnyx.com/en/articles/16099890-understanding-telnyx-email-errors-and-message-size-limits"
+  content_hash: f777cce2ff85a9ab0af2226d5f50b472d0f3b4781b7d38b145b085bc51c9261f
+updated_at: 2026-09-21T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/16099890-understanding-telnyx-email-errors-and-message-size-limits.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/16099890-understanding-telnyx-email-errors-and-message-size-limits.md -->
 
 # Understanding Telnyx Email errors and message size limits
 
@@ -14,7 +17,7 @@ Telnyx Email has two different kinds of errors: request errors returned immediat
 
 ---
 
-# **Start with the HTTP response**
+## **Start with the HTTP response**
 
 Send requests return a standard `errors` array when the API cannot accept the message. Use `-i` while troubleshooting so you can see the HTTP status as well as the JSON body:
 
@@ -43,13 +46,13 @@ Each immediate error contains `code`, `title`, and `detail`, and may include a `
 
 ---
 
-# **Batch responses**
+## **Batch responses**
 
 `POST /v2/email_messages/batch` accepts at most 1,000 messages; 1,001 is rejected with `400`. A processed batch always returns `207 Multi-Status`, including all-success and all-failure results. Inspect the indexed per-item `errors` and successful `data`; do not apply the single-send status model to a batch. See [Sending email in batches: limits, results, and safe retries](https://support.telnyx.com/en/articles/16823821-sending-email-in-batches-limits-results-and-safe-retries) for whole-request idempotency and safe retries.
 
 ---
 
-# **Keep the size limits separate**
+## **Keep the size limits separate**
 
 The Email API, its HTTP parser, and Edge idempotency enforce different limits. They do not all return the same status.
 
@@ -65,7 +68,7 @@ An unkeyed request bypasses the 8,000,000-byte Edge cap, but it is still subject
 
 ---
 
-# **Read delivery errors after acceptance**
+## **Read delivery errors after acceptance**
 
 A `202 Accepted` response means Telnyx created the message; it does not guarantee final delivery. Retrieve the message event history with the message ID:
 
@@ -102,7 +105,7 @@ Queue expiry is terminal `expired`, with delivery code `30005`; it is not a gene
 
 ---
 
-# **Use error\_evidence as the decision record**
+## **Use error\_evidence as the decision record**
 
 |  |  |
 | --- | --- |
@@ -116,7 +119,7 @@ Queue expiry is terminal `expired`, with delivery code `30005`; it is not a gene
 
 ---
 
-# **What to include in a support request**
+## **What to include in a support request**
 
 Include the Telnyx message ID, recipient ID, UTC occurrence time, HTTP status, API error object, and delivery `error_evidence`. Never include your API key or the message body.
 

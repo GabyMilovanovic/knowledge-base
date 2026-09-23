@@ -1,13 +1,15 @@
 ---
-source_url: "https://support.telnyx.com/en/articles/15853625-why-didn-t-my-email-arrive"
 title: "Why didn't my email arrive?"
-description: "A step-by-step triage for email that was not delivered: separate message processing from recipient delivery, inspect paginated events, bounces, suppressions, domain errors, limits, and spam placement."
-scraped: "2026-09-15"
-modified_at: "2026-09-21T00:00:00Z"
-collection_path: "19683795-telnyx-email"
-content_hash: "fe838835993b0f3c2767035abcd3fed295a7499835855dd02798daf05169649d"
-updated_at: "2026-09-21T00:00:00Z"
+summary: "An email that did not arrive almost always leaves a trail. Telnyx records request progress separately from each recipient's delivery outcome, so the fastest way to troubleshoot is to inspect both the message and its events."
+sources:
+- url: "https://support.telnyx.com/en/articles/15853625-why-didn-t-my-email-arrive"
+  content_hash: 76486090431f50796cdf00f8406e5c25b0061d5fb74b52d46c702e1dc15ce3cf
+updated_at: 2026-09-21T00:00:00Z
+tags: [support-docs]
+source_path: "support-docs/15853625-why-didn-t-my-email-arrive.md"
+generated_by: incremental-support-docs-wiki
 ---
+<!-- generated_from=support-docs/15853625-why-didn-t-my-email-arrive.md -->
 
 # Why didn't my email arrive?
 
@@ -17,7 +19,7 @@ An email that did not arrive almost always leaves a trail. Telnyx records reques
 
 ---
 
-# **Step 1: Check the message and recipient events**
+## **Step 1: Check the message and recipient events**
 
 Start with the parent message. If you saved the message `id` returned when you sent it, look it up:
 
@@ -57,7 +59,7 @@ For a single send, inspect the `202` acceptance response or the immediate `error
 
 ---
 
-# **Step 2: Understand bounces, deferrals, and queue expiry**
+## **Step 2: Understand bounces, deferrals, and queue expiry**
 
 A remote mail server may reject a message permanently or temporarily:
 
@@ -72,7 +74,7 @@ Do not interpret a suppression reason of `hard_bounce` as proof of one permanent
 
 ---
 
-# **Distinguish pre-queue failures**
+## **Distinguish pre-queue failures**
 
 Event polling and webhooks expose `canonical_event_type` alongside the compatibility `event_type`. Gateway rejection is `email.gw_reject` under `email.failed`; queue expiry is `email.expired` under `email.bounced`; an ambiguous timeout is `email.injection_timeout`. Read the canonical field and `error_evidence` rather than inferring the outcome from a generic name.
 
@@ -82,7 +84,7 @@ Do not retry every `email.failed` blindly. Record the message, recipient, and ev
 
 ---
 
-# **Step 3: Check whether the recipient is suppressed**
+## **Step 3: Check whether the recipient is suppressed**
 
 Telnyx may suppress an address after eligible delivery failures, repeated soft-bounce escalation, queue expiry, an invalid-address determination, a spam complaint, an unsubscribe, or a manual block. When some recipients are suppressed, the accepted send response lists skipped addresses in `suppressed`; if all recipients are suppressed, the request returns `422` with `recipient_suppressed`.
 
@@ -104,7 +106,7 @@ Deletion and send-time override are different. `ignore_suppression: true` can ov
 
 ---
 
-# **Step 4: Check the sending domain**
+## **Step 4: Check the sending domain**
 
 A degraded sending domain is a domain problem, not a recipient problem. The public send response is `403 Forbidden` with `errors[0].code` `10007` and detail explaining that the domain is degraded. Sending remains blocked until the required DNS records are restored.
 
@@ -126,7 +128,7 @@ See **Troubleshooting email domain verification** for a detailed walkthrough.
 
 ---
 
-# **Step 5: It was accepted by the remote server but is not in the inbox**
+## **Step 5: It was accepted by the remote server but is not in the inbox**
 
 If the recipient event is `delivered`, the remote server accepted the message, but it can still place it in spam, junk, quarantine, or another tab or folder.
 
@@ -137,7 +139,7 @@ If the recipient event is `delivered`, the remote server accepted the message, b
 
 ---
 
-# **Triage summary**
+## **Triage summary**
 
 - Check the parent message for request progress, then inspect every page of recipient events for delivery outcomes.
 - `sent` means accepted into the Telnyx MTA queue; `delivered` means accepted by the remote mail server.

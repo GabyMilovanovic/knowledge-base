@@ -1,6 +1,6 @@
 {
   "scraped": "2026-07-08",
-  "pages_saved": 940,
+  "pages_saved": 942,
   "files": [
     "10523949-forwarding-sms-mms-automation-using-telnyx-flow.md",
     "1130719-what-does-the-tech-prefix-option-do.md",
@@ -248,6 +248,8 @@
     "en--articles--1618801-freeswitch-credentials-trunk.md",
     "en--articles--1667062-short-message-peer-to-peer-set-up-guide.md",
     "en--articles--16762076-workspaces.md",
+    "en--articles--16823821-sending-email-in-batches-limits-results-and-safe-retries.md",
+    "en--articles--16823822-testing-telnyx-email-safely-with-sandbox-recipients.md",
     "en--articles--1782930-port-request-rejected.md",
     "en--articles--2021334-your-guide-to-fastport.md",
     "en--articles--2030667-i-received-a-port-out-notification.md",
