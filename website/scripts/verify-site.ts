@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import {findSearchResults, type SearchEntry} from "../src/utils/search";
 import path from "node:path";
 import {createHash} from "node:crypto";
 import {gzipSync} from "node:zlib";
@@ -28,8 +29,16 @@ for(const route of routes){
  await parser.transform(new Response(html)).text();
  if(h1!==1||canonical!==1||description!==1||robots!==1)failures.push(`Invalid initial metadata/H1: ${route}`);
  if(route.startsWith("/en/articles/")&&bodyText.trim().length<20)failures.push(`Missing initial article body: ${route}`);
+ if(/<\/en\/(?:articles|collections)\//.test(decode(bodyText)))failures.push(`Malformed support autolink: ${route}`);
  pages.set(route,{ids,text:html.replace(/<[^>]*>/g," ")});
 }
+const searchIndex = JSON.parse(fs.readFileSync(path.join(dist,"content/search-index.json"),"utf8")) as SearchEntry[];
+if(searchIndex.length !== articles.length || new Set(searchIndex.map(a=>a.slug)).size !== articles.length)failures.push("Search index coverage mismatch");
+for(const article of articles){
+ const entry=searchIndex.find(e=>e.slug===article.slug);
+ if(!entry?.terms || entry.title!==article.title)failures.push(`Missing full-text search entry: ${article.slug}`);
+}
+if(!findSearchResults(searchIndex,"gambling")[0]?.slug.startsWith("14286763-"))failures.push("Gambling search no longer prioritizes forbidden messaging use cases");
 const downloadManifest=JSON.parse(fs.readFileSync(path.resolve(import.meta.dir,"../downloads-manifest.json"),"utf8")) as {files:{path:string;sha256:string;size:number}[]};
 for(const file of downloadManifest.files){
  const target=path.join(dist,file.path.slice(1));

@@ -6,7 +6,10 @@ const SUPPORT_LINK =
 // Rewriting only their hostname-qualified path keeps navigation client-side and
 // leaves query strings and fragments untouched.
 export function rewriteLegacyArticleLinks(body: string): string {
-  return body.replace(SUPPORT_LINK, "$1");
+  // Relative paths are not Markdown autolinks. Convert angle-bracket links
+  // before removing the hostname, including any already damaged imports.
+  return body.replace(/<((?:https?:\/\/(?:support\.telnyx\.com|intercom\.help\/telnyx))?\/en\/(?:articles|collections)\/[^<>\s]+)>/g,
+    (_, url: string) => `[${url}](${url})`).replace(SUPPORT_LINK, "$1");
 }
 
 const FEEDBACK_PROMPT = "Did this answer your question?";
