@@ -1,6 +1,6 @@
 # Telnyx Knowledge Base Schema
 
-**Version:** `0.1.0` (draft)
+**Version:** `0.2.0` (draft)
 **Status:** Light contract — stable enough to build against, but will evolve as the ingestion pipeline matures. Breaking changes are called out in commit messages rather than gated by formal version bumps.
 
 This document describes the structure of the Telnyx Knowledge Base so downstream consumers — retrieval agents, indexers, renderers — know what to expect from the corpus.
@@ -37,7 +37,9 @@ A `Source` is an object:
 | Key | Type | Description |
 |---|---|---|
 | `url` | `str` | Fully-qualified HTTPS URL to the raw source (e.g. `https://developers.telnyx.com/docs/...`). |
-| `content_hash` | `str` | SHA-256 (hex) of the source content at the time of synthesis. Enables drift detection. |
+| `last_modified` | `str` (ISO 8601), optional | Best-effort timestamp of when the source last changed, e.g. from the source's `Last-Modified` HTTP header. Omit when unknown. Lightweight drift hint only. |
+
+Sources do not carry content hashes. Hash-based drift detection is a pipeline concern and, if needed, lives outside `wiki/` where retrieval agents do not read it.
 
 Optional keys:
 
@@ -73,7 +75,7 @@ tags: [numbers, porting]
 
 ### Size guidance
 
-Target ≤ 8 000 characters per page. Longer pages should be split across multiple files with cross-links. Guidance in v0.1, not enforced.
+Target ≤ 8 000 characters per page. Longer pages should be split across multiple files with cross-links. Guidance only, not enforced.
 
 ## Index
 
@@ -108,7 +110,7 @@ The index is a derived artifact and can be regenerated from page frontmatter and
 
 A CI job to check page conformance against this draft is planned; until then this document is the reference.
 
-## Out of scope for v0.1
+## Out of scope
 
 Intentionally deferred to keep the initial draft small while the wider architecture settles:
 

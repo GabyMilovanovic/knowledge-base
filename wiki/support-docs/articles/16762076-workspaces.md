@@ -3,7 +3,6 @@ title: "Workspaces"
 summary: "Access multiple Telnyx organizations from a single login — switch between organizations, accept invitations, and migrate legacy sub-users."
 sources:
 - url: "https://support.telnyx.com/en/articles/16762076-workspaces"
-  content_hash: 2519d9edb7bca0436985a4f6ee35bb00411d7b778a7c7ef137d74a6deecaa6fd
 updated_at: 2026-08-31T00:00:00Z
 tags: [support-docs]
 source_path: "support-docs/en--articles--16762076-workspaces.md"
