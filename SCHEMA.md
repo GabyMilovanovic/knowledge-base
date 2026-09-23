@@ -1,6 +1,6 @@
 # Telnyx Knowledge Base Schema
 
-**Version:** `0.1.0` (draft)
+**Version:** `0.2.0` (draft)
 **Status:** Light contract — stable enough to build against, but will evolve as the ingestion pipeline matures. Breaking changes are called out in commit messages rather than gated by formal version bumps.
 
 This document describes the structure of the Telnyx Knowledge Base so downstream consumers — retrieval agents, indexers, renderers — know what to expect from the corpus.
