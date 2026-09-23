@@ -75,7 +75,7 @@ tags: [numbers, porting]
 
 ### Size guidance
 
-Target ≤ 8 000 characters per page. Longer pages should be split across multiple files with cross-links. Guidance in v0.1, not enforced.
+Target ≤ 8 000 characters per page. Longer pages should be split across multiple files with cross-links. Guidance only, not enforced.
 
 ## Index
 
@@ -110,7 +110,7 @@ The index is a derived artifact and can be regenerated from page frontmatter and
 
 A CI job to check page conformance against this draft is planned; until then this document is the reference.
 
-## Out of scope for v0.1
+## Out of scope
 
 Intentionally deferred to keep the initial draft small while the wider architecture settles:
 
