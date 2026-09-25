@@ -12,33 +12,45 @@ content_hash: 50f93856a09eee6e1a2535fed18e6b37776dfa94778f286c08a8ad48e3c9490c
 
 
 
-# Estonia Number Requirements
+# Estonia DID Requirements
 
 Here you will find detailed requirements for acquiring numbers in Estonia. See Telnyx guidance and requirements.
 
 
 
 
-## **Local numbers in Estonia:**
+## **Local Numbers in Estonia:**
 
 For **personal identity** verification:
+
 \* Name, last name
+
 \* Contact phone number
+
 \* Copy of ID or Passport
 
+
 For **business identity** verification:
+
 \* Name, last name of the legal representative
+
 \* Contact phone number
+
 \* Company name
+
 \* Copy of ID or Passport of the legal representative
+
 \* Copy of company registration
 
+
 For **address** verification:
+
 \* Address in Estonia (street, building number, postal code, city, and country)
 
 \* Copy of utility bill (no older than 3 months)
 
-## **Toll-free numbers in Estonia:**
+
+## **Toll-Free Numbers in Estonia:**
 
 For **personal identity** verification:
 
@@ -59,6 +71,28 @@ For **business identity** verification:
 For **address** verification:
 
 \* Address Worldwide (street, building number, postal code, city and country)
+
+
+## **Mobile Numbers in Estonia:**
+
+For **personal identity** verification:
+
+\* Name, last name
+
+\* Contact phone number
+
+For **business identity** verification:
+
+\* Name, last name of the legal representative
+
+\* Contact phone number
+
+\* Company name
+
+For **address** verification:
+
+\* Address Worldwide (street, building number, postal code, city, and country)
+
 
 ## How long until my Estonia number is ready?
 
