@@ -67,7 +67,7 @@ You can find country-specific information in our [International DID Requirements
 | Ecuador | N/A | N/A | 1, 3, 7, h | 1, 3, (h) | N/A |
 | Egypt | 1, 4, 7, 9, (c, f, ah) | N/A | N/A | 1, 3, (h) | N/A |
 | El Salvador | (u) | N/A | N/A | N/A | N/A |
-| Estonia | 1, 4, 7, 9, 13, (g) | N/A | N/A | 1, 2, 3 | N/A |
+| Estonia | 1, 4, 7, 9, 13, (g) | N/A | 1, 3 | 1, 2, 3 | N/A |
 | Ethiopia | N/A | N/A | N/A | 1, 3, (h) | N/A |
 | Finland | 1, 4, 7, 9, 10, 16 (c) | 1, 4, 7, 9, 10, 16 (c) | 1, 4, 9, 10 (f, j) | 1, 4, 9, 10 (f, j) | N/A |
 | France | 1, 4, 7, 13 (c, af) | 1, 4, 7, 9, (af) | N/A | 1, 4, 7, 25 (f, af) | N/A |
